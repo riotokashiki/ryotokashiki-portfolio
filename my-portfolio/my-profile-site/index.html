@@ -254,6 +254,12 @@
 
         let clearKey=null;
 
+        const outsideClickHandler=function(){
+          if (!theModalWindow.contains(event.target) && event.target!== theCloseButton) {
+    closingModalWindow();
+        }
+  console.log("Event Listener on document added!");};
+        
 function openingModalWindow(){
   
   //this worked.
@@ -283,12 +289,7 @@ function openingModalWindow(){
 
       // Event listener for clicks outside the menu
       setTimeout(()=>{
-        document.addEventListener('click', function (event) {
-  if (!theModalWindow.contains(event.target) && event.target!== theCloseButton) {
-    closingModalWindow();
-        }
-  console.log("Event Listener on document added!");
-});},250);
+        document.addEventListener('click', outsideClickHandler)},250);
 
 
 };
@@ -310,10 +311,8 @@ function openingModalWindow(){
            theModalWindow.classList.remove("closing");
           },250);
 
-          document.removeEventListener("click", function (event) {
-  if (!theModalWindow.contains(event.target) && event.target!== theCloseButton) {
-    closingModalWindow();
-  }},true);
+          document.removeEventListener("click", outsideClickHandler,false);
+
         console.log("Event Listener on document removed!");
 
         }
