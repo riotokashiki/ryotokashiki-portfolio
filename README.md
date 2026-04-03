@@ -11,10 +11,10 @@
 
 
 
-使用した言語：HTML,CSS,Javascript
-その他使用ソフトウェア: GIMP, ClipChamp,Canva
-画像ソース: https://unsplash.com/, https://icons8.com/
-動画ソース:https://pixabay.com/
+使用した言語：HTML,CSS,Javascript\
+その他使用ソフトウェア: GIMP, ClipChamp,Canva\
+画像ソース: https://unsplash.com/, https://icons8.com/\
+動画ソース:https://pixabay.com/\
 
 
 Your name / title (e.g. "John Smith's Frontend Portfolio")
