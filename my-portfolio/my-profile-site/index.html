@@ -281,6 +281,16 @@ function openingModalWindow(){
       theModalWindow.classList.add("shown");
       document.documentElement.style.overflow="hidden";
 
+      // Event listener for clicks outside the menu
+      setTimeout(()=>{
+        document.addEventListener('click', function (event) {
+  if (!theModalWindow.contains(event.target) && event.target!== theCloseButton) {
+    closingModalWindow();
+        }
+  console.log("Event Listener on document added!");
+});},250);
+
+
 };
 
 
@@ -300,8 +310,11 @@ function openingModalWindow(){
            theModalWindow.classList.remove("closing");
           },250);
 
-          
-        
+          document.removeEventListener("click", function (event) {
+  if (!theModalWindow.contains(event.target) && event.target!== theCloseButton) {
+    closingModalWindow();
+  }},true);
+        console.log("Event Listener on document removed!");
 
         }
 
