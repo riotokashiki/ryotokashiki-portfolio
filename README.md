@@ -11,10 +11,10 @@
 
 以下が私の成果物になります。
 
-[私(渡嘉敷　諒）の自己紹介ポートフォリオページ](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/my-profile-site/index.html)\
-[仮想のカフェサイト](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/yuru-yura-cafe-site/index.html)\
-[ピアノアプリ](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/piano-app/index.html)\
-[タスクリストアプリ](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/to-do-list-app/index.html)
+・[私(渡嘉敷　諒）の自己紹介ポートフォリオページ](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/my-profile-site/index.html)\
+・[仮想のカフェサイト](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/yuru-yura-cafe-site/index.html)\
+・[ピアノアプリ](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/piano-app/index.html)\
+・[タスクリストアプリ](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/to-do-list-app/index.html)
 
 
 
