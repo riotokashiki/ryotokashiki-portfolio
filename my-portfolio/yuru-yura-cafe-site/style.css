@@ -1,0 +1,1160 @@
+ html{
+          font-size: 16px;
+          overflow-x:hidden;
+          scroll-behavior: smooth; 
+          background-color:rgb(107 77 57);
+        }
+        
+        *{
+          box-sizing:border-box;
+          margin:0;
+          padding:0;
+        }
+
+      
+
+      body{
+        /* max-width:1440px; */
+        margin:0 auto;
+        background-color:rgb(107 77 57);
+        transition:opacity 0.25s ease;
+        
+      }
+      
+      .container{
+        max-width:1200px;
+        width:100%;
+        margin:0 auto;
+        padding:0 120px;
+        
+      }
+
+      .hero{
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        height: 87vh;
+        display: flex;
+        align-items: flex-start;    
+        justify-content: flex-start; 
+        padding-top: 58vh;
+        padding-left: 14vh; 
+      }
+
+      .heroSlide{
+        box-sizing:border-box;
+       
+        background-repeat:no-repeat;
+        background-size:cover;
+        background-position:center;
+  
+        /*
+        display:flex;
+        align-items:center;
+        */
+
+        /* position manipulation*/
+      
+        
+        z-index:1;
+        height: 100%;
+        background-attachment: fixed;
+      }
+
+      .heroSlide.first{
+        background-image:url(assets/images/compressedImages/snapbythree-my-g6e641CiHFQ-unsplashKai.jpg);
+         
+        animation:fadeInOutFor1 15s linear forwards; /*delay -secondsを使うとなんか表示の周期がずれておかしくなるからつかわないほうがいい*/
+        z-index: 5;
+        animation-iteration-count: infinite;
+        top: 0;
+        left: 0;
+        width: 100%;
+        position: absolute;
+        background-position:50% 65%;
+      }
+
+      .heroSlide.second{
+        background-image:url(assets/images/compressedImages/kieran-ReVIa_Nm6fE-unsplashKai.jpg);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 4;
+        animation:fadeInOutFor2 15s linear forwards;
+        width: 100%;
+        animation-iteration-count: infinite;
+        background-position:10% 49%;
+
+      }
+
+      .heroSlide.third{
+        background-image:url(assets/images/compressedImages/zarak-khan-69ilqMz0p1s-unsplashKai.jpg);
+         position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 3;
+        width: 100%;
+        animation:fadeInOutFor3 15s linear forwards;
+        animation-iteration-count: infinite;
+        opacity: 0;
+      }
+
+       @keyframes fadeInOutFor1{
+        /*Since there are 3 slides, 100/3=33
+        だから100%を三分割して1/3の間だけ表示
+        のこりの2/3の間は非表示にする
+        
+        */
+        0%{opacity: 1;
+         transform: scale(1.02);}
+          6%{opacity: 1;
+            
+          }
+
+
+          33%{opacity: 1;}
+          39%{opacity: 0;
+                  transform: scale(1.25);
+                }
+
+          94%{opacity: 0;
+           transform: scale(1);}
+          100%{opacity: 1;
+          transform: scale(1.02); }
+      }
+
+
+
+      @keyframes fadeInOutFor2{
+        0%{opacity: 0;
+                  }
+
+        27%{opacity: 0;}
+        
+        33%{opacity: 1;
+                transform: scale(1.25) translateX(0);    
+                }
+
+        66%{opacity: 1;
+                }
+
+        72%{opacity: 0;}
+
+        100%{opacity: 0;
+                    transform: scale(1.25) translateX(-15%)
+                  }
+/* only 1/3 of this is shown */
+
+      }
+
+        @keyframes fadeInOutFor3{
+        0%{opacity: 0;
+                  }
+
+       
+        66%{opacity: 0;
+                }
+
+        68%/*72%*/{opacity: 1;
+                  transform: scale(1.25) translateY(-7%);}
+
+        100%{opacity: 1;
+                    transform: scale(1.25) translateY(0%)
+                  }
+/* only 1/3 of this is shown */
+
+      }
+
+
+     
+      header{
+        background-color:rgb(85, 48, 23);
+        width:100%;
+        height:13vh;
+        display:flex;
+        font-family: "Hina Mincho", serif;
+        font-style: normal;
+        font-weight:800;
+        justify-content: center;
+        position:relative;
+        align-items: center;
+        z-index: 1;
+      }
+
+      .title{
+        font-size: 2.3rem;
+        color:white;
+        align-items:center;
+        justify-content:center;
+        margin:0px auto;
+        text-decoration:none;
+        letter-spacing: 0.4rem;
+        position: relative;
+        z-index: 3;
+        transition: all 0.25s ease-out;
+      }
+    
+
+
+        p.message{
+          margin:0px;
+          font-size: 2rem;
+          letter-spacing: 0.4rem;
+          color: white;
+          z-index: 6;
+            font-family: "Hina Mincho", serif;
+        font-style: normal;
+        font-weight:600;
+        text-shadow: 3px 3px 8px black;
+        animation: fadeInTransition 3s ease-out;
+         transition: all 0.25s ease-out;
+        }
+         @keyframes fadeInTransition{
+          0%{opacity: 0;}
+          18%{opacity: 0;
+                    transform: translateY(100%);
+                  }
+          100%{opacity: 100%;
+                      transform: translateY(0%);}
+
+
+        }
+
+
+
+        .about{
+          padding:120px 0;
+
+        }
+
+        .pillarContainer{
+          display:flex;
+          margin:0px auto;
+          justify-content: space-between;
+          width: 80%;
+        }
+
+        .pillar{
+          width:28%;
+          color:white;
+          /* margin:0px 40px; */
+        }
+        .pillar h3{
+          letter-spacing: 0.4rem;
+          line-height: 1.9rem;
+        }
+
+
+        .pillar p{
+          letter-spacing: 0.3rem;
+          line-height: 1.7rem;
+        }
+
+        section{
+          margin-bottom: 30vh;
+        }
+
+        section.about{
+          padding-top: 0px;
+          padding-bottom:50px;
+        }
+
+        .sectionTitle{
+          display:flex;
+          justify-content:center;
+          margin:40px auto;
+          font-family: "Hina Mincho", serif;
+        font-style: normal;
+          
+        }
+
+        .sectionTitle p{
+          color:white;
+          font-size:3.5vh;
+          text-align: center;
+          font-family: "Hina Mincho", serif;
+          font-style: normal;
+          font-size: 2rem;
+          font-weight: 500;
+          letter-spacing: 0.7rem;
+          line-height: 2.8rem;
+        }
+        /*/////News Feed///////////////////////////////////////////////*/
+        h3{
+          text-align: center;
+        }
+
+        .newsFeedPlate{
+          border:1px solid white;
+          color:white;
+          height: 15em;
+          overflow:auto;
+          background: #b5b5b5;
+          color: #000000;
+        }
+        .about .container h3{
+          color:white;
+          text-align: center;
+          padding-bottom: 1.2vw;
+        }
+
+        .articleContainer{
+          border-bottom:0.5px solid white;
+          display: flex;
+          height: 7vw;
+        }
+
+        .articleContainer p{
+          margin: 1.6rem 4.6rem;
+          width: 5vw;
+        }
+
+        .headLineContainer{
+          display:flex;
+          justify-content: center;
+          position:relative;
+          margin:0.4rem;
+          /* margin-top:170px; */
+        }
+
+        .headLineContainer h3{
+          letter-spacing: 0.23rem;
+          line-height: 2.1rem;
+          color: white;
+        }
+
+        .headLineContainer h4{
+          position:absolute;
+          left:60%;
+          top:50%;
+          transform: translateY(-50%);
+          color:white;
+          font-size: 0.7rem;
+          padding-left: 1rem;
+        }
+
+        .articleDate{
+              color: #1816b4;
+              font-size: 0.8em;
+              font-weight: 600;
+        }
+
+/*  //////Grid Container///////////////////////////      */
+        .items{
+          border:solid 1px white;
+          overflow:hidden;
+          position: relative;
+        }
+
+
+      .gridContainer{
+        border:1px solid white;
+        width:100%;
+        display: grid;
+        grid-template-columns: 25% 25% 25% 25%   ;
+        grid-template-rows: 50% 50%;
+        border-radius:20px;
+        overflow:hidden;
+      }
+      .textInfoContainer{
+      color:white;
+      display:flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0 2vw;
+      }
+      .row{
+      display:flex;
+      justify-content:space-between;
+      }
+
+      .items img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        display:block;
+        transition:all 0.25s ease;
+      }
+      .items p{
+        color:white;
+      }
+
+      
+      .items:nth-child(8){
+        background-image: url(assets/images/compressedImages/duong-ngan-vHODlfrcRcY-unsplash.jpg);
+        object-fit: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background-size: 100%;  
+        background-position: center;
+        background-repeat: no-repeat;
+        transition:all 0.25s ease;
+      }
+      .items:nth-child(8):hover{
+        background-size: 110%;
+      }
+
+
+      .items:nth-child(8) a{
+        text-decoration: none;
+        color:yellow;
+        font-family: "Hina Mincho", serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1.25rem;
+        z-index: 100;
+        transition: all 0.25s ease;
+        display: block;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .items:nth-child(8):hover a{
+        font-size:1.5rem;
+        text-decoration: underline;
+      }
+      .items:nth-child(8):hover a .blackLayer{
+        z-index: 0;
+      }
+
+      .middle{
+        position:absolute;
+        top:50%;
+        left:0px;
+        /* transform: translate(-50%); */
+        color:white;
+        /* opacity:0; */
+        transition:all 0.25s ease;
+        width: 100%;
+        opacity: 0;
+        z-index: 1;
+        font-weight: 440;
+        padding: 0px 1rem 1.3rem 1rem;
+        letter-spacing: 0.2rem;
+        line-height: 2rem;
+        font-size: 1.2rem;
+      }
+
+      .items:hover .middle{
+        opacity:1;
+      }
+      .items:hover img{
+        transform: scale(1.1);
+      }
+      .blackLayer{
+        height: 100%;
+        width: 100%;
+        background: black;
+        z-index: 0;
+        position: absolute;
+        top: 0%;
+        left:0%;
+        opacity:0;
+        transition: all 0.25s ease;
+      }
+      .items:hover .blackLayer{
+        opacity:0.3;
+      }
+/*/////footer/////////////////////////////////////////////////*/
+
+      footer{
+        background-color:rgb(85, 48, 23);
+        position: relative;
+        z-index: 1;
+        padding: 1rem;
+      }
+
+      footer .container{
+        height:100%;
+        display: flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+      }
+
+      footer .container p{
+        color:white;
+        text-align: center;
+        font-weight: 100;
+        line-height: 1.7rem;
+        font-size: 1.6vw;
+        letter-spacing: 0.1vw;
+      }
+    /*/////Contact Section////////////////////////////*/
+      iframe {
+    border-radius: 15px;
+    height: 60vh;
+    width: 40vw;
+    }
+
+    .contact{
+      margin-bottom:70px;
+    }
+    .textInfoContainer div p{
+    font-size: 1.35rem;
+    letter-spacing: 0.19rem;
+    line-height: 2.1rem;
+
+    }
+    
+
+    /*/////////////////////////////////*/
+    .navBar{
+      list-style-type:none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      position: absolute;
+      right:0;
+      top:50%;
+      transform: translateY(-50%);/*これめっちゃ使えるから覚えとこう*/
+      
+    }
+
+    .navBar li{
+      /* width: 25%; */
+      text-align: center;
+    }
+
+
+    .navBar li a{
+      text-decoration-line:none;
+      color: white;
+      padding: 2.4rem 0.4vw;
+      transition:all 0.25s ease;
+      letter-spacing: 0.3vw;
+      font-size: 1.3vw;
+    }
+
+    .navBar li a:hover{
+      background-color:rgb(134, 77, 38) ;
+    }
+  
+
+    .backgroundImage{
+      background-image: url(assets/images/compressedImages/irvin-zheng-77M4EfAOn-w-unsplash.jpg );
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      position: absolute;
+      z-index: 2;
+      right: 0;
+      top: 0;
+      /* border-radius: 0px 30%; */
+      overflow: hidden;
+        height: 90vh;
+        background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    }
+
+
+    .imageContainer{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      position: absolute;
+      z-index: 2;
+      right: 0;
+      top: 0;
+      /* border-radius: 0px 30%; */
+      overflow: hidden;
+        height: 90vh;
+    }
+
+
+    .imageContainer img{
+      width: 100%;
+      object-fit: cover;
+      display: block;
+      height: auto;
+      min-height: 100%;
+      object-position: center;
+    }
+
+    .whoAreWe .container{
+      display:flex;
+      position: relative;
+      height: 90vh;
+      overflow: hidden;
+      max-width: none;
+    }
+
+    .messageContainer{
+      display: flex;
+      flex-direction: column;
+      /* justify-content: center; */
+      /* align-items: center; */
+      padding: 2rem 0;
+      width: 50%;
+      position: absolute;
+      top: 0;
+      left: 10%;
+      text-shadow: 2px 2px 6px black;
+      z-index: 3;
+      height: 100%;
+    }
+
+
+    .messageContainer h2{
+      color: white;
+      font-size: 1.5rem;
+      /* font-family: "Hina Mincho", serif; */
+      /* font-family: "M PLUS 1 Code", monospace; */
+      font-family: "Kaisei Decol", serif;
+      font-style: normal;
+      font-weight:600;
+      /* margin: 2.6rem auto; */
+      position: relative;
+      z-index: 2;
+      letter-spacing: 0.15vw;
+      line-height: 3.4vw;
+  }
+
+    .messageContainer p{
+      color:white;
+      font-size: 1rem;
+      font-family: "Kaisei Decol", serif;
+      position: relative;
+      z-index: 2;
+      letter-spacing: 0.2vw;
+      line-height: 3.7vw;
+    }
+
+    .textBackground{
+      background-color: #3b3b3b;
+      /* border-radius: 30%; */
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0.65;
+      z-index: 1;
+      filter: blur(25px);
+      left: 0;
+    }
+
+    .hamburgerMenu{
+      display: none;
+    }
+
+    .modalWindow{
+      /* display: none; */
+      opacity: 0;
+      visibility: hidden;
+      transform:translateX(12vw);
+      width: 0;
+    }
+
+    .articleContainer h3{
+      color: black;
+      height: 100%;
+      line-height: 7vw;
+      text-align: left;
+      text-wrap: wrap;
+    }
+
+      .pillar img{
+        display: block;
+        margin: 2vw auto;
+        scale: 1.25;
+      }
+
+      .translation{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+      }
+
+      #languageSelection{
+            position: absolute;
+            bottom: 0;
+            background: rgb(92, 2, 2);
+            color: #b5b5b5;
+            height: 40%;
+
+            border-bottom: 0px;
+            border-left: 0px;
+      }
+
+
+      .fadeout{
+        opacity:0;
+      }
+
+
+      .about .container h3.inEnglish{
+        height: 7rem;
+      }
+
+      .pillar p.inEnglish{
+            height: 20rem;
+      }
+
+      [data-i18n]{
+  transition:all 0.25s ease-out;
+}
+
+
+
+      .fadeInOnScroll {
+    opacity: 0;
+    transform: translateX(-15%) scale(0.8);
+    transition: opacity 5s ease-out, transform 5s ease-out;
+}
+
+.fadeInOnScroll.visible {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+}
+
+
+
+
+@keyframes translationFadeIn{
+  0%{opacity: 0;}
+  100%{opacity: 1;}
+}
+
+.opacityZero{
+  opacity: 0;
+}
+
+
+    /*==========================================
+    ===========================================
+                      MOBILE RESPONSIVE STYLE                                  
+    ===========================================
+    ===========================================*/
+
+@media(max-width: 1024px){
+  .container{
+    padding: 0 5%;
+  }
+  .navBar li a{
+    font-size: 1.6vw;
+    padding: 2.4rem 0.3vw;
+  }
+}
+
+
+
+
+
+
+
+
+
+    @media(max-width:768px){
+
+      .container{
+        padding:0 20px;
+      }
+      .pillarContainer{
+        flex-direction: column;
+      }
+      .pillar{
+        width:100%;
+        margin-bottom: 3rem;
+      }
+
+      .gridContainer{
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto;
+        margin: 0 auto;
+        width: 80%;
+      }
+      .pillar p{
+        width: 63%;
+        margin: 0 auto;
+      }
+
+      .sectionTitle p{
+        letter-spacing: 0.2rem;
+      }
+
+      .container{
+        padding: 0 9%;
+      }
+
+      .headLineContainer h4{
+        left: 70%;
+      }
+
+      .row{
+      flex-direction: column;
+      }
+
+      iframe{
+        height: 50vh;
+        width: 100%;
+      }
+
+      .textInfoContainer div{
+        margin-bottom: 1rem;
+      }
+      footer{
+        height: 11.5rem;
+      }
+
+      .whoAreWe .container{
+          flex-direction: column;
+      }
+
+      .messageContainer{
+            width: 80%;
+            margin: 0 auto;
+      }
+
+      .imageContainer{
+        width: 100%;
+        margin: 2rem auto;
+      }
+
+      .navBar{
+        display: none;
+      }
+      .hero{
+        padding-top: 56vh;
+        padding-left: 8vh;
+      }
+
+
+      p.message{
+        font-size: 1.7rem;
+      }
+
+      span.break{
+        display: block;
+      }
+
+  .hamburgerMenu{
+    display: block;
+    color: white;
+    font-size: 2.5rem;
+    height: 100%;
+    
+}
+
+.hamburgerMenu a{
+  color: white;
+    text-decoration: none;
+    display: block;
+    height: 100%;
+    line-height: 13vh;
+    
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: all 0.25s ease;
+    
+    padding: 0 2rem;
+}
+
+.hamburgerMenu a:hover{
+  background-color: #854918;
+}
+
+.modalWindow{
+  /* display: none;    it breaks animation*/ 
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 18vw;
+  background: #854918;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+/* animation:slideIn 0.25s ease-out ; */
+transition: transform 0.25s ease-out,
+                    opacity 0.25s ,
+                    visibility 0.25s;
+                      
+    z-index: 3;
+}
+.modalWindow.shown{
+  /* display: flex; */
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+  /* animation:slideIn 0.25s ease-out ; */
+}
+
+
+
+@keyframes slideIn{
+0%{transform:translateX(12vw);}
+
+100%{transform: translateX(0);}
+
+}
+
+.modalWindow.closing{
+/* animation: slideOut 0.25s linear; */
+transform: translateX(12vw);
+visibility: hidden;
+opacity: 0;
+}
+
+@keyframes slideOut{
+0%{transform:translateX(0);}
+
+100%{transform: translateX(12vw);}
+
+}
+
+
+.modalWindow ul{
+  list-style: none;
+  width: 100%;
+}
+
+.modalWindow ul li{
+height: 6vw;
+}
+
+.modalWindow ul li a{
+  text-decoration: none;
+  color: white;
+  display: block;
+  width: 100%;
+  height: 6vw;
+  padding-left: 25%;
+  font-size: 2.3vw;
+  line-height: 6vw;
+}
+
+.modalWindow ul li a:hover{
+  background-color: #a75c1e;
+}
+
+header{
+  z-index:6;
+}
+
+.closeButton {
+    width: 100%;
+    height: 13vh;
+    color: white;
+    font-size: 2rem;
+}
+
+.closeButton a{
+  width: 100%;
+  height: 100%;
+  display: block;
+  text-align: center;
+  line-height: 13vh;
+  text-decoration: none;
+  color: white;
+}
+
+.closeButton a:hover{
+  background-color: #a75c1e;
+}
+
+.middle{
+      line-height: 1.5rem;
+      font-size: 1rem;
+}
+
+    .pillar p {
+        width: 80%;
+    }
+
+    footer .container p {
+    line-height: 1.7rem;
+    font-size: 2.5vw;
+    letter-spacing: 0.1vw;
+}
+
+.messageContainer p {
+    letter-spacing: 0.65vw;
+    line-height: 5.5vw;
+}
+
+.imageContainer img {
+    height: 50vw;
+}
+
+.messageContainer h2{
+  padding-top: 1rem;
+  line-height: 6.4vw;
+}
+
+.about .container h3{
+    text-align: center;
+    
+}
+
+.articleContainer{
+    height: auto;
+}
+
+.articleContainer h3{
+  line-height: auto;
+}
+
+.articleContainer p{
+      margin: 1.6rem 10%;
+    width: 6vw;
+}
+
+.pillar p.inEnglish{
+  height: auto;
+}
+
+.about .container h3.inEnglish {
+    height: auto;
+}
+
+.backgroundImage{
+  background-attachment:scroll;
+}
+
+
+    }
+
+
+
+
+    @media(max-width:480px){
+
+.title {
+    font-size: 2rem;
+}
+
+
+
+      .items:nth-child(8) a
+  {
+    font-size: 1.1rem;
+}
+
+  .items:nth-child(8) a:hover
+  {
+    font-size: 1.2rem;
+}
+
+.middle{
+      line-height: 1.3rem;
+    transform: translateY(-10px);
+}
+
+footer{
+  height: 14.5rem;
+}
+
+.textInfoContainer div p {
+    font-size: 1.24rem;
+    line-height: 1.9rem;
+}
+
+    .textInfoContainer div
+ {
+        margin-bottom: 2rem;
+    }
+
+.sectionTitle p {
+
+    font-size: 1.5rem;
+  
+}
+
+    .gridContainer {
+        width: 84%;
+    }
+
+.news .container{
+  width: 80%;
+}
+
+.articleContainer p {
+    margin: 1.6rem 2rem;
+}
+
+    .headLineContainer h4 {
+        display: none;
+    }
+
+    footer .container p{
+    font-size: 3.8vw;
+    }
+
+    .messageContainer p
+  {
+    
+    line-height: 9vw;
+  
+}
+
+.modalWindow{
+  width: 70vw;
+
+}
+
+    .hero {
+        z-index: 5;
+    }
+
+    .modalWindow ul li{
+        height: 20vw;
+    }
+
+        .modalWindow ul li a {
+      
+        height: 100%;
+        line-height: 20vw;
+        font-size: 5.3vw;
+    }
+
+        .title {
+        font-size: 7vw;
+    }
+
+        .imageContainer img {
+        height: 90vw;
+    }
+
+
+    .messageContainer h2{
+        padding-bottom: 6vw;
+        font-size: 1.2rem;
+        line-height: 8vw;
+}
+
+  .whoAreWe .container{
+            overflow: visible;
+      }
+
+          #languageSelection {
+          
+          font-size: 3vw;
+          height: 8vw;
+        }
+
+
+
+
+
+    }
+
+
+
+

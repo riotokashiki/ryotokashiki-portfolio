@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Piano App</title>
+    <link rel="shortcut icon" href="#">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Potta+One&display=swap');
+      
+      body{
+        font-family:"Potta One",sans-serif;
+        display:flex;
+        justify-content: center;
+        height: 1000px;
+        /*background: #635f5f;*/
+        background-color:#e46f00;
+        transition: all 1.5s ease-out;
+      }
+      body.lowerOctave{
+
+        background-color: #0c0075;
+        /*transition: all 2s ease-out;*/
+      }
+
+      body.higherOctave{
+        background-color: #bee900;
+      }
+      .container{
+        width:800px;
+        height:700px;
+        background-color:rgb(255, 0, 157);
+        display:flex;
+        flex-direction:column;
+        vertical-align:center;
+        justify-content:space-around;
+        border-radius:10px 10px 200px 200px;
+        border-bottom:20px solid rgb(188 0 116);
+        background-image: linear-gradient(to bottom, #fc77c0,rgb(255, 0, 157));
+      }
+      .display{
+        background-color:rgb(0, 158, 250);
+        width:60%;
+        height:100%;
+        margin:0 auto;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        border-radius:20px;
+        position:relative;
+        border-top:5px solid rgb(143, 0, 100);
+        background-image: linear-gradient(to bottom, #76adff, #0004ff);
+      }
+      .keys{
+        /*background-color:pink;*/
+        width:80%;
+        height:40%;
+        margin:0 auto;
+        display:flex;
+        background-color: #6b0042;
+        border-radius: 5px 5px 30px 30px;
+      }
+
+      .key{
+          border:1px solid black;
+          width:15%;
+          height:99%;
+          border-radius:10px 10px 40px 40px;
+          background-color:white;
+          transition: all 0.1s ease-out;
+          border-bottom: 10px solid #bfb8b8;
+          position:relative;
+      }
+
+      .key.glowing{
+        transform: translateY(10px);
+        background-color:rgb(255, 136, 0);
+        transition: all 0.1s ease-out;
+        border-bottom: 10px solid rgb(187, 100, 0);
+        border-top: 5px solid rgb(187, 100, 0);
+        
+      }
+
+      .letter{
+        color:white;
+        font-size:50px;
+        font-weight:bold;
+      }
+      .letterInUpperDisplay{
+        display:none;
+        color:white;
+        position:absolute;
+        top:10px;
+      }
+
+
+      .displayContainer{
+        width:100%;
+        height:30%;
+        display:flex;
+        justify-content: center;
+        position:relative;
+        
+      }
+
+      .autoPlay{
+        position:absolute;
+        bottom:0px;
+        right:0px;
+        transition: all 0.1s ease-out;
+        font-family:"Potta One",sans-serif;
+      }
+      button.autoPlayButton{
+      border-bottom:6px solid rgb(172 172 172);
+      transition: all 0.1s ease-out;
+      font-family:"Potta One",sans-serif;
+      }
+
+      button.autoPlayButton:active{
+      border-bottom:0px;
+      transform: translateY(6px);
+
+      }
+
+      .sliderContainer{
+        position:absolute;
+        left:10px;
+        bottom:0px;
+        display:flex;
+        flex-direction:column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      input#volumeSlider {
+      width: 80%;
+      }
+      
+      div.volume{
+        font-size:16px;
+        font-weight:100;
+      }
+
+      .muteButton{
+        width:20px;
+        height:20px;
+
+      }
+
+      .octaveShifterContainer{
+        position:absolute;
+        top:0px;
+        left:30px;
+        display:flex;
+align-items:center;
+      
+      }
+
+      .octaveButtonContainer{
+        display:flex;
+        flex-direction:column;
+        
+      }
+      p.octave{
+        font-size:17px;
+        align-items:center;
+      }
+      .octaveButton{
+        transition: all 0.1s ease-out;
+      }
+
+      .octaveButton:active{
+        filter:contrast(0);
+        transition: all 0.1s ease-out;
+      }
+
+      .octaveButton:hover,
+      .muteButton:hover,
+      .key:hover,
+      .autoPlayButton:hover,
+      input#volumeSlider:hover
+      {
+        cursor: pointer;
+      }
+
+
+      .key.is-disabled {
+    
+        cursor: not-allowed;
+      }
+
+      .key .letters{
+        position:absolute;
+        bottom:10px;
+        left:34px;
+        color:#bebebe;
+      }
+      .key .fa{
+              position:absolute;
+        
+        left:25px; 
+      }
+
+      .key.keyPushed .letters{
+      color:rgb(187, 100, 0)!important;
+      }
+
+
+      input[type="range"]::-webkit-slider-runnable-track {
+  background: #0080ff;
+  height: 6px;
+ 
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 18px;
+  width: 18px;
+  background: #0080ff;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -6px; /* centers thumb */
+}
+
+input[type="range"]::-moz-range-thumb {
+  height: 18px;
+  width: 18px;
+  background: #0080ff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+  <div class="displayContainer">
+      <div class="display">
+        <div class="letter">
+      
+      </div>
+      <div class="letterInUpperDisplay">Playing:</div>
+      </div>
+          <div class="autoPlay">
+            <button class="autoPlayButton" onclick="startAutoPlay()">
+              自動演奏
+            </button>
+          </div>
+          <div class="sliderContainer">
+            <div class="volume"><span><img src="materials/images/icons8-volume-60.png" alt="" class="muteButton" onclick="muteVolume()">  </span>Volume</div>
+            <input type="range" min="0" max="100" value="100" class="slider" id="volumeSlider">
+              
+          </div>
+          <div class="octaveShifterContainer">
+            <p class="octave">Octave</p>
+            <div class="octaveButtonContainer">
+            <img class="octaveButton up" onclick="octaveUp()" src="materials/images/icons8-up-arrow-40.png" alt="up"></img>
+            <img class="octaveButton down" onclick="octaveDown()" src="materials/images/icons8-down-button-40.png" alt="down"></img>
+            </div>
+          </div>
+
+  </div>
+  
+  <div class="keys">
+    <div class="key do" onclick="if(!isPlaying){showNote('ド');playTone('ド')}"><div class="letters do">ド</div></div>
+    <div class="key re" onclick="if(!isPlaying){showNote('レ');playTone('レ')}"><div class="letters re">レ</div></div>
+    <div class="key mi"onclick="if(!isPlaying){showNote('ミ');playTone('ミ')}"><div class="letters mi">ミ</div></div>
+    <div class="key fa" onclick="if(!isPlaying){showNote('ファ');playTone('ファ')}"><div class="letters fa">ファ</div></div>
+    <div class="key so" onclick="if(!isPlaying){showNote('ソ');playTone('ソ')}"><div class="letters so">ソ</div></div>
+    <div class="key ra" onclick="if(!isPlaying){showNote('ラ');playTone('ラ')}"><div class="letters ra">ラ</div></div>
+    <div class="key shi"onclick="if(!isPlaying){showNote('シ');playTone('シ')}"><div class="letters shi">シ</div></div>
+
+
+  </div>
+
+</div>
+
+
+
+
+
+<script>
+  "use strict";
+/////////////////global variables /////////////////////////////////////////////////////////////////////////
+
+
+let isMuted = false;
+let isPlaying=false;
+let currentNoteIndex=0;
+let currentSong=null;
+let currentSongLength=0;
+let playTimerId=null;
+let isManuallyStopped=false;
+let displayTimerId=null;
+let volume=50;
+let $volumeSlider=$('#volumeSlider');
+let previousVolume=100;
+let octaveFactor=1;
+let currentOctave=4;
+
+const NOTE_FREQ={ //creating an object
+  "ド":261.63,  // those numbers are frequencies that'll be given to the functions
+  "レ":293.66,
+  "ミ":329.63,
+  "ファ":349.23,
+  "ソ":392.00,
+  "ラ":440.00,
+  "シ":493.88,
+  "":0
+};
+
+
+const SCORES={
+"きらきらぼし":[
+                                {note:"ド",duration:500},{note:"",duration:500},
+                                {note:"ド",duration:500},{note:"",duration:500},
+                                {note:"ソ",duration:500},{note:"",duration:500},
+                                {note:"ソ",duration:500},{note:"",duration:500},
+                                {note:"ラ",duration:500},{note:"",duration:500},
+                                {note:"ラ",duration:500},{note:"",duration:500},
+                                {note:"ソ",duration:2000},
+
+                                {note:"ファ",duration:500},{note:"",duration:500},
+                                {note:"ファ",duration:500},{note:"",duration:500},
+                                {note:"ミ",duration:500},{note:"",duration:500},
+                                {note:"ミ",duration:500},{note:"",duration:500},
+                                {note:"レ",duration:500},{note:"",duration:500},
+                                {note:"レ",duration:500},{note:"",duration:500},
+                                {note:"ド",duration:2000},
+
+                                {note:"ソ",duration:500},{note:"",duration:500},
+                                {note:"ソ",duration:500},{note:"",duration:500},
+                                {note:"ファ",duration:500},{note:"",duration:500},
+                                {note:"ファ",duration:500},{note:"",duration:500},
+                                {note:"ミ",duration:500},{note:"",duration:500},
+                                {note:"ミ",duration:500},{note:"",duration:500},
+                                {note:"レ",duration:2000},
+
+                                {note:"ソ",duration:500},{note:"",duration:500},
+                                {note:"ソ",duration:500},{note:"",duration:500},
+                                {note:"ファ",duration:500},{note:"",duration:500},
+                                {note:"ファ",duration:500},{note:"",duration:500},
+                                {note:"ミ",duration:500},{note:"",duration:500},
+                                {note:"ミ",duration:500},{note:"",duration:500},
+                                {note:"レ",duration:2000},
+
+                                {note:"ド",duration:500},{note:"",duration:500},
+                                {note:"ド",duration:500},{note:"",duration:500},
+                                {note:"ソ",duration:500},{note:"",duration:500},
+                                {note:"ソ",duration:500},{note:"",duration:500},
+                                {note:"ラ",duration:500},{note:"",duration:500},
+                                {note:"ラ",duration:500},{note:"",duration:500},
+                                {note:"ソ",duration:2000},
+
+                                {note:"ファ",duration:500},{note:"",duration:500},
+                                {note:"ファ",duration:500},{note:"",duration:500},
+                                {note:"ミ",duration:500},{note:"",duration:500},
+                                {note:"ミ",duration:500},{note:"",duration:500},
+                                {note:"レ",duration:500},{note:"",duration:500},
+                                {note:"レ",duration:500},{note:"",duration:500},
+                                {note:"ド",duration:2000}
+                                ]
+                                ,
+"チューリップ":[
+                              {note:"ド",duration:500},{note:"レ",duration:500},{note:"ミ",duration:1000},
+                              {note:"ド",duration:500},{note:"レ",duration:500},{note:"ミ",duration:1000},
+                              {note:"ソ",duration:500},{note:"ミ",duration:500},{note:"レ",duration:500},{note:"ド",duration:500},
+                              {note:"レ",duration:500},{note:"ミ",duration:500},{note:"レ",duration:1000},       
+                              
+                              {note:"ド",duration:500},{note:"レ",duration:500},{note:"ミ",duration:1000},
+                              {note:"ド",duration:500},{note:"レ",duration:500},{note:"ミ",duration:1000},
+                              {note:"ソ",duration:500},{note:"ミ",duration:500},{note:"レ",duration:500},{note:"ド",duration:500},
+                              {note:"レ",duration:500},{note:"ミ",duration:500},{note:"ド",duration:1000},  
+
+                              {note:"ソ",duration:250},{note:"",duration:250},{note:"ソ",duration:250},{note:"",duration:250},
+                              {note:"ミ",duration:250},{note:"",duration:250},{note:"ソ",duration:250},{note:"",duration:250},
+                              {note:"ラ",duration:250},{note:"",duration:250},{note:"ラ",duration:250},{note:"",duration:250},
+                              {note:"ソ",duration:1000},
+
+                              {note:"ミ",duration:250},{note:"",duration:250},{note:"ミ",duration:250},{note:"",duration:250},
+                              {note:"レ",duration:250},{note:"",duration:250},{note:"レ",duration:250},{note:"",duration:250},
+                              {note:"ド",duration:4000},
+                              ]
+                            };
+
+
+const NOTE_TO_CLASS = {
+  ド: ".do", レ: ".re", ミ: ".mi",
+  ファ: ".fa", ソ: ".so", ラ: ".ra", シ: ".shi",
+};
+
+const ERASE_MS = 1000;
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+///////////////////functions///////////////////////////////////////////////////////////////////////////////
+
+
+function highlightOnce(note, ms = 500) {
+  const sel = NOTE_TO_CLASS[note];
+  if (!sel) return;
+  const $el = $(sel);
+  $el.addClass('glowing keyPushed');
+  setTimeout(() => $el.removeClass('glowing keyPushed'), ms);
+}
+
+
+
+
+
+
+function showNote(note)
+{ 
+    clearTimeout(displayTimerId);
+    const safeNote=note||"";
+    $('.letter').text(safeNote);
+    if(safeNote){
+    displayTimerId=setTimeout(function(){
+    $('.letter').text("");
+  },ERASE_MS);
+    }
+  highlightOnce(safeNote);
+  
+} 
+
+
+
+function endAutoPlay({ manuallyStopped }) {
+  isManuallyStopped = Boolean(manuallyStopped);
+
+  clearTimeout(playTimerId);
+  playTimerId = null;
+
+  setKeyboardEnabled(true);
+  setAutoPlayButtonMode(false);
+  setUpperDisplay(false);
+
+  isPlaying = false;
+  currentNoteIndex = 0;
+  currentSong=null;
+}
+
+
+
+
+
+function stopAutoPlay()
+{
+    endAutoPlay({ manuallyStopped: true });
+}
+
+
+
+
+
+
+
+function finishAutoPlay()
+{
+    endAutoPlay({ manuallyStopped: false });
+  } 
+
+
+function muteVolume(){
+
+if(Number($volumeSlider.val())===0){
+  isMuted=true;
+}
+else{
+  isMuted=false;
+  previousVolume=$('#volumeSlider').val();
+  
+}
+
+
+if(!isMuted){
+const audioContext=new AudioContext();
+const gainNode=audioContext.createGain();
+$('#volumeSlider').val(0);
+volume=0;
+
+gainNode.gain.value=0;
+isMuted=true;
+$('.muteButton').attr("src","materials/images/icons8-volume-60 - Copy.png");
+}
+else{
+  $('#volumeSlider').val(previousVolume);
+  $('.muteButton').attr("src","materials/images/icons8-volume-60.png");
+}
+
+}
+
+function octaveUp()
+{
+
+      if(currentOctave<6)
+      {
+                octaveFactor=octaveFactor*2;
+                currentOctave=currentOctave+1;
+
+                if(currentOctave>4){
+                  $('body').removeClass('lowerOctave');
+                  $('body').addClass('higherOctave');
+                }
+                if(currentOctave===4){
+                $('body').removeClass('lowerOctave');
+                $('body').removeClass('higherOctave');
+                }
+      }
+      
+}
+function octaveDown()
+{
+        if(currentOctave>2)
+        {
+          octaveFactor=octaveFactor*0.5;
+          currentOctave=currentOctave-1;
+
+          if(currentOctave<4){
+            $('body').removeClass('higherOctave');
+            $('body').addClass('lowerOctave');
+            
+          }
+          if(currentOctave===4){
+          $('body').removeClass('lowerOctave');
+          $('body').removeClass('higherOctave');
+          }
+        }
+        
+}
+
+
+
+
+
+
+
+function playTone(note)
+{
+  
+  const audioContext=new AudioContext();
+  const gainNode=audioContext.createGain();
+ 
+  const oscillator=audioContext.createOscillator();
+  oscillator.connect(gainNode);
+  oscillator.frequency.value=NOTE_FREQ[note]*octaveFactor;
+
+
+  gainNode.connect(audioContext.destination);
+
+volume=Number($volumeSlider.val());
+gainNode.gain.value=volume/100;
+
+
+
+  oscillator.start();
+
+  oscillator.stop(audioContext.currentTime+0.5);
+
+  
+}
+
+function startAutoPlay() {
+  if (isPlaying) { //if a song is playing,
+    finishAutoPlay(); // execute finishAutoPlay()
+    return; //then finish
+  }
+
+  isPlaying = true; // setting it as playing
+  isManuallyStopped = false;  
+  currentNoteIndex = 0;
+
+  if (currentSong === null) {
+    const mora = Object.keys(SCORES);
+    const randomSong = mora[Math.floor(Math.random() * mora.length)];
+    currentSong = randomSong;
+  }
+
+  setUpperDisplay(true, currentSong);
+  setAutoPlayButtonMode(true);
+  
+  currentSongLength = SCORES[currentSong].length;
+  setKeyboardEnabled(false);
+
+  const audioContext = new AudioContext();
+
+  function playNextNote() {
+    if (currentNoteIndex < currentSongLength) {
+      const gainNode = audioContext.createGain();
+      const oscillator = audioContext.createOscillator();
+      oscillator.connect(gainNode);
+      gainNode.connect(audioContext.destination);
+      volume = Number($volumeSlider.val());
+      gainNode.gain.value = volume / 100;
+
+      oscillator.frequency.value = NOTE_FREQ[SCORES[currentSong][currentNoteIndex].note] * octaveFactor;
+      oscillator.start();
+      showNote(SCORES[currentSong][currentNoteIndex].note);
+      oscillator.stop(audioContext.currentTime + SCORES[currentSong][currentNoteIndex].duration / 1000);
+
+      playTimerId = setTimeout(function() {
+        currentNoteIndex = currentNoteIndex + 1;
+        playNextNote();
+      }, SCORES[currentSong][currentNoteIndex].duration);
+    } else {
+      finishAutoPlay();
+    }
+  }
+
+  playNextNote();
+}
+
+
+    
+
+  
+
+
+function setKeyboardEnabled(enabled) {
+  var keys = document.querySelectorAll('.key');
+
+keys.forEach(el =>{
+
+  enabled?el.style.pointerEvents = 'auto':el.style.pointerEvents = 'none';
+  enabled?el.classList.remove('is-disabled'):el.classList.add('is-disabled');
+
+
+});
+
+
+
+}
+
+
+function setAutoPlayButtonMode(playing) {
+  if (playing) {
+    $('.autoPlayButton').text('演奏停止');
+    $('.autoPlayButton').attr('onclick', 'stopAutoPlay()');
+  } else {
+    $('.autoPlayButton').text('自動演奏');
+    $('.autoPlayButton').attr('onclick', 'startAutoPlay()');
+  }
+}
+
+function setUpperDisplay(visible, songTitle = "") {
+  if (visible) {
+    $('.letterInUpperDisplay').text("Playing:" + songTitle);
+    $('.letterInUpperDisplay').css('display', 'block');
+  } else {
+    $('.letterInUpperDisplay').css('display', 'none');
+  }
+}
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+</script>
+
+</body>
+</html>

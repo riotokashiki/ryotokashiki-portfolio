@@ -1,0 +1,525 @@
+<!DOCTYPE  html>
+<html lang="ja">
+    <head>
+    <meta charset="UTF-8">
+    <title>ゆるゆらカフェ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <style>
+          html{
+            overflow-x:hidden;
+          }
+
+          .menuContainer h2{
+            color:white;
+            text-align: center;
+            margin: 1rem;
+          }
+
+          .menuContainer h3{
+            color:white;
+            margin: 0.8rem;
+          }
+
+        .menuContainer{
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center;
+        align-items: center; */
+        }
+
+        .menuContainer ul{
+        list-style: none;
+        padding-left: 0;
+
+        
+        display: grid;
+        justify-content: center;
+        gap: 10px;
+        grid-template-columns: 22.5% 22.5% 22.5%;
+        width: 100%;
+      }
+
+      .menuContainer ul li a img{
+        object-fit: cover;
+        /* height: 25vh; */
+        display: block;
+        width: 100%;
+      }
+  
+        .menuContainer ul li{
+            margin-right: 0.7em;
+            margin-bottom: 0.7em;
+          }
+      
+          .floatingNavBar ul li{
+            
+            margin-bottom: 0;
+            margin-right: 0;
+            list-style: none;
+            padding-left: 0;
+            width: 100%;
+          }
+
+
+          .menuContainer ul li a{
+          text-decoration: none;
+          color: white;
+          display: block;
+          width: 100%;
+          
+      }
+
+
+
+
+        .floatingNavBar ul li a{
+          text-decoration: none;
+          color: white;
+          display: block;
+          width: 100%;
+          transition: all 0.25s ease;
+          height: 3rem;
+          text-align: left;
+          padding-left: 35%;
+          line-height: 3rem;
+      }
+
+      .floatingNavBar ul li a:hover{
+        background-color:rgb(197, 113, 57) ;
+      }
+
+      .menuContainer ul li a p{
+            margin: 0.5rem 0;
+      }
+
+      .floatingNavBar{
+        position: fixed;
+        /* left:0; */
+        top: 0;
+        height: 100vh;
+        width:18vw;
+        background-color: rgb(168 97 49);
+        color: white;
+        z-index: 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      .floatingNavBar ul{
+        color:white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+      }
+
+      @media(max-width:768px){
+
+    .menuContainer ul {
+        grid-template-columns: 45% 45%;
+    }
+
+
+.floatingNavBar {
+    position: fixed;
+    /* left: 0; */
+    top: 0;
+    height: 8vh;
+    width: 100vw;
+
+}
+
+
+.floatingNavBar ul {
+    flex-direction: row; 
+  
+}
+
+.floatingNavBar ul li a{
+  height: 100%;  
+  line-height: 8vh; /*setting height and line-height the same makes the sentence centered*/
+    
+}
+
+
+
+
+      }
+      
+
+      @media(max-width:480px){
+
+            .floatingNavBar ul li a {
+        padding-left: 22%;
+    }
+
+      }
+      
+    
+    </style>
+    </head>
+    <body>
+      <header>
+        <a class="title" href="index.html" data-i18n="title">ゆるゆらカフェ</a>
+        <ul class="navBar">
+          <li><a href="index.html#about">ABOUT</a></li>
+          <li><a href="index.html#news">NEWS</a></li>
+          <li><a href="index.html#menu">MENU</a></li>
+          <li><a href="index.html#contact">CONTACT</a></li>
+
+        </ul>
+
+        <div class="hamburgerMenu"><a id="hamburgerButton" href="#"><p>=</p></a></div>
+        <div class="modalWindow" id="modalWindow">
+          <div class="closeButton"><a href="javascript:void(0)">×</a></div>
+          <ul>
+            <li><a href="index.html#about" onclick="closingModalWindow()">ABOUT</a></li>
+            <li><a href="index.html#news" onclick="closingModalWindow()">NEWS</a></li>
+            <li><a href="index.html#menu" onclick="closingModalWindow()">MENU</a></li>
+            <li><a href="index.html#contact" onclick="closingModalWindow()">CONTACT</a></li>
+
+          </ul>
+
+
+        </div>
+
+          <div class="translation">
+          <select name="languageSelection" id="languageSelection">
+            <option value="jp">日本語🔴</option>
+            <option value="en">English🔵</option>
+
+          </select>
+        </div>
+
+
+      </header>
+
+        <div class="floatingNavBar">
+        <ul>
+        <li><a href="#food" data-i18n="food">フード</a></li>
+        <li><a href="#desert" data-i18n="desert">デザート</a></li>
+        <li><a href="#coffee" data-i18n="coffee">コーヒー</a></li>
+        <li><a href="#tea" data-i18n="tea">ティー</a></li>
+        </ul>
+        </div>
+
+  
+
+
+
+
+
+        <section class="hero" >
+        <p class="message" data-i18n="slogan">まいにちに、<span class="break">ホっとひといきを。</span></p>
+      <div class="heroSlide first"></div>
+      <div class="heroSlide second"></div>
+      <div class="heroSlide third"></div>
+      
+        
+</section>
+
+<section class="menu">
+<div class="container menuContainer">
+<h2 id="menu" data-i18n="menu">メニュー</h2>
+
+
+
+<h3 id="food" data-i18n="food">フード</h3>
+<ul class="food">
+<li><a href="javascript:void(0)"><img src="assets/images/compressedImages/eiliv-aceron-mAQZ3X_8_l0-unsplash.jpg" alt="Sandwich"><p data-i18n="roastBeefSandwich">ローストビーフサンドイッチ</p></a></li>
+<li><a href="javascript:void(0)"><img src="assets/images/compressedImages/jana-ohajdova-PLQ10xtiaKk-unsplash.jpg" alt="BLT Sandwich"><p data-i18n="bltSandwich">BLTサンドイッチ</p></a></li>
+<li><a href="javascript:void(0)"><img src="assets/images/compressedImages/erwan-nonon-4xCroQgmehc-unsplash.jpg" alt="Bagle Sandwich"><p data-i18n="bagleSandwich">ベーグルサンドイッチ</p></a></li>
+<li><a href="javascript:void(0)"><img src="assets/images/compressedImages/amirali-mirhashemian-A5jf5EmBAf8-unsplash.jpg" alt="Egg muffine"><p data-i18n="eggBenedict">エッグベネディクトマフィン</p></a></li>
+<li><a href="javascript:void(0)"><img src="assets/images/compressedImages/drew-dempsey-8OH1QhIhWEM-unsplash.jpg" alt="Hot dog"><p data-i18n="hotDog">ホットドッグ</p></a></li>
+<li><a href="javascript:void(0)"><img src="assets/images/compressedImages/homescreenify-sA3wymYqyaI-unsplash.jpg" alt="Tomato sauce spagetti"><p data-i18n="tomatoSauceSpagetthi">トマトソーススパゲッティ</p></a></li>
+<li><a href="javascript:void(0)"><img src="assets/images/compressedImages/gabriella-clare-marino-h7Bmptisp5o-unsplash.jpg" alt="Mushroom spagetti"><p data-i18n="mushroomCreamSpagetthi">きのこクリームスパゲッティ</p></a></li>
+<li><a href="javascript:void(0)"><img src="assets/images/compressedImages/you-le-l-mqDIEwcKk-unsplash.jpg" alt="Corn Potage"><p data-i18n="cornPotage">コーンポタージュ</p></a></li>
+<li><a href="javascript:void(0)"><img src="assets/images/compressedImages/josie-rees-bsqO0kg9IvY-unsplash.jpg" alt="Tomato basil soup"><p data-i18n="tomatoBazilSoup">トマトバジルスープ</p></a></li>
+</ul>
+<h3 id="desert" data-i18n="desert">デザート</h3>
+<ul class="desert">
+  <li><a href="javascript:void(0)"><img src="assets/images/compressedImages/yiseul-han-_K-yx6wIgt8-unsplash.jpg" alt="Chocolate cake"><p data-i18n="chocora">ショコラケーキ</p></a></li>
+<li><a href="javascript:void(0)"><img src="assets/images/compressedImages/anna-heitmann-VEm0bjL0sZA-unsplash.jpg" alt="Scones"><p data-i18n="scones">チョコチップスコーン</p></a></li>
+
+<li><a href="javascript:void(0)"><img src="assets/images/compressedImages/pelicular-studio-T1Vqd-U8Bhs-unsplash.jpg" alt="Macarons"><p data-i18n="macarons">マカロン</p></a></li>
+
+</ul>
+
+<h3 data-i18n="drink">ドリンク</h3>
+<h3 id="coffee" data-i18n="coffee">コーヒー</h3>
+<ul class="coffee">
+<li><a href="javascript:void(0)"><img src="assets/images/compressedImages/shche_-team-heKg-V9yHwc-unsplash.jpg" alt="Black Coffee"><p data-i18n="blackCoffee">ブラックコーヒー</p></a></li>
+<li><a href="javascript:void(0)"><img src="assets/images/compressedImages/jeremy-yap-jn-HaGWe4yw-unsplash.jpg" alt="Moca"><p data-i18n="mocha">モカ</p></a></li>
+<li><a href="javascript:void(0)"><img src="assets/images/compressedImages/billy-kwok-vfiA7rRtjWo-unsplash.jpg" alt="Caramel Macchiato"><p data-i18n="charamelMacchiato">キャラメルマキアート</p></a></li>
+<li><a href="javascript:void(0)"><img src="assets/images/compressedImages/haberdoedas-yBzlpQqdDks-unsplash.jpg" alt="Sandwich"><p data-i18n="icedCoffee">アイスコーヒー</p></a></li>
+<li><a href="javascript:void(0)"><img src="assets/images/compressedImages/nathan-dumlao-vZOZJH_xkUk-unsplash.jpg" alt="Latte"><p data-i18n="cafeLatte">カフェラテ</p></a></li>
+
+
+</ul>
+<h3 id="tea" data-i18n="tea">ティー</h3>
+<ul class="tea">
+<li><a href="javascript:void(0)"><img src="assets/images/compressedImages/elena-leya-TnMonTHqYMk-unsplash.jpg" alt="Cranberry Juice"><p data-i18n="cramberryJuice">クランベリージュース</p></a></li>
+<li><a href="javascript:void(0)"><img src="assets/images/compressedImages/rosalind-chang-P_wPicZYoPI-unsplash.jpg" alt="Boba"><p data-i18n="bobaTea">ボバ</p></a></li>
+<li><a href="javascript:void(0)"><img src="assets/images/compressedImages/jason-leung-Z-hvocTfR_s-unsplash.jpg" alt="Sandwich"><p data-i18n="macchaLatte">抹茶ラテ</p></a></li>
+
+</ul>
+
+
+
+
+
+
+
+</div>
+
+
+
+</section>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 ゆるゆらカフェ</p>
+    <p>All rights reserved by 信濃運送 <br>The Web site is Designed and Developed By 渡嘉敷 諒（RYO TOKASHIKI）</p>
+    <p>This web site is not AI generated, as well as the images which are from unsplash.com</p>
+
+  </div>
+</footer>
+
+
+    <script>
+      ////////////Hamburger Menu////////////////////////////////////////////////////////////
+        const theCloseButton=document.querySelector(".closeButton");
+        const theModalWindow=document.getElementById("modalWindow");
+        const  theHamburgerButton=document.getElementById("hamburgerButton");
+        const theHeader=document.querySelector("header");
+        theHamburgerButton.addEventListener("click",()=>{
+
+          openingModalWindow();
+          console.log("display:flex applied!");
+        });
+
+        let clearKey=null;
+
+function openingModalWindow(){
+  
+  //this worked.
+// theModalWindow.style.animation="none";
+// theModalWindow.offsetHeight; 
+// theModalWindow.style.animation="slideIn 0.25s ease-out";
+
+
+
+
+//They didn't work.
+  // theModalWindow.classList.remove(".modalWindow");
+  // theModalWindow.classList.add(".modalWindow");
+
+
+
+  //They didn't work.
+          // theHeader.removeChild(theModalWindow);
+          // theHeader.appendChild(theModalWindow);
+          // console.log("removed and appended the Modal Window!!");
+
+          //Never use this. element.style
+      //theModalWindow.style.display="flex";
+
+      theModalWindow.classList.add("shown");
+    document.documentElement.style.overflow="hidden";
+};
+
+
+        function closingModalWindow(){
+          // if(clearKey){
+          // clearTimeout(clearKey);
+          // console.log("clearTimeout Executed!");};
+
+          console.log("Button clicked!");
+          theModalWindow.classList.add("closing");
+          console.log(".closing added!");
+          clearKey=setTimeout(()=>{
+            console.log("setTimeout executed!");
+            theModalWindow.classList.remove("shown");
+            console.log(".modalWindowShown removed!");
+           theModalWindow.classList.remove("closing");
+           document.documentElement.style.overflow="auto";
+          },250);
+
+          
+        
+
+        }
+
+        
+        theCloseButton.addEventListener("click",()=>{
+          
+          closingModalWindow();
+
+        });
+
+
+        
+        //======================================
+        //========Translation function==============
+        //=====================================
+
+        ///////////////////selectors///////////////////////////
+
+        let languageSelector=document.querySelector("select");
+
+        let theTexts=document.querySelectorAll("[data-i18n]");
+        let theSideText=document.getElementById("latestDate");
+        /////////////////variables////////////////////////////
+
+        const languageTranslation={
+
+              en:{    /*data i18n name↓*/
+                          title:"Yuru Yura Cafe",
+                          slogan:"Give Yourself a Time for Chill.",
+                          headLine:"Daikan-yama, which is an area just less than 10 minutes away from Shibuya Tokyo.\n We are a Caffee, focusing on a low key environment. ",
+                          aboutBody:"The world-known energetic city of youth, aka Shibuya, Tokyo. \nIn that place , There is a calm district called Daikan-yama, \njust within 10 minutes away from the hustle bustle city life of Shibuya.\nWe have been serving an unwinding place of relaxation there, ever since we started our business in 1998.",
+                          ourPolicies:"Our Three Mottoes",
+                          unwindingPlace:"Unwinding Place",
+                          unwindingPlaceMessage:"Based on Our motto for our customers to feel relaxed, \nwe have secured wide spaces between chairs and spacious desk spaces.",
+                          specialBeanSelection:"The Best Bean Selections",
+                          specialBeanSelectionMessage:"We have curated our bean selection out of so many good brands all around the world.\n And every cup of our cofee is made with care.",
+                          domesticProduct:"Domestic Food Products",
+                          domesticProductMessage:"Our food materials are made by our contracted farmers for the best quality and safety.",
+                          news:"LATEST INFORMATION",
+                          jumpToMenu:"Jump to Menu Page",
+                          contactInformation:"Contact Information",
+                          adress:"Daikan-yama 7-7-7 Shibuya Tokyo\nZip Code:150-0033\nPhone Number:03-1629-6505\nBusiness Hours:10AM to 7PM\nWe are closed on Thursdays.",
+                          menu:"Menu",
+                          food:"Food",
+                          desert:"Desert",
+                          drink:"Vebarages",
+                          coffee:"Coffee",
+                          tea:"Tea",
+                          roastBeefSandwich:"Roast Beef Sandwich",
+                          bltSandwich:"BLT Sandwich",
+                          bagleSandwich:"Bagle Sandwich",
+                          eggBenedict:"Egg Benedict",
+                          hotDog:"Chille Sauce Hot Dog",
+                          tomatoSauceSpagetthi:"Tomato Sauce Spagetthi",
+                          mushroomCreamSpagetthi:"Mushroom Cream Spagetthi",
+                          cornPotage:"Creamy Corn Soup",
+                          tomatoBazilSoup:"Tomato Bazil Soup",
+                          chocora:"Chocolate Cake",
+                          scones:"Chocolate Scones",
+                          macarons:"Macarons",
+                          blackCoffee:"Black Coffee",
+                          mocha:"Mocha",
+                          charamelMacchiato:"Caramel Macchiato",
+                          icedCoffee:"Iced Coffee",
+                          cafeLatte:"Café Au Lait",
+                          cramberryJuice:"Cranberry Juice",
+                          bobaTea:"Boba Tea",
+                          macchaLatte:"Maccha Latte",
+              },
+
+              jp:{
+                        title:"ゆるゆらカフェ",
+                        slogan:"まいにちに、ホっとひといきを。",
+                        headLine:"渋谷の喧騒からわずか徒歩9分\n ゆったり落ち着いた大人な街、代官山。\nその一角にたたずむ、ゆるやかな空間にフォーカスした、ひと息つけるカフェ。",
+                        aboutBody:"刺激的でエキセントリックな若者の街として知られる東京、渋谷。\n そこからわずか徒歩9分のところに、都会の喧騒を忘れさせる静かな街、代官山があります。\n我々はそこで心からくつろげるリラクシングな場所を 創業年1998年以来 今日に至るまで提供し続けています。",
+                        ourPolicies:"わたしたちの３つのほっと",
+                        unwindingPlace:"やすらぎ空間",
+                        unwindingPlaceMessage:"お客様にひと息ついていただくをモットーに\n座席間隔、デスクスペースを広めにとってあります。\n時間制限もありません。",
+                        specialBeanSelection:"厳選された豆",
+                        specialBeanSelectionMessage:"世界中から良質な豆ブランドのみを取り揃えております。\nそのコーヒーは\n バリスタが一杯一杯まごころをこめて淹れています。",
+                        domesticProduct:"国産食材へのこだわり",
+                        domesticProductMessage:"フードに使用される食材は顔の見える信頼のできる契約農家さん達たちから直接仕入れているので、安心、安全です。",
+                        news:"LATEST NEWS\n最新情報",
+                        jumpToMenu:"メニューを見る",
+                        contactInformation:"CONTACT\n店舗情報",
+                        adress:"〒150-0033\n東京都 渋谷区 代官山 7-7-7 \nTEL: 03-1629-6505\n営業時間:10:00~19:00\n定休日：毎週木曜",
+                        menu:"メニュー",
+                        food:"フード",
+                        desert:"デザート",
+                        drink:"ドリンク",
+                        coffee:"コーヒー",
+                        tea:"ティー",
+                        roastBeefSandwich:"ローストビーフサンドイッチ",
+                        bltSandwich:"BLTサンドイッチ",
+                        bagleSandwich:"ベーグルサンドイッチ",
+                        eggBenedict:"エッグベネディクトマフィン",
+                        hotDog:"ホットドッグ",
+                        tomatoSauceSpagetthi:"トマトソーススパゲッティ",
+                        mushroomCreamSpagetthi:"きのこクリームスパゲッティ",
+                        cornPotage:"コーンポタージュ",
+                        tomatoBazilSoup:"トマトバジルスープ",
+                        chocora:"ショコラケーキ",
+                        scones:"チョコチップスコーン",
+                        macarons:"マカロン",
+                        blackCoffee:"ブラックコーヒー",
+                        mocha:"モカ",
+                        charamelMacchiato:"キャラメルマキアート",
+                        icedCoffee:"アイスコーヒー",
+                        cafeLatte:"カフェオレ",
+                        cramberryJuice:"クランベリージュース",
+                        bobaTea:"ボバ",
+                        macchaLatte:"抹茶ラテ",
+
+              }
+
+
+
+
+        }
+
+
+        languageSelector.addEventListener("change",(event)=>{
+          console.log(event.target.value);
+          setLanguage(event.target.value);
+        });
+        
+        function setLanguage(language){
+           localStorage.setItem("theLanguage",language);
+          console.log("The selected language saved to Local Storage");
+          console.log("debug1");
+          if(language=="jp"){
+            console.log("jp course!");
+            theTexts.forEach((element)=>{
+              let valueName=element.getAttribute("data-i18n");
+              console.log(valueName);  //title
+              
+              console.log(languageTranslation[language][valueName]);//ゆるゆらカフェ
+              element.innerText=languageTranslation[language][valueName];
+              
+            });
+
+          }
+          else if(language=="en"){
+            console.log("en course!");
+            theTexts.forEach((element)=>{
+              let valueName=element.getAttribute("data-i18n");
+              console.log(valueName);  //title
+              
+              console.log(languageTranslation[language][valueName]);//ゆるゆらカフェ
+              element.innerText=languageTranslation[language][valueName];
+              
+            });
+
+
+          };
+
+
+        };
+
+
+        const savedLanguage=localStorage.getItem("theLanguage");
+        if(savedLanguage){
+          languageSelector.value=savedLanguage;//It only visually changes the <select> and won't trigger the bound function.
+
+            setLanguage(savedLanguage);// So you have to manually run the function
+
+          }
+
+
+    </script>
+
+    </body>
+
+</html>

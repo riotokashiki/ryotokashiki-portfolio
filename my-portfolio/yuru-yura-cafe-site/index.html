@@ -1,0 +1,562 @@
+<!DOCTYPE  html>
+<html lang="ja">
+    <head>
+    <meta charset="UTF-8">
+    <title>ゆるゆらカフェ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap" rel="stylesheet">
+    <!-- ↓ This font is Bimyou -->
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code:wght@100..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+      
+  </head>
+    <body>
+      <header>
+        <a class="title" href="index.html" data-i18n="title">ゆるゆらカフェ</a>
+        <ul class="navBar">
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#news">NEWS</a></li>
+          <li><a href="#menu">MENU</a></li>
+          <li><a href="#contact">CONTACT </a></li>
+
+        </ul>
+        <div class="hamburgerMenu"><a id="hamburgerButton" href="#"><p>=</p></a></div>
+        <div class="modalWindow" id="modalWindow">
+          <div class="closeButton"><a href="javascript:void(0)">×</a></div>
+          <ul>
+            <li><a href="#about" onclick="closingModalWindow()">ABOUT</a></li>
+            <li><a href="#news" onclick="closingModalWindow()">NEWS</a></li>
+            <li><a href="#menu" onclick="closingModalWindow()">MENU</a></li>
+            <li><a href="#contact" onclick="closingModalWindow()">CONTACT</a></li>
+
+          </ul>
+
+
+        </div>
+
+        <div class="translation">
+          <select name="languageSelection" id="languageSelection">
+            <option value="jp">日本語🔴</option>
+            <option value="en">English🔵</option>
+
+          </select>
+        </div>
+
+      </header>
+      <section class="hero" >
+        <p class="message" data-i18n="slogan">まいにちに、<span class="break">ホっとひといきを。</span></p>
+      <div class="heroSlide first"></div>
+      <div class="heroSlide second"></div>
+      <div class="heroSlide third"></div>
+      
+        
+</section>
+
+<section class="whoAreWe " >
+<div class="container">
+
+<div class="messageContainer fadeInOnScroll">
+  <h2 data-i18n="headLine">渋谷の喧騒からわずか徒歩9分<br> ゆったり落ち着いた大人な街,
+ 代官山。<br>
+その一角にたたずむ、<br>ゆるやかな空間にフォーカスした、<br> ひと息つけるカフェ。</h2>
+
+<p data-i18n="aboutBody">刺激的でエキセントリックな若者の街として知られる東京、渋谷。<br>
+そこからわずか徒歩9分のところに、都会の喧騒を忘れさせる静かな街、代官山があります。<br>
+我々はそこで心からくつろげるリラクシングな場所を 創業年1998年以来 今日に至るまで提供し続けています。
+</p>
+<div class="textBackground">
+  
+</div>
+  
+</div>
+<div class="backgroundImage">
+  
+</div>
+
+<!-- <div class="imageContainer">
+<img src="assets/images/compressedImages/irvin-zheng-77M4EfAOn-w-unsplash.jpg" alt="coffee shop">
+
+
+</div> -->
+
+
+
+
+
+</div>
+
+
+
+
+</section>
+
+<section class="about" id="about">
+<div class="container">
+
+<div class="sectionTitle">
+<p data-i18n="ourPolicies" class="fadeInOnScroll">わたしたちの３つのほっと</p>
+
+</div>
+
+<div class="pillarContainer">
+
+<div class="pillar fadeInOnScroll" >
+<h3 data-i18n="unwindingPlace">やすらぎ空間</h3>
+<p data-i18n="unwindingPlaceMessage">お客様にひと息ついていただくをモットーに<br>
+座席間隔、デスクスペースを広めにとってあります。
+<br>時間制限もありません。</p>
+<img src="assets/icons/icons8-relaxing-64.png" alt="Relaxing">
+</div>
+
+<div class="pillar fadeInOnScroll" >
+  <h3 data-i18n="specialBeanSelection">厳選された豆</h3>
+<p data-i18n="specialBeanSelectionMessage">世界中から良質な豆ブランドのみを取り揃えております。<br>
+  そのコーヒーは<br>
+  バリスタが一杯一杯まごころをこめて淹れています。</p>
+<img src="assets/icons/icons8-coffee-beans-64.png" alt="Coffe Beans">
+</div>
+<div class="pillar fadeInOnScroll" >
+  <h3 data-i18n="domesticProduct">国産食材へのこだわり</h3>
+<p data-i18n="domesticProductMessage">フードに使用される食材は顔の見える信頼のできる契約農家さん達たちから直接仕入れているので、安心、安全です。</p>
+<img src="assets/icons/icons8-vegetable-64_resized2.png" alt="Food">
+</div>
+
+</div>
+
+</div>
+
+</section>
+<section class="news" id="news">
+
+<div class="container">
+  <div class="headLineContainer">
+<h3 data-i18n="news">LATEST NEWS<br>最新情報</h3>
+<h4 id="latestDate">updated on Feb 9th</h4>
+</div>
+<div class="newsFeedPlate">
+
+
+<div class="articleContainer">
+  <!-- type in this format.  Year.Month.Day -->
+  <p class="articleDate">2025.11.9</p>
+<h3>2026年3月21日から施行の価格改定について</h3>
+
+</div>
+<div class="articleContainer">
+  <!-- type in this format.  Year.Month.Day -->
+  <p class="articleDate">2025.9.3</p>
+<h3>9月16日（月）～18日（水）臨時休業のお知らせ</h3>
+
+</div>
+<div class="articleContainer">
+  <!-- type in this format.  Year.Month.Day -->
+  <p class="articleDate">2025.7.12</p>
+<h3>月間女性ファッション誌 Melos 6月号 当店取材インタビュー掲載</h3>
+
+</div>
+<div class="articleContainer">
+  <!-- type in this format.  Year.Month.Day -->
+  <p class="articleDate">2025.5.2</p>
+<h3>オリジナルマグカップ期間限定販売決定のお知らせ</h3>
+
+</div>
+
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+</section>
+<section class="menu fadeInOnScroll" id="menu">
+<div class="container">
+<div class="sectionTitle">
+  <p>MENU</p>
+</div>
+<div class="gridContainer">
+  <div class="items">
+  <a href="menu.html#coffee">
+<img src="assets/images/compressedImages/shche_-team-heKg-V9yHwc-unsplash.jpg" alt="espresso">
+<div class="middle">Original Espresso<br>￥500 </div>
+<div class="blackLayer"></div>
+</a>
+</div>
+<div class="items">
+  <a href="menu.html#coffee">
+<img src="assets/images/compressedImages/jeremy-yap-jn-HaGWe4yw-unsplash.jpg" alt="Latte">
+<div class="middle">Latte<br>￥400</div>
+<div class="blackLayer"></div>
+</a>
+</div>
+<div class="items">
+  <a href="menu.html#coffee">
+<img src="assets/images/compressedImages/billy-kwok-vfiA7rRtjWo-unsplash.jpg" alt="caramel macchiato">
+<div class="middle">Caramel Macchiato<br>￥550 </div>
+<div class="blackLayer"></div>
+</a>
+</div>
+<div class="items">
+  <a href="menu.html#menu">
+<img src="assets/images/compressedImages/nathan-dumlao-vZOZJH_xkUk-unsplash.jpg" alt="cafe ore">
+<div class="middle">Cafe Ore<br>￥400</div>
+<div class="blackLayer"></div>
+</a>
+</div>
+<div class="items">
+  <a href="menu.html#menu">
+<img src="assets/images/compressedImages/eiliv-aceron-mAQZ3X_8_l0-unsplash.jpg" alt="BLT Sandwich">
+<div class="middle">Tasty BLT Sandwich<br>￥450 </div>
+<div class="blackLayer"></div>
+</a>
+</div>
+
+<div class="items">
+  <a href="menu.html#menu">
+<img src="assets/images/compressedImages/erwan-nonon-4xCroQgmehc-unsplash.jpg" alt="bagle sandwich">
+<div class="middle">Bagle Sandwich<br>￥600 </div>
+<div class="blackLayer"></div>
+</a>
+</div>
+
+<div class="items">
+  <a href="menu.html#menu">
+<img src="assets/images/compressedImages/gabriella-clare-marino-h7Bmptisp5o-unsplash.jpg" alt="Mushroom cream spaghetti ">
+<div class="middle">Mushroom cream spaghetti    ￥450 </div>
+<div class="blackLayer"></div>
+</a>
+</div>
+
+
+
+<div class="items">
+<a href="menu.html#menu" data-i18n="jumpToMenu">メニューを見る<div class="blackLayer"></div></a>
+<div class="blackLayer"></div>
+
+
+</div>
+
+
+
+
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+</section>
+
+<section class="contact fadeInOnScroll" id="contact">
+<div class="sectionTitle">
+  <p data-i18n="contactInformation">CONTACT<br>店舗情報</p>
+</div>
+<div class="container">
+<div class="row">
+<div class="textInfoContainer">
+<div>
+  <p data-i18n="adress">〒150-0033<br>
+東京都 渋谷区 代官山 7-7-7 <br>
+TEL: 03-1629-6505<br>
+営業時間:10:00~19:00<br>
+定休日：毎週木曜</p>
+</div>
+</div>
+<div class="mapContainer">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d405.2675773041435!2d139.70091160237104!3d35.64890696873008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b4f870a33b9%3A0xc5c11b5126283949!2z44CSMTUwLTAwMzMgVG9reW8sIFNoaWJ1eWEsIFNhcnVnYWt1Y2jFjSwgMjXiiJIxIOS7o-WumOWxseOCueODmuODvOOCuQ!5e0!3m2!1sen!2sjp!4v1771992986964!5m2!1sen!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>  
+
+</div>
+</div>
+
+
+
+</section>
+<footer>
+  <div class="container">
+    <p>&copy; 2026 ゆるゆらカフェ</p>
+    <p>All rights reserved by 信濃運送 <br>The Web site is Designed and Developed By 渡嘉敷 諒（RYO TOKASHIKI）</p>
+    <p>This web site is not AI generated, as well as the images which are from unsplash.com</p>
+
+  </div>
+</footer>
+
+      <script>
+        const latestArticleDate=document.querySelector(".articleDate").textContent;
+        console.log("the latest article date is "+latestArticleDate);
+
+        // const rawDate = "2026.02.09";
+
+        //I don't understand how this part works but used it and it worked anyway////////////////////////
+        // convert dots to dashes so JS can read it
+        const dateObj = new Date(latestArticleDate.replace(/\./g, "-"));
+
+        const formatted = dateObj.toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "short",   // "Feb"
+          day: "numeric"    // "9"
+        });
+
+        console.log(formatted);
+
+
+        function addSuffix(day) {
+          if (day === 1 || day === 21 || day === 31) return day + "st";
+          if (day === 2 || day === 22) return day + "nd";
+          if (day === 3 || day === 23) return day + "rd";
+          return day + "th";
+        }
+
+        const day = dateObj.getDate();         // 9
+        const month = dateObj.toLocaleDateString("en-US", { month: "short" }); // "Feb"
+        const year = dateObj.getFullYear();    // 2026
+
+        const result = `${month} ${addSuffix(day)} ${year}`;
+        console.log(result); 
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        let latestDateDisplay=document.getElementById("latestDate"); // 最新更新日の表示欄を取得
+        latestDateDisplay.textContent="Updated on "+result;
+        ////////////Hamburger Menu////////////////////////////////////////////////////////////
+        const theCloseButton=document.querySelector(".closeButton");
+        const theModalWindow=document.getElementById("modalWindow");
+        const  theHamburgerButton=document.getElementById("hamburgerButton");
+        const theHeader=document.querySelector("header");
+        theHamburgerButton.addEventListener("click",()=>{
+
+          openingModalWindow();
+          console.log("display:flex applied!");
+        });
+
+        let clearKey=null;
+
+function openingModalWindow(){
+  
+  //this worked.
+// theModalWindow.style.animation="none";
+// theModalWindow.offsetHeight; 
+// theModalWindow.style.animation="slideIn 0.25s ease-out";
+
+
+
+
+//They didn't work.
+  // theModalWindow.classList.remove(".modalWindow");
+  // theModalWindow.classList.add(".modalWindow");
+
+
+
+  //They didn't work.
+          // theHeader.removeChild(theModalWindow);
+          // theHeader.appendChild(theModalWindow);
+          // console.log("removed and appended the Modal Window!!");
+
+          //Never use this. element.style
+      //theModalWindow.style.display="flex";
+
+      theModalWindow.classList.add("shown");
+      document.documentElement.style.overflow="hidden";
+
+};
+
+
+        function closingModalWindow(){
+          // if(clearKey){
+          // clearTimeout(clearKey);
+          // console.log("clearTimeout Executed!");};
+
+          console.log("Button clicked!");
+          theModalWindow.classList.add("closing");
+          console.log(".closing added!");
+          clearKey=setTimeout(()=>{
+            console.log("setTimeout executed!");
+            theModalWindow.classList.remove("shown");
+            console.log(".modalWindowShown removed!");
+            document.documentElement.style.overflow="auto";
+           theModalWindow.classList.remove("closing");
+          },250);
+
+          
+        
+
+        }
+
+        
+        theCloseButton.addEventListener("click",()=>{
+          
+          closingModalWindow();
+
+        })
+
+        ///////fade out effect//////////////////////
+        // const items=document.querySelectorAll(".items");
+        // let body=document.querySelector("body");
+        // body.addEventListener("transitionend",()=>{
+        //       window.location.href = "menu.html#menu";
+
+        //   })
+
+        //  items.forEach((el)=>{
+        //     el.addEventListener("click",()=>{
+              
+        //       fadeout();
+        //     })
+        //   });
+
+        // function fadeout(){
+        //   body.classList.add("fadeout");
+        //   console.log(".fadeout added to <body>!");
+          
+          
+        // };
+
+        //======================================
+        //========Translation function==============
+        //=====================================
+
+        ///////////////////selectors///////////////////////////
+
+        let languageSelector=document.querySelector("select");
+
+        let theTexts=document.querySelectorAll("[data-i18n]");
+        let theSideText=document.getElementById("latestDate");
+        let theH3=document.querySelectorAll(".about .container h3");
+        let theP=document.querySelectorAll(".pillar p");
+        /////////////////variables////////////////////////////
+
+        const languageTranslation={
+
+              en:{    /*data i18n name↓*/
+                          title:"Yuru Yura Cafe",
+                          slogan:"Give Yourself a Time for Chill.",
+                          headLine:"Daikan-yama, which is an area just less than 10 minutes away from Shibuya Tokyo.\n We are a Caffee, focusing on a low key environment. ",
+                          aboutBody:"The world-known energetic city of youth, aka Shibuya, Tokyo. \nIn that place , There is a calm district called Daikan-yama, \njust within 10 minutes away from the hustle bustle city life of Shibuya.\nWe have been serving an unwinding place of relaxation there, ever since we started our business in 1998.",
+                          ourPolicies:"Our Three Mottoes",
+                          unwindingPlace:"Unwinding Place",
+                          unwindingPlaceMessage:"Based on Our motto for our customers to feel relaxed, \nwe have secured wide spaces between chairs and spacious desk spaces.",
+                          specialBeanSelection:"The Best Bean Selections",
+                          specialBeanSelectionMessage:"We have curated our bean selection out of so many good brands all around the world.\n And every cup of our cofee is made with care.",
+                          domesticProduct:"Domestic Food Products",
+                          domesticProductMessage:"Our food materials are made by our contracted farmers for the best quality and safety.",
+                          news:"LATEST INFORMATION",
+                          jumpToMenu:"Jump to Menu Page",
+                          contactInformation:"Contact Information",
+                          adress:"Daikan-yama 7-7-7 Shibuya Tokyo\nZip Code:150-0033\nPhone Number:03-1629-6505\nBusiness Hours:10AM to 7PM\nWe are closed on Thursdays."
+              },
+
+              jp:{
+                        title:"ゆるゆらカフェ",
+                        slogan:"まいにちに、ホっとひといきを。",
+                        headLine:"渋谷の喧騒からわずか徒歩9分\n ゆったり落ち着いた大人な街、代官山。\nその一角にたたずむ、ゆるやかな空間にフォーカスした、ひと息つけるカフェ。",
+                        aboutBody:"刺激的でエキセントリックな若者の街として知られる東京、渋谷。\n そこからわずか徒歩9分のところに、都会の喧騒を忘れさせる静かな街、代官山があります。\n我々はそこで心からくつろげるリラクシングな場所を 創業年1998年以来 今日に至るまで提供し続けています。",
+                        ourPolicies:"わたしたちの３つのほっと",
+                        unwindingPlace:"やすらぎ空間",
+                        unwindingPlaceMessage:"お客様にひと息ついていただくをモットーに\n座席間隔、デスクスペースを広めにとってあります。\n時間制限もありません。",
+                        specialBeanSelection:"厳選された豆",
+                        specialBeanSelectionMessage:"世界中から良質な豆ブランドのみを取り揃えております。\nそのコーヒーは\n バリスタが一杯一杯まごころをこめて淹れています。",
+                        domesticProduct:"国産食材へのこだわり",
+                        domesticProductMessage:"フードに使用される食材は顔の見える信頼のできる契約農家さん達たちから直接仕入れているので、安心、安全です。",
+                        news:"LATEST NEWS\n最新情報",
+                        jumpToMenu:"メニューを見る",
+                        contactInformation:"CONTACT\n店舗情報",
+                        adress:"〒150-0033\n東京都 渋谷区 代官山 7-7-7 \nTEL: 03-1629-6505\n営業時間:10:00~19:00\n定休日：毎週木曜"
+
+
+
+              }
+
+
+
+
+        }
+        
+
+        languageSelector.addEventListener("change",(event)=>{
+          console.log(event.target.value);
+          setLanguage(event.target.value);
+        });
+        
+        function setLanguage(language){
+          localStorage.setItem("theLanguage",language);
+          console.log("The selected language saved to Local Storage");
+          console.log("debug1");
+          if(language=="jp"){
+            console.log("jp course!");
+            theTexts.forEach((element)=>{
+              let valueName=element.getAttribute("data-i18n");
+              console.log(valueName);  //title
+              console.log(languageTranslation[language][valueName]);//ゆるゆらカフェ
+              element.classList.add("opacityZero");//クラスを付与
+              setTimeout(()=>{//時間差発動
+                  element.innerText=languageTranslation[language][valueName];//テキスト入れ替え
+              element.classList.remove("opacityZero");//クラスを除去
+              theH3.forEach(el=>el.classList.remove("inEnglish"));
+              theP.forEach(el=>el.classList.remove("inEnglish"));
+              console.log(".inEnglish removed from theH3 and theP!");
+              },250);
+            
+            });
+
+          }
+          else if(language=="en"){
+            console.log("en course!");
+            theTexts.forEach((element)=>{
+              let valueName=element.getAttribute("data-i18n");
+              console.log(valueName);  //title
+              element.classList.add("opacityZero");//クラスを付与
+              console.log(languageTranslation[language][valueName]);//ゆるゆらカフェ
+              setTimeout(()=>{//時間差発動
+                  element.innerText=languageTranslation[language][valueName];//テキスト入れ替え
+              element.classList.remove("opacityZero");//クラスを除去
+              theH3.forEach(el=>el.classList.add("inEnglish"));
+              theP.forEach(el=>el.classList.add("inEnglish"));
+              console.log(".inEnglish added to theH3 and theP!");
+              },250);
+            });
+
+
+          };
+
+
+        };
+
+        const savedLanguage=localStorage.getItem("theLanguage");
+        if(savedLanguage){
+          languageSelector.value=savedLanguage;//It only visually changes the <select> and won't trigger the bound function.
+
+            setLanguage(savedLanguage);// So you have to manually run the function
+
+        }
+
+
+        console.log(theH3);
+        console.log(theP);
+
+///////fade in on scroll//////////////////////////////////
+
+        const observer = new IntersectionObserver((entries) => { //entries means all the elements that gets in sight
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+        }
+    });
+        }, { threshold: 0.05 }); // triggers when 15% of element is visible
+
+document.querySelectorAll(".fadeInOnScroll").forEach(el => observer.observe(el));
+
+      </script>
+    </body>
+</html>

@@ -1,0 +1,614 @@
+<!DOCTYPE  html>
+<html lang="ja">
+    <head>
+    <meta charset="UTF-8">
+    <title>Ryo Tokashiki Portfolio Site | Front-end Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap" rel="stylesheet">
+    <!-- ↓ This font is Bimyou -->
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+      
+  </head>
+    <body>
+      <header>
+        <div class="titleContainer">
+          <div class="logoContainer">
+            <a href="index.html">
+        <img src="assets/icons/my logoForMySite.png" id="logo" alt="Logo">
+        </a>
+        </div>
+        <a class="title" href="index.html" data-i18n="title">Ryo Tokashiki</a>
+        </div>
+        <ul class="navBar">
+          <li><a href="#works">works</a></li>
+          <li><a href="#about">about</a></li>
+          <li><a href="#contact">contact </a></li>
+
+        </ul>
+        <div class="hamburgerMenu"><a id="hamburgerButton" href="javascript:void(0)"><p>=</p></a></div>
+        <div class="modalWindow" id="modalWindow">
+          <div class="closeButton"><a href="javascript:void(0)">×</a></div>
+          <div class="modalTranslation">
+          <select name="languageSelection" id="languageSelection" class="modalLanguageSelection">
+            <option value="jp">日本語🔴</option>
+            <option value="en">English🔵</option>
+          </select>
+        </div>
+          <ul>
+            <li><a href="#works" onclick="closingModalWindow()">MY WORKS</a></li>
+            <li><a href="#about" onclick="closingModalWindow()">ABOUT ME</a></li>
+           
+            <li><a href="#contact" onclick="closingModalWindow()">CONTACT</a></li>
+            <li><a href="#" onclick="closingModalWindow()">BACK TO TOP↑</a></li>
+
+          </ul>
+
+
+        </div>
+
+        <div class="translation">
+          <select name="languageSelection" id="languageSelection" class="languageSelection">
+            <option value="jp">日本語🔴</option>
+            <option value="en">English🔵</option>
+
+          </select>
+        </div>
+
+        <!-- <div class="readyToWork">
+          <div class="circle">
+          </div>
+          <p> 求職中</p>
+
+
+        </div> -->
+
+      </header>
+      <section class="hero" >
+        <div class="containerForHero">
+        <div class="heroMessage">
+        <p class="main" ><span class="message one" data-i18n="messageOne">動きを</span><br><span class="message two" data-i18n="messageTwo">デザイン</span><br><span class="message three" data-i18n="messageThree">する人。</span></p>
+        <p class="subtitle" data-i18n="subTitle">アニメーションと細部へのこだわりで<br>使っていて気持ちのいいインターフェイスをつくります。</p>
+      </div>
+
+
+      <div class="workButtonWrapper">
+        <a class="workButton" href="#works"><p data-i18n="seeMyWorks">作品を見る</p></a>
+      </div>
+      </div>
+
+      
+        <div class="typing-wrapper">
+          <span id="type-text"></span>
+        </div>
+
+
+      <video class="heroBg" autoplay loop muted playsinline src="assets/videos/redAndBlue.mp4"></video>
+
+      </section>
+
+<section class="works " id="works" >
+<div class="container">
+<h2 class="fadeInOnScroll">My Works</h2>
+<ul class="grid">
+  <li class="box fadeInOnScroll"><a href="https://riotokashiki.github.io/dc_work_hachioji_tokashiki_javascript/my_portfolio/business_site/index.html"><div class="itemContainer"><img src="assets/images/compressedImages/cafe3対2ratio.png" alt="">
+    <h2 data-i18n="yuruyuraCafe">ゆるゆらカフェ</h2>
+  <p data-i18n="yuruyuraCafeDescription">代官山にあるカフェを題材にしたビジネスサイト。<br>
+  ・英語表記に切り替え可能のバイリンガル対応<br>・スムーズなアニメーション<br>・テンプレを使わず１から制作</p>
+</div>
+  </a></li>
+
+  <li class="box fadeInOnScroll"><a href="https://riotokashiki.github.io/dc_work_hachioji_tokashiki_javascript/js_hachioji_tokashiki.html"><div class="itemContainer"><img src="assets/images/compressedImages/pianoApp.png" alt="">
+    <h2 data-i18n="pianoApp">ピアノアプリ</h2>
+  <p data-i18n="pianoAppDescription">おもちゃのピアノを題材にした楽器アプリ。<br>・楽曲自動演奏<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2曲：きらきらぼし、チューリップ)<br>
+  ・オクターブ調節機能で音階変更可能<br>・ミュート機能、音量調整UI<br>・なめらかな鍵盤アニメーション</p>
+</div>
+  </a></li>
+
+  <li class="box fadeInOnScroll"><a href="https://riotokashiki.github.io/dc_work_hachioji_tokashiki_javascript/my_portfolio/toDoList/todolist.html"><div class="itemContainer"><img src="assets/images/compressedImages/toDoList.png" alt="">
+    <h2 data-i18n="todolistApp">To-Doリストアプリ</h2>
+  <p data-i18n="todolistAppDescription">多機能タスクリストアプリ。<br>・タスクに優先度 (高、中、低) を設定可能<br>・優先度に基づいてタスクを整列可能<br>・なめらかなアニメーション</p>
+</div>
+  </a></li>
+
+  <li class="box fadeInOnScroll onGoing"><a href=""><div class="itemContainer weather"><img class="weather" src="assets/icons/weather.png" alt="weather">
+    <h2 data-i18n="weatherApp">天気アプリ</h2>
+  <p data-i18n="weatherAppDescription">世界各地の都市の現在気温と天気を表示できるアプリ。<br>
+  スムーズなアニメーションを実装。</p>
+</div>
+  </a></li>
+
+</ul>
+
+
+
+</div>
+
+
+
+
+</section>
+
+<section class="aboutMe" id="about">
+<div class="container">
+
+<div class="sectionTitle">
+<h2 data-i18n="aboutMe" class="fadeInOnScroll">自己紹介</h2>
+</div>
+<p class="fadeInOnScroll" data-i18n="selfIntroductionSentences">
+  はじめまして。<br>渡嘉敷 諒(Ryo Tokashiki)と申します。<br>
+  フロントエンドエンジニアを目指し、勉強中です。<br>
+  アニメーションへのこだわりが強く、<br>ユーザーが思わず触りたくなるインタラクティブなインターフェイスを作ることを目指しています。<br>
+  現在積極的に就職先を探しています。<br>一緒に何か作りましょう！
+
+</p>
+
+<div class="skills fadeInOnScroll">
+<h2>My Skills</h2>
+<ul class="skillGrid">
+  <li><div class="circle"></div>Javascript</li>
+  <li><div class="circle"></div>CSS</li>
+  <li><div class="circle"></div>HTML</li>
+  <li><div class="circle"></div>GitHub</li>
+
+</ul>
+
+<div class="skills fadeInOnScroll">
+<h2 data-i18n="myPassions">My Passions (学習中)</h2>
+<ul class="skillGrid">
+  <li><div class="circle passion"></div>React</li>
+  <li><div class="circle passion"></div>Node.js</li>
+  <li><div class="circle passion"></div>Figma</li>
+  <li><div class="circle passion"></div>PhotoShop</li>
+
+</ul>
+
+
+
+
+</div>
+
+</section>
+<section class="news" id="news">
+
+<div class="container">
+ 
+
+
+
+</div>
+
+
+
+
+
+
+
+</section>
+<section class="menu fadeInOnScroll" id="menu">
+<div class="container">
+
+</div>
+
+
+</div>
+
+
+
+</section>
+
+<section class="contact fadeInOnScroll" id="contact">
+  <div class="container">
+<div class="sectionTitle">
+  <p>CONTACT
+</div>
+</div>
+<div class="container">
+
+<div class="textInfoContainer">
+<div>
+  <h3 data-i18n="letsMakeSomethingTogether">一緒に作りませんか。</h3>
+  <p data-i18n="callMe">お気軽にご連絡ください。
+</div>
+<a href="mailto:your@email.com" class="yourEmailAdress">Ryo_tokashiki@email.com</a>
+
+<a class="gitHubLink" href="https://github.com/riotokashiki/dc_work_hachioji_tokashiki_javascript">My repository page at GitHub</a>
+<a class="gitHubLogo" href="https://github.com/riotokashiki/dc_work_hachioji_tokashiki_javascript"><img src="assets/icons/gitHubLogoKai.png" alt="gitHub Logo"></a>
+</div>
+
+
+
+
+</div>
+
+
+
+</section>
+<footer>
+  <div class="container">
+    <p>&copy; 2026 Ryo Tokashiki (渡嘉敷　諒)</p>
+    <p>Designed and Developed By 渡嘉敷 諒（RYO TOKASHIKI）</p>
+
+  </div>
+</footer>
+
+      <script>
+        
+
+        ////////////Hamburger Menu////////////////////////////////////////////////////////////
+        const theCloseButton=document.querySelector(".closeButton");
+        const theModalWindow=document.getElementById("modalWindow");
+        const  theHamburgerButton=document.getElementById("hamburgerButton");
+        const theHeader=document.querySelector("header");
+        theHamburgerButton.addEventListener("click",()=>{
+
+          openingModalWindow();
+          console.log("display:flex applied!");
+        });
+
+        let clearKey=null;
+
+function openingModalWindow(){
+  
+  //this worked.
+// theModalWindow.style.animation="none";
+// theModalWindow.offsetHeight; 
+// theModalWindow.style.animation="slideIn 0.25s ease-out";
+
+
+
+
+//They didn't work.
+  // theModalWindow.classList.remove(".modalWindow");
+  // theModalWindow.classList.add(".modalWindow");
+
+
+
+  //They didn't work.
+          // theHeader.removeChild(theModalWindow);
+          // theHeader.appendChild(theModalWindow);
+          // console.log("removed and appended the Modal Window!!");
+
+          //Never use this. element.style
+      //theModalWindow.style.display="flex";
+
+      theModalWindow.classList.add("shown");
+      document.documentElement.style.overflow="hidden";
+
+};
+
+
+        function closingModalWindow(){
+          // if(clearKey){
+          // clearTimeout(clearKey);
+          // console.log("clearTimeout Executed!");};
+
+          console.log("Button clicked!");
+          theModalWindow.classList.add("closing");
+          console.log(".closing added!");
+          clearKey=setTimeout(()=>{
+            console.log("setTimeout executed!");
+            theModalWindow.classList.remove("shown");
+            console.log(".modalWindowShown removed!");
+            document.documentElement.style.overflow="auto";
+           theModalWindow.classList.remove("closing");
+          },250);
+
+          
+        
+
+        }
+
+        
+        theCloseButton.addEventListener("click",()=>{
+          
+          closingModalWindow();
+
+        })
+
+        ///////fade out effect//////////////////////
+        // const items=document.querySelectorAll(".items");
+        // let body=document.querySelector("body");
+        // body.addEventListener("transitionend",()=>{
+        //       window.location.href = "menu.html#menu";
+
+        //   })
+
+        //  items.forEach((el)=>{
+        //     el.addEventListener("click",()=>{
+              
+        //       fadeout();
+        //     })
+        //   });
+
+        // function fadeout(){
+        //   body.classList.add("fadeout");
+        //   console.log(".fadeout added to <body>!");
+          
+          
+        // };
+
+        //======================================
+        //========Translation function==============
+        //=====================================
+
+        ///////////////////selectors///////////////////////////
+
+        let languageSelector=document.querySelector("select");
+        const languageSelectorTwo=document.querySelectorAll("select")[1];
+
+        let theTexts=document.querySelectorAll("[data-i18n]");
+      
+        let theH3=document.querySelectorAll(".about .container h3");
+        let theP=document.querySelectorAll(".pillar p");
+        /////////////////variables////////////////////////////
+
+        const languageTranslation={  
+
+              en:{    /*data i18n name↓*/
+                          title:"Ryo Tokashiki",
+                          slogan:"Designing Movements.",
+                          headLine:"Daikan-yama, which is an area just less than 10 minutes away from Shibuya Tokyo.\n We are a Caffee, focusing on a low key environment. ",
+                          aboutBody:"The world-known energetic city of youth, aka Shibuya, Tokyo. \nIn that place , There is a calm district called Daikan-yama, \njust within 10 minutes away from the hustle bustle city life of Shibuya.\nWe have been serving an unwinding place of relaxation there, ever since we started our business in 1998.",
+                          ourPolicies:"Our Three Mottoes",
+                          unwindingPlace:"Unwinding Place",
+                          unwindingPlaceMessage:"Based on Our motto for our customers to feel relaxed, \nwe have secured wide spaces between chairs and spacious desk spaces.",
+                          specialBeanSelection:"The Best Bean Selections",
+                          specialBeanSelectionMessage:"We have curated our bean selection out of so many good brands all around the world.\n And every cup of our cofee is made with care.",
+                          domesticProduct:"Domestic Food Products",
+                          domesticProductMessage:"Our food materials are made by our contracted farmers for the best quality and safety.",
+                          news:"LATEST INFORMATION",
+                          jumpToMenu:"Jump to Menu Page",
+                          contactInformation:"Contact Information",
+                          adress:"Daikan-yama 7-7-7 Shibuya Tokyo\nZip Code:150-0033\nPhone Number:03-1629-6505\nBusiness Hours:10AM to 7PM\nWe are closed on Thursdays.",
+                          subTitle:"I Aim to build Feels Good Websites that are with smooth UIs.",
+                        seeMyWorks:"See My Works",
+                        yuruyuraCafe:"Yuru Yura Cafe",
+                        yuruyuraCafeDescription:"A Cafe Business Site in Daikan-yama District in Shibuya, Tokyo.\n・Japanese and English Languages Available\n・Smooth Animation\n・Built from scratch without using any templates",
+                        pianoApp:"Piano App",
+                        pianoAppDescription:"A Toy Piano Themed App.\n・Song Autoplay\n(2 songs：Shooting Stars,Tulip)\n・Octaves can be switched to high and low\n・Volume Mute, Volume Fader\n・Smooth Keypress Animation",
+                        todolistApp:"To-Do List App",
+                        todolistAppDescription:"Multi Functional Task List App\n・Tasks can be assigned with Priorities(High, Middle, Low)\n・Sort by Priority\n・Smooth Animations",
+                        weatherApp:"Weather App",
+                        weatherAppDescription:"An App that can show weathers and temperatures around the world.\nSmooth Animations",
+                        aboutMe:"About Me",
+                        selfIntroductionSentences:"Hi, I'm Ryo Tokashiki,learning website building skills to become a front-end engineer.\nMy favorite part about web designing is Animation.\nI'd love to create smooth animated UIs for my users to feel good. \nI'm job hunting right now.\nLet's make something Awesome with me!",
+                        letsMakeSomethingTogether:"Let's make something Great Together!!",
+                        callMe:"Feel Free to Reach me Out!",
+                        messageOne:"I Focus",
+                        messageTwo:"on",
+                        messageThree:"Movements.",
+                        myPassions:"I'm Currently Learning..",
+                        onProgress:"On Progress",
+
+              },
+
+              jp:{
+                        title:"Ryo Tokashiki",
+                        slogan:"動きをデザインする。",
+                        headLine:"渋谷の喧騒からわずか徒歩9分\n ゆったり落ち着いた大人な街、代官山。\nその一角にたたずむ、ゆるやかな空間にフォーカスした、ひと息つけるカフェ。",
+                        subTitle:"アニメーションと細部へのこだわりで\n使っていて気持ちのいいインターフェイスをつくります。",
+                        seeMyWorks:"作品を見る",
+                        yuruyuraCafe:"ゆるゆらカフェ",
+                        yuruyuraCafeDescription:"代官山にあるカフェを題材にしたビジネスサイト。\n・英語表記に切り替え可能のバイリンガル対応\n・スムーズなアニメーション\n・テンプレを使わず１から制作",
+                        pianoApp:"ピアノアプリ",
+                        pianoAppDescription:"おもちゃのピアノを題材にした楽器アプリ。\n・楽曲自動演奏\n(2曲：きらきらぼし、チューリップ)\n・オクターブ調節機能で音階変更可能\n・ミュート機能、音量調整UI\n・なめらかな鍵盤アニメーション",
+                        todolistApp:"To-Doリストアプリ",
+                        todolistAppDescription:"多機能タスクリストアプリ。\n・タスクに優先度 (高、中、低) を設定可能\n・優先度に基づいてタスクを整列可能\n・なめらかなアニメーション",
+                        weatherApp:"天気アプリ",
+                        weatherAppDescription:"世界各地の都市の現在気温と天気を表示できるアプリ。\nスムーズなアニメーションを実装。",
+                        aboutMe:"自己紹介",
+                        selfIntroductionSentences:"はじめまして。\n渡嘉敷 諒(Ryo Tokashiki)と申します。\nフロントエンドエンジニアを目指し、勉強中です。\nアニメーションへのこだわりが強く、\nユーザーが思わず触りたくなるインタラクティブなインターフェイスを作ることを目指しています。\n現在積極的に就職先を探しています。\n一緒に何か作りましょう！",
+                        letsMakeSomethingTogether:"一緒に作りませんか。",
+                        callMe:"お気軽にご連絡ください。",
+                        messageOne:"動きを",
+                        messageTwo:"デザイン",
+                        messageThree:"する人。",
+                        slogan:"動きをデザインする。",
+                        myPassions:"My Passions (学習中)",
+                        onProgress:"現在進行中",
+
+
+
+              }
+
+
+
+
+        }
+        
+
+        languageSelector.addEventListener("change",(event)=>{
+          console.log(event.target.value);
+          setLanguage(event.target.value);
+        });
+
+          languageSelectorTwo.addEventListener("change",(event)=>{
+          console.log(event.target.value);
+          setLanguage(event.target.value);
+        });
+        
+        function setLanguage(language){
+          localStorage.setItem("theLanguage",language);
+          console.log("The selected language saved to Local Storage");
+          console.log("debug1");
+
+          const theWorkLi=document.querySelector("ul.grid li.onGoing");
+          let beforeContent=getComputedStyle(theWorkLi,"::before").content;
+          console.log("beforeContent is ".beforeContent);
+
+          if(language=="jp"){
+            console.log("jp course!");
+            theTexts.forEach((element)=>{
+              let valueName=element.getAttribute("data-i18n");
+              console.log(valueName);  //title
+              
+              beforeContent=languageTranslation.jp.onProgress;
+              console.log("beforeContent is replaced with "+beforeContent);
+              console.log(languageTranslation[language][valueName]);//ゆるゆらカフェ
+              element.innerText=languageTranslation[language][valueName];
+            
+              theH3.forEach(el=>el.classList.remove("inEnglish"));
+              theP.forEach(el=>el.classList.remove("inEnglish"));
+              console.log(".inEnglish removed from theH3 and theP!");
+
+              languageSelector.value="jp";//It only visually changes the <select> and won't trigger the bound function.
+            languageSelectorTwo.value="jp";
+
+            });
+
+          }
+          else if(language=="en"){
+            console.log("en course!");
+
+            theTexts.forEach((element)=>{
+              let valueName=element.getAttribute("data-i18n");
+              console.log(valueName);  //title
+              
+              beforeContent=languageTranslation.en.onProgress;
+              console.log("beforeContent is replaced with "+beforeContent);
+              
+              console.log(languageTranslation[language][valueName]);//ゆるゆらカフェ
+              element.innerText=languageTranslation[language][valueName];
+              theH3.forEach(el=>el.classList.add("inEnglish"));
+              theP.forEach(el=>el.classList.add("inEnglish"));
+              console.log(".inEnglish added to theH3 and theP!");
+
+              languageSelector.value="en";//It only visually changes the <select> and won't trigger the bound function.
+              languageSelectorTwo.value="en";
+
+
+            });
+
+
+          };
+
+
+        };
+
+        const savedLanguage=localStorage.getItem("theLanguage");
+        if(savedLanguage){
+          languageSelector.value=savedLanguage;//It only visually changes the <select> and won't trigger the bound function.
+            languageSelectorTwo.value=savedLanguage;
+            setLanguage(savedLanguage);// So you have to manually run the function
+
+        }
+
+
+        console.log(theH3);
+        console.log(theP);
+
+///////fade in on scroll//////////////////////////////////
+
+        const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+        }
+    });
+        }, { threshold: 0.15 }); // triggers when 15% of element is visible
+
+document.querySelectorAll(".fadeInOnScroll").forEach(el => observer.observe(el));
+
+
+
+/////////Typing Effect////////////////////////////
+
+const workButton=document.querySelector(".workButton");
+
+const texts = [
+    "動きをデザインする。",
+    "フロントエンド志望。",
+    "その先にある物は。",
+    // "Built With Clean Code"
+];
+
+let textIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+
+const typingSpeed = 90;
+const deletingSpeed = 45;
+const pauseTime = 1400;
+
+function typeLoop() {
+  console.log("typeLoop Running!");
+    const current = texts[textIndex];
+    const displayed = current.substring(0, charIndex);
+
+    document.getElementById("type-text").textContent = displayed;
+
+    if (!isDeleting && charIndex < current.length/*タイピング途中の時*/) {
+        charIndex++;
+        console.log("debug D");
+        setTimeout(typeLoop, typingSpeed + Math.random() * 40); // natural typing
+    } 
+    else if (isDeleting && charIndex > 0/*消し途中の時*/) {
+        charIndex--;
+        console.log("debug C");
+        setTimeout(typeLoop, deletingSpeed);
+    } 
+    else {
+        isDeleting = !isDeleting;
+
+        if (!isDeleting/*消してないとき*/) {
+            textIndex=(textIndex+1);
+          if(textIndex===texts.length){
+            document.querySelector(".typing-wrapper").style.display="none";
+            setTimeout(()=>{
+              document.querySelector(".heroMessage").classList.add("emerged");
+              document.querySelector("span.message.one").classList.add("emerged");
+              setTimeout(()=>{
+                document.querySelector("span.message.two").classList.add("emerged");
+
+                setTimeout(()=>{
+                  document.querySelector("span.message.three").classList.add("emerged");
+
+                  setTimeout(()=>{
+                    document.querySelector("p.subtitle").classList.add("emerged");
+                      workButton.classList.add("emerged");
+                    setTimeout(()=>{
+
+                        
+                    document.querySelector("video").classList.add("emerged");
+
+
+
+                    },1200)
+
+
+                  },1200)
+
+                    
+
+                },1200)
+                
+
+
+                return;
+              },1200)
+              
+
+
+
+            },1200)
+          }
+        }
+        console.log("debug B");
+        if(textIndex===texts.length){
+          return;
+        }
+        setTimeout(typeLoop, pauseTime);
+    }
+}
+console.log("debug A")
+typeLoop();
+
+
+
+
+      </script>
+    </body>
+</html>

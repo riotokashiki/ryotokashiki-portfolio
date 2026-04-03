@@ -1,0 +1,196 @@
+<!DOCTYPE  html>
+<html lang="ja">
+    <head>
+    <meta charset="UTF-8">
+    <title>Modal Gallery</title>
+    <style>
+      /* Style the Image Used to Trigger the Modal */
+#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+  margin: 0 40px;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  /* height:100%; */
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+  margin: 10px auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+.navigate{
+color:white;
+background-color:gray;
+border-radius:5px;
+}
+
+.navigate:hover{
+  color:rgb(207, 207, 207)!important;
+  background-color:rgb(59, 59, 59);
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption,.navigate {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+
+.navigationAndContentContainer{
+display:flex;
+align-items: center;
+justify-content: center;
+height: 70%;
+
+}
+
+.thumbnails{
+width:100%;
+max-width:300px;
+
+}
+
+label{
+    background:rgb(105, 105, 105);
+    font-weight:800px;
+    width:100%;
+    height:100%;
+    color:white;
+    border-radius:10px;
+    text-align:center;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #ccc;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+    border-radius:10px;
+
+
+    width:100%;
+max-width:300px;
+height:200px;
+max-height:200px;
+}
+
+.thumbnailContainer{
+  display:grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 10px;
+}
+
+
+    </style>
+    </head>
+    <body>
+      <!-- <div id="debug" onclick="console.log(img.src)">Debug button</div> -->
+      <!-- thumbnail that Triggers the Modal -->
+       <div class="thumbnailContainer">
+<img id="myImg" class="thumbnails" src="assets/images/img_snow.jpg" alt="Snow"> <!--thumbnail-->
+<img id="myImg" class="thumbnails" src="assets/images/MyForest.jpeg" alt="Forest"> <!--thumbnail-->
+<img id="myImg" class="thumbnails" src="assets/images/rock mountains.jpg" alt="Rock Mountains" > <!--thumbnail-->
+<img id="myImg" class="thumbnails" src="assets/images/River.jpeg" alt="River"> <!--thumbnail-->
+<img id="myImg" class="thumbnails" src="assets/images/Grass Field.jpg" alt="Grass Field" > <!--thumbnail-->
+<img id="myImg" class="thumbnails" src="assets/images/Ice Field.jpg" alt="Ice Field" > <!--thumbnail-->
+<img id="myImg" class="thumbnails" src="assets/images/Tall trees.jpg" alt="Tall Trees" > <!--thumbnail-->
+<img id="myImg" class="thumbnails" src="assets/images/dry grass field.jpg" alt="Dry Grass Field" > <!--thumbnail-->
+<img id="myImg" class="thumbnails" src="assets/images/Lake and a Boat.jpg" alt="Lake and a Boat"> <!--thumbnail-->
+<img id="myImg" class="thumbnails" src="assets/images/Trees and River.jpg" alt="Trees and River"> <!--thumbnail-->
+<img id="myImg" class="thumbnails" src="assets/images/Autmn Foliage.jpg" alt="Autumn Foliage" > <!--thumbnail-->
+<img id="myImg" class="thumbnails" src="assets/images/Lake and Mountains.jpg" alt="Lake and Mountains" > <!--thumbnail-->
+<!-- image upload button -->
+  <div class="container"> 
+          <input type="file" id="fileUpload" accept="image/*" hidden>
+          <label for="fileUpload">+</label>
+  </div>
+</div>
+
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- The Close Button -->
+  <span class="close">&times;</span>
+  <!-- Container for Nav buttons and Content -->
+  <div class="navigationAndContentContainer">
+    <!-- navigate back button -->
+      <div class="navigate"  id="navigateBack" >←</div>
+      <!-- Modal Content (The Image) -->
+      <img class="modal-content" id="img01">
+      <!-- navigate forward button -->
+      <div class="navigate" id="navigateForward" >→</div>
+  </div>
+  <!-- Modal Caption (Image Text) -->
+  <div id="caption"></div>
+</div>
+      
+
+    <script src="gallery.js"></script>
+    </body>
+</html>

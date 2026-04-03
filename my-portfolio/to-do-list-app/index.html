@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List App</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f4f4f9;
+}
+.container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+}
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+#task-input {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.addButton {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+    border: 0;
+    border-bottom: 5px solid #367039;
+  border-radius: 4px;
+  cursor: pointer;
+  transition:all 0.03s ease;
+  margin:5px;
+
+}
+.addButton:hover {
+  background-color: #5fc962;
+  border-bottom:5px solid #478a4a;
+}
+.addButtonPushed{
+  background-color: #63c266;
+  border-bottom:0px!important;
+  transform:translateY(5px);
+  transition:all 0.03s ease;
+} 
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin:5px 0px;
+  animation-name:fadeIn;
+  animation-duration:0.25s;
+  animation-timing-function:ease;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(-20px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+li.show {
+  max-height: 60px;  /* Adjust to your li height */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translate(0px,-20px);
+  }
+  to{
+    opacity:1;
+    transform:translate(0px,0px);
+  }
+
+}
+
+
+
+.task-checkbox {
+  flex-shrink: 0;
+}
+
+li.completed {
+  text-decoration: line-through;
+  background-color: #d3ffd3;
+}
+.delete-btn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.delete-btn:hover {
+  background-color: #ff5a4f;
+}
+
+.deleted {
+  max-height: 0 !important;
+  opacity: 0;
+  transform: translateY(-10px);
+  margin: 0 !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+@keyframes deleted{
+from{opacity:1;
+            transform:translateX(0px);
+}
+to{opacity:0;
+      transform:translateX(30px);
+}
+}
+
+
+.taskCompleted{
+animation-name:completed;
+animation-timing-function: ease;
+animation-duration:0.25s;
+
+}
+@keyframes completed{
+from{opacity:1;
+            transform:translateY(0px);
+}
+to{opacity:0;
+      transform:translateY(30px);
+}
+}
+
+
+.movingBack{
+animation-name:movingBack;
+animation-timing-function: ease;
+animation-duration:0.25s;
+
+}
+
+@keyframes movingBack{
+from{opacity:1;
+            transform:translateY(0px);
+}
+to{opacity:0;
+      transform:translateY(-30px);
+}
+}
+
+
+/* ??? */
+li[data-priority="high"] { border-left: 4px solid #f44336; background: #ffebee; }
+li[data-priority="medium"] { border-left: 4px solid #ff9800; background: #fff3e0; }
+li[data-priority="low"] { border-left: 4px solid #4caf50; background: #e8f5e8; }
+
+
+
+.priorityExplanation{
+  font-size:18px;
+}
+
+.priorityContainer{
+  display:flex;
+  flex-direction: column;
+}
+
+.interactionContainer{
+  display:flex;
+  justify-content: center;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>タスクリスト</h1>
+    <input type="text" id="task-input" placeholder="タスクを入力してください">
+    <div class="interactionContainer">
+      <div class="priorityContainer">
+        <div class="priorityExplanation">優先度</div>
+        <select id="priority-select">
+        <option value="high">🔴高</option>
+        <option value="medium" selected>🟡中</option>
+        <option value="low">🟢低</option>
+        </select>
+      </div>
+      
+    <button id="add-task-button" class="addButton">+</button>
+    </div>
+    <ul id="task-list"></ul>
+    <button id="sort-btn" style="width:100%; margin:10px 0; padding:8px; background:#2196F3; 
+    color:white; border:none; border-radius:4px; cursor:pointer;">優先度順に並べる</button>
+    <ul id="completed-list"></ul>
+  </div>
+  <script src="todolist.js"></script>
+</body>
+</html>
