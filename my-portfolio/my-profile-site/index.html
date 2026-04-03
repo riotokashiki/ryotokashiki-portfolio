@@ -69,7 +69,7 @@
       <section class="hero" >
         <div class="containerForHero">
         <div class="heroMessage">
-        <p class="main" ><span class="message one" data-i18n="messageOne">動きを</span><br><span class="message two" data-i18n="messageTwo">デザイン</span><br><span class="message three" data-i18n="messageThree">する人。</span></p>
+        <p class="main" ><span class="message one" data-i18n="messageOne">動きを</span><span class="message two" data-i18n="messageTwo">デザイン</span><span class="message three" data-i18n="messageThree">する人。</span></p>
         <p class="subtitle" data-i18n="subTitle">アニメーションと細部へのこだわりで<br>使っていて気持ちのいいインターフェイスをつくります。</p>
       </div>
 
@@ -116,10 +116,11 @@
 </div>
   </a></li>
 
-  <li class="box fadeInOnScroll onGoing"><a href=""><div class="itemContainer weather"><img class="weather" src="assets/icons/weather.png" alt="weather">
+  <li class="box fadeInOnScroll onGoing"><a href=""><div class="itemContainer weather"><div class="overLay" data-i18n="inProgress">制作進行中</div><div class="imgAndPContainer"><img class="weather" src="assets/icons/weather.png" alt="weather">
     <h2 data-i18n="weatherApp">天気アプリ</h2>
   <p data-i18n="weatherAppDescription">世界各地の都市の現在気温と天気を表示できるアプリ。<br>
   スムーズなアニメーションを実装。</p>
+  </div>
 </div>
   </a></li>
 
@@ -217,7 +218,7 @@
 </div>
 <a href="mailto:your@email.com" class="yourEmailAdress">Ryo_tokashiki@email.com</a>
 
-<a class="gitHubLink" href="https://github.com/riotokashiki/ryotokashiki-portfolio">GitHubリポジトリーのページ</a>
+<a class="gitHubLink" href="https://github.com/riotokashiki/ryotokashiki-portfolio" data-i18n="repositoryLink">GitHubリポジトリーのページ</a>
 <a class="gitHubLogo" href="https://github.com/riotokashiki/ryotokashiki-portfolio"><img src="assets/icons/gitHubLogoKai.png" alt="gitHub Logo"></a>
 </div>
 
@@ -348,6 +349,18 @@ function openingModalWindow(){
         let theP=document.querySelectorAll(".pillar p");
         /////////////////variables////////////////////////////
 
+
+//////This Variable Is For the TYPING EFFECT////////////////
+          let texts = [
+    "動きをデザインする。",
+    "フロントエンド志望。",
+    "その先にある物は。",
+    // "Built With Clean Code"
+];
+/////////////////////////////////////////////////////////////////
+
+
+
         const languageTranslation={  
 
               en:{    /*data i18n name↓*/
@@ -366,7 +379,7 @@ function openingModalWindow(){
                           jumpToMenu:"Jump to Menu Page",
                           contactInformation:"Contact Information",
                           adress:"Daikan-yama 7-7-7 Shibuya Tokyo\nZip Code:150-0033\nPhone Number:03-1629-6505\nBusiness Hours:10AM to 7PM\nWe are closed on Thursdays.",
-                          subTitle:"I Aim to build Feels Good Websites that are with smooth UIs.",
+                          subTitle:"I Aim to build Feel Good Websites that are with smooth UIs.",
                         seeMyWorks:"See My Works",
                         yuruyuraCafe:"Yuru Yura Cafe",
                         yuruyuraCafeDescription:"A Cafe Business Site in Daikan-yama District in Shibuya, Tokyo.\n・Japanese and English Languages Available\n・Smooth Animation\n・Built from scratch without using any templates",
@@ -384,7 +397,8 @@ function openingModalWindow(){
                         messageTwo:"on",
                         messageThree:"Movements.",
                         myPassions:"I'm Currently Learning..",
-                        onProgress:"On Progress",
+                        inProgress:"In Progress",
+                        repositoryLink:"GitHub Repository Link",
 
               },
 
@@ -409,9 +423,9 @@ function openingModalWindow(){
                         messageOne:"動きを",
                         messageTwo:"デザイン",
                         messageThree:"する人。",
-                        slogan:"動きをデザインする。",
                         myPassions:"My Passions (学習中)",
-                        onProgress:"現在進行中",
+                        inProgress:"現在進行中",
+                        repositoryLink:"GitHubリポジトリーのページ",
 
 
 
@@ -460,6 +474,11 @@ function openingModalWindow(){
               languageSelector.value="jp";//It only visually changes the <select> and won't trigger the bound function.
             languageSelectorTwo.value="jp";
 
+                   //hero typing
+              texts[0]="動きをデザインする。";
+              texts[1]="フロントエンド志望。";
+              texts[2]="その先にある物は。";
+
             });
 
           }
@@ -481,6 +500,11 @@ function openingModalWindow(){
 
               languageSelector.value="en";//It only visually changes the <select> and won't trigger the bound function.
               languageSelectorTwo.value="en";
+
+              //hero typing
+              texts[0]="Designing Movements,";
+              texts[1]="is What I Do.";
+              texts[2]="to make it something Special.";
 
 
             });
@@ -521,12 +545,6 @@ document.querySelectorAll(".fadeInOnScroll").forEach(el => observer.observe(el))
 
 const workButton=document.querySelector(".workButton");
 
-const texts = [
-    "動きをデザインする。",
-    "フロントエンド志望。",
-    "その先にある物は。",
-    // "Built With Clean Code"
-];
 
 let textIndex = 0;
 let charIndex = 0;

@@ -1047,6 +1047,8 @@ p{ font-family: "Zen Maru Gothic", sans-serif;
     opacity: 0;
     display:inline-block;
     width: auto;
+    margin-left: 4px;
+    margin-top: 4px;
 }
 
 
@@ -1060,10 +1062,12 @@ p{ font-family: "Zen Maru Gothic", sans-serif;
 p.main {
     font-size: 3.5rem;
     font-weight: 600;
+    font-family: "Zen Maru Gothic", sans-serif; 
 }
 span.message{
   opacity: 0;
   transition: all 0.5s ease-out;
+  display: block;
 }
 span.message.emerged{
   opacity: 1;
@@ -1130,11 +1134,30 @@ ul.grid li.onGoing:hover{
   transform: scale(1);
 }
 
-ul.grid li.onGoing a .itemContainer{
+.imgAndPContainer{
 filter: brightness(0.5);
 }
 
-ul.grid li.onGoing::before {
+.onGoing a{
+  position: relative
+}
+
+.overLay{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 5;
+  color: white;
+top: 0;
+left: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 2.5rem;
+font-weight: 600;
+}
+
+/* ul.grid li.onGoing::before {
     content: "制作進行中";
     position: absolute;
     z-index: 5;
@@ -1147,7 +1170,7 @@ ul.grid li.onGoing::before {
     display: flex;
     align-items: center;
     justify-content: center;
-}
+} */
 
 ul.grid li.onGoing:hover::after
  {
@@ -1157,7 +1180,7 @@ ul.grid li a div img.weather{
     display: block;
     object-fit: none;
     /* width: 100%; */
-    height: 50%;
+    height: 45%;
 }
 .circle.passion{
   background-color: orange;
