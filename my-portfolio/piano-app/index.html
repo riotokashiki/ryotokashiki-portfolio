@@ -394,6 +394,15 @@ const NOTE_TO_CLASS = {
 const ERASE_MS = 1000;
 
 
+let audioContext = null;
+
+function getAudioContext() {
+  if (!audioContext || audioContext.state === 'closed') {
+    audioContext = new AudioContext();
+  }
+  return audioContext;
+}
+
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -479,7 +488,7 @@ else{
 
 
 if(!isMuted){
-const audioContext=new AudioContext();
+const audioContext=getAudioContext();
 const gainNode=audioContext.createGain();
 $('#volumeSlider').val(0);
 volume=0;
@@ -543,7 +552,7 @@ function octaveDown()
 function playTone(note)
 {
   
-  const audioContext=new AudioContext();
+  const audioContext=getAudioContext();
   const gainNode=audioContext.createGain();
  
   const oscillator=audioContext.createOscillator();
@@ -587,7 +596,7 @@ function startAutoPlay() {
   currentSongLength = SCORES[currentSong].length;
   setKeyboardEnabled(false);
 
-  const audioContext = new AudioContext();
+  const audioContext = getAudioContext();
 
   function playNextNote() {
     if (currentNoteIndex < currentSongLength) {
