@@ -42,7 +42,7 @@
             <li><a href="#about" onclick="closingModalWindow()">ABOUT ME</a></li>
            
             <li><a href="#contact" onclick="closingModalWindow()">CONTACT</a></li>
-            <li><a href="#" onclick="closingModalWindow()">BACK TO TOP↑</a></li>
+            <li><a href="#" onclick="closingModalWindow()" data-i18n="backToTop">BACK TO TOP↑</a></li>
 
           </ul>
 
@@ -163,9 +163,7 @@
 <h2 data-i18n="myPassions">My Passions (学習中)</h2>
 <ul class="skillGrid">
   <li><div class="circle passion"></div>React</li>
-  <li><div class="circle passion"></div>Node.js</li>
   <li><div class="circle passion"></div>Figma</li>
-  <li><div class="circle passion"></div>PhotoShop</li>
 
 </ul>
 
@@ -254,11 +252,22 @@
 
         let clearKey=null;
 
-        const outsideClickHandler=function(){
+        const outsideClickHandler=function(event){
+        console.log(event.target);
+
           if (!theModalWindow.contains(event.target) && event.target!== theCloseButton) {
+            const link=event.target.closest("a");
+            console.log("event.target.closest('a') is "+link);
+            if(link){
+               event.preventDefault();
+      console.log("event.preventDefault Added!");
+            }
+
     closingModalWindow();
         }
-  console.log("Event Listener on document added!");};
+  console.log("Event Listener on document added!");
+
+};
         
 function openingModalWindow(){
   
@@ -309,9 +318,10 @@ function openingModalWindow(){
             console.log(".modalWindowShown removed!");
             document.documentElement.style.overflow="auto";
            theModalWindow.classList.remove("closing");
+           document.removeEventListener("click", outsideClickHandler,false);
           },250);
 
-          document.removeEventListener("click", outsideClickHandler,false);
+          
 
         console.log("Event Listener on document removed!");
 
@@ -411,7 +421,7 @@ function openingModalWindow(){
                         myPassions:"I'm Currently Learning..",
                         inProgress:"In Progress",
                         repositoryLink:"GitHub Repository Link",
-
+                        backToTop:"BACK TO TOP↑",
               },
 
               jp:{
@@ -423,7 +433,7 @@ function openingModalWindow(){
                         yuruyuraCafe:"ゆるゆらカフェ",
                         yuruyuraCafeDescription:"代官山にあるカフェを題材にしたビジネスサイト。\n・英語表記に切り替え可能のバイリンガル対応\n・スムーズなアニメーション\n・テンプレを使わず１から制作",
                         pianoApp:"ピアノアプリ",
-                        pianoAppDescription:"おもちゃのピアノを題材にした楽器アプリ。\n・楽曲自動演奏\n(2曲：きらきらぼし、チューリップ)\n・オクターブ調節機能で音階変更可能\n・ミュート機能、音量調整UI\n・なめらかな鍵盤アニメーション",
+                        pianoAppDescription:"おもちゃのピアノを題材にした楽器アプリ。\n・楽曲自動演奏\n(2曲：きらきらぼし、チューリップをランダム再生)\n・オクターブ調節機能で音階変更可能\n・ミュート機能、音量調整UI\n・なめらかな鍵盤アニメーション",
                         todolistApp:"To-Doリストアプリ",
                         todolistAppDescription:"多機能タスクリストアプリ。\n・タスクに優先度 (高、中、低) を設定可能\n・優先度に基づいてタスクを整列可能\n・なめらかなアニメーション",
                         weatherApp:"天気アプリ",
@@ -438,6 +448,8 @@ function openingModalWindow(){
                         myPassions:"My Passions (学習中)",
                         inProgress:"現在進行中",
                         repositoryLink:"GitHubリポジトリーのページ",
+                        backToTop:"トップに戻る↑",
+
 
 
 
