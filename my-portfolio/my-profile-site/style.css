@@ -888,7 +888,7 @@ ul.skillGrid li{
   background: gray;
   border-radius: 10px;
   display: flex;
-      height: 50px;
+     min-height: 50px;  
     align-items: center;
         padding: 1rem;
 
@@ -938,6 +938,8 @@ ul.skillGrid li{
   border-radius: 50%;
   animation:puls 4s infinite;
   margin: 0.3rem;
+  flex-shrink: 0; 
+  min-width: 1rem; 
 }
 
 @keyframes puls{
