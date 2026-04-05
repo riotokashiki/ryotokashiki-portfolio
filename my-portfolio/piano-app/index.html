@@ -400,6 +400,11 @@ function getAudioContext() {
   if (!audioContext || audioContext.state === 'closed') {
     audioContext = new AudioContext();
   }
+
+  if(audioContext.state==="suspended"){
+    audioContext.resume()
+  }
+
   return audioContext;
 }
 
@@ -488,8 +493,6 @@ else{
 
 
 if(!isMuted){
-const audioContext=getAudioContext();
-const gainNode=audioContext.createGain();
 $('#volumeSlider').val(0);
 volume=0;
 
