@@ -26,6 +26,9 @@
 動画ソース:[pixabay.com](https://pixabay.com/)
 
 
+お気軽に連絡ください。以下が私のメールアドレスです。\
+ryotokashiki.codes@gmail.com
+
 Your name / title (e.g. "John Smith's Frontend Portfolio")
 Brief intro about yourself
 List of projects with links

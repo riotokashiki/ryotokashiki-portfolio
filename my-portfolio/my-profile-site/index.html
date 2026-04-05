@@ -155,22 +155,28 @@
   <li><div class="circle"></div>Javascript</li>
   <li><div class="circle"></div>CSS</li>
   <li><div class="circle"></div>HTML</li>
-  <li><div class="circle"></div>GitHub</li>
 
 </ul>
+</div>
 
 <div class="skills fadeInOnScroll">
 <h2 data-i18n="myPassions">My Passions (学習中)</h2>
 <ul class="skillGrid">
   <li><div class="circle passion"></div>React</li>
   <li><div class="circle passion"></div>Figma</li>
-
 </ul>
-
-
-
-
 </div>
+
+<div class="skills fadeInOnScroll">
+<h2 data-i18n="myTools">Tools 使用ツール</h2>
+<ul class="skillGrid">
+  <li><div class="circle passion"></div>Git/GitHub</li>
+  <li><div class="circle passion"></div>VS Code</li>
+  <li><div class="circle passion"></div>Chrome開発者ツール</li>
+</ul>
+</div>
+
+
 
 </section>
 <section class="news" id="news">
@@ -214,7 +220,7 @@
   <h3 data-i18n="letsMakeSomethingTogether">一緒に作りませんか。</h3>
   <p data-i18n="callMe">お気軽にご連絡ください。
 </div>
-<a href="mailto:your@email.com" class="yourEmailAdress">Ryo_tokashiki@email.com</a>
+<a href="mailto:your@email.com" class="yourEmailAdress">ryotokashiki.codes@gmail.com</a>
 
 <a class="gitHubLink" href="https://github.com/riotokashiki/ryotokashiki-portfolio" data-i18n="repositoryLink">GitHubリポジトリーのページ</a>
 <a class="gitHubLogo" href="https://github.com/riotokashiki/ryotokashiki-portfolio"><img src="assets/icons/gitHubLogoKai.png" alt="gitHub Logo"></a>
@@ -410,7 +416,7 @@ function openingModalWindow(){
                         todolistApp:"To-Do List App",
                         todolistAppDescription:"Multi Functional Task List App\n・Tasks can be assigned with Priorities(High, Middle, Low)\n・Sort by Priority\n・Smooth Animations",
                         weatherApp:"Weather App",
-                        weatherAppDescription:"An App that can show weathers and temperatures around the world.\nSmooth Animations",
+                        weatherAppDescription:"An Weather App that can show weathers and temperatures around the world.\nPlanned to be built with Open Weather API and React.\nSmooth Animations going to be impremented.",
                         aboutMe:"About Me",
                         selfIntroductionSentences:"Hi, I'm Ryo Tokashiki,learning website building skills to become a front-end engineer.\nMy favorite part about web designing is Animation.\nI'd love to create smooth animated UIs for my users to feel good. \nI'm job hunting right now.\nLet's make something awesome together!",
                         letsMakeSomethingTogether:"Let's make something Great Together!!",
@@ -422,6 +428,7 @@ function openingModalWindow(){
                         inProgress:"In Progress",
                         repositoryLink:"GitHub Repository Link",
                         backToTop:"BACK TO TOP↑",
+                        myTools:"Tools I use",
               },
 
               jp:{
@@ -437,7 +444,7 @@ function openingModalWindow(){
                         todolistApp:"To-Doリストアプリ",
                         todolistAppDescription:"多機能タスクリストアプリ。\n・タスクに優先度 (高、中、低) を設定可能\n・優先度に基づいてタスクを整列可能\n・なめらかなアニメーション",
                         weatherApp:"天気アプリ",
-                        weatherAppDescription:"世界各地の都市の現在気温と天気を表示できるアプリ。\nスムーズなアニメーションを実装。",
+                        weatherAppDescription:"世界各地の都市の現在気温と天気を表示できるアプリ。\nOpen Weather APIとReactを使用予定。\nスムーズなアニメーションを実装予定。",
                         aboutMe:"自己紹介",
                         selfIntroductionSentences:"はじめまして。\n渡嘉敷 諒(Ryo Tokashiki)と申します。\nフロントエンドエンジニアを目指し、勉強中です。\nアニメーションへのこだわりが強く、\nユーザーが思わず触りたくなるインタラクティブなインターフェイスを作ることを目指しています。\n現在積極的に就職先を探しています。\n一緒に何か作りましょう！",
                         letsMakeSomethingTogether:"一緒に作りませんか。",
@@ -449,7 +456,7 @@ function openingModalWindow(){
                         inProgress:"現在進行中",
                         repositoryLink:"GitHubリポジトリーのページ",
                         backToTop:"トップに戻る↑",
-
+                        myTools:"Tools 使用ツール",
 
 
 
@@ -613,7 +620,7 @@ function typeLoop() {
 
                   setTimeout(()=>{
                     document.querySelector("p.subtitle").classList.add("emerged");
-                      workButton.classList.add("emerged");
+                      document.querySelector(".workButtonWrapper").classList.add("emerged");
                     setTimeout(()=>{
 
                         
