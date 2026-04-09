@@ -21,7 +21,8 @@
 
 
 使用した言語：HTML,CSS,Javascript\
-その他使用ソフトウェア: GIMP, ClipChamp,Canva\
+使用ソフトウェア：VS Code, GitHub\
+その他ソフトウェア: GIMP, ClipChamp,Canva\
 画像ソース: [unsplash.com](https://unsplash.com/), [icons8.com](https://icons8.com/)\
 動画ソース:[pixabay.com](https://pixabay.com/)
 
