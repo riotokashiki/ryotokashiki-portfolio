@@ -1222,6 +1222,10 @@ ul.grid li a div img.weather{
   background: #6facea;;
 }
 
+.hide{
+  display: none;
+}
+
     /*==========================================
     ===========================================
                       MOBILE RESPONSIVE STYLE                                  
