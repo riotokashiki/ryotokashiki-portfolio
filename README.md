@@ -28,6 +28,8 @@
 画像ソース: [unsplash.com](https://unsplash.com/), [icons8.com](https://icons8.com/)\
 動画ソース:[pixabay.com](https://pixabay.com/)
 
+**Reactも現在学習中です！！**
+
 
 メールアドレスはこちらです。お気軽に連絡ください。\
 ryotokashiki.codes@gmail.com
