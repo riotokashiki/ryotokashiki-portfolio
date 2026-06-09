@@ -1,7 +1,8 @@
 # ryotokashiki-portfolio
 #　渡嘉敷　諒（Ryo Tokashiki）のフロントエンドポートフォリオ用リポジトリです。
 
-**どうもこんにちは！渡嘉敷　諒（とかしき　りょう）と申します。**\
+**どうもこんにちは！!\
+渡嘉敷　諒（とかしき　りょう）と申します。**\
 自分は以前から趣味としてGoogle Chromeの拡張機能を触って遊んでいまして、\
 そこからフロントエンドの世界に興味を持ち学習を始めました。\
 その後約2年間ITスキル特化型の就労移行支援所に通い、\
@@ -27,6 +28,8 @@
 その他ソフトウェア: GIMP, ClipChamp,Canva\
 画像ソース: [unsplash.com](https://unsplash.com/), [icons8.com](https://icons8.com/)\
 動画ソース:[pixabay.com](https://pixabay.com/)
+
+**Reactも現在学習中です！！**
 
 
 メールアドレスはこちらです。お気軽に連絡ください。\
