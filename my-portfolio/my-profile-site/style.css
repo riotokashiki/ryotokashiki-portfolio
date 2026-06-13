@@ -1162,9 +1162,7 @@ ul.grid li.onGoing:hover{
   transform: scale(1);
 }
 
-.imgAndPContainer{
-filter: brightness(0.5);
-}
+
 
 .onGoing a{
   position: relative
