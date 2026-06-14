@@ -1210,6 +1210,22 @@ ul.grid li a div img.weather{
   display: none;
 }
 
+.icon{
+  border-radius: 50%;
+  background-image:url(assets/images/compressedImages/pixelatedRyo3.png);
+  object-fit: cover;
+  background-size: 100%;  
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 8rem;
+        height: 8rem;
+        margin: 3rem;
+}
+.icon_container{
+  display: flex;
+  
+}
+
     /*==========================================
     ===========================================
                       MOBILE RESPONSIVE STYLE                                  
@@ -1582,6 +1598,13 @@ ul.skillGrid li
     min-width: 126px;
 }
                 
+.icon_container{
+  display: flex;
+ justify-content: center; 
+}
+
+
+
     }
 
 

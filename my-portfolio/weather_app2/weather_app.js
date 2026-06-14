@@ -14,7 +14,7 @@ let the_ul=document.getElementById("ul");
 let all_lis=Array.from(document.querySelectorAll("li"));
 let input_city=document.getElementById("input_city");
 let img=document.querySelector("img");
-
+let weather_icon_li=document.getElementById("weather_icon");
 
 let city_name=null;
 let country_code=null;
@@ -149,7 +149,8 @@ text_field.value="";
 all_lis.forEach((item)=>{
 item.innerHTML="";
 city_name_li.innerHTML = "取得できませんでした。<br>次の入力をどうぞ。";
-
+img=document.createElement("img");
+weather_icon_li.appendChild(img);
 
 
 })
