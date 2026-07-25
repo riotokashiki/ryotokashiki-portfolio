@@ -1,508 +1,494 @@
-<!DOCTYPE  html>
+<!doctype html>
 <html lang="ja">
-    <head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>to do list</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-      <link rel="stylesheet" type="text/css" href="reset.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="reset.css" />
     <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-        *{
-          box-sizing:border-box;
-          margin:0;
-          padding:0;
-        }
+      body,
+      html {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        width: 100%;
+        min-height: 100%;
+        background: #3f3f9f;
+      }
 
-
-          body, html {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            width: 100%;
-            min-height: 100%;
-            background: #3f3f9f;
-        }
-
-      .wholeContainer{
+      .wholeContainer {
         margin: 1rem;
         box-shadow: 0px 0px 5px gray;
-        border-radius:15px;
+        border-radius: 15px;
         min-width: 50vw;
-        display:flex;
+        display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         padding: 1rem 0;
         min-height: 20vh;
-            background: #a2d1e6;
-            z-index: 1;
+        background: #a2d1e6;
+        z-index: 1;
       }
-      .upperHalfContainer{
+      .upperHalfContainer {
         position: relative;
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-                height: 17vh;
+        height: 17vh;
       }
 
-.addButton {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: 0;
-    border-bottom: 5px solid #367039;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.03s ease;
-         margin-top: 6vh;
-       
-    left: 0%;
-    max-height: 10vh;
-    max-width: 10vh;
-    font-size: 1.3rem;
-}
-.addButton:hover {
-  background-color:#78e37b;
-  border-bottom:5px solid #66c26b;;
-}
-.addButtonPushed{
-  background-color: #63c266;
-  border-bottom:0px!important;
-  transform:translateY(5px);
-  transition:all 0.03s ease;
-} 
-      .inputContainer{
+      .addButton {
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        border: 0;
+        border-bottom: 5px solid #367039;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.03s ease;
+        margin-top: 6vh;
+
+        left: 0%;
+        max-height: 10vh;
+        max-width: 10vh;
+        font-size: 1.3rem;
+      }
+      .addButton:hover {
+        background-color: #78e37b;
+        border-bottom: 5px solid #66c26b;
+      }
+      .addButtonPushed {
+        background-color: #63c266;
+        border-bottom: 0px !important;
+        transform: translateY(5px);
+        transition: all 0.03s ease;
+      }
+      .inputContainer {
         display: flex;
         flex-direction: column;
         justify-content: center;
-            width: 100%;
+        width: 100%;
       }
-      .devidingContainer2 p{
+      .devidingContainer2 p {
         text-align: center;
-            margin: 1rem;
-          
+        margin: 1rem;
       }
 
-      .devidingContainer1,.devidingContainer3{
+      .devidingContainer1,
+      .devidingContainer3 {
         width: 20%;
         height: 100%;
       }
-      .devidingContainer3{
-        position: relative
+      .devidingContainer3 {
+        position: relative;
       }
 
-      .devidingContainer2{
+      .devidingContainer2 {
         width: 60%;
-            height: 100%;
+        height: 100%;
       }
 
-      #inputField{
+      #inputField {
         height: 2rem;
-            box-shadow: inset 0px 0px 4px gray;
-            border: none;
-            padding: 1rem;
-                font-size: 0.9rem;
-                width: 100%;
+        box-shadow: inset 0px 0px 4px gray;
+        border: none;
+        padding: 1rem;
+        font-size: 0.9rem;
+        width: 100%;
       }
-      input:focus{
-        outline:none;
+      input:focus {
+        outline: none;
       }
 
+      ul {
+        border-radius: 15px;
 
-      ul{
-        border-radius:15px;
-        
         max-width: 100%;
         width: 100%;
         overflow: hidden;
         box-shadow: 0px 0px 5px gray;
-            background: #a2cce2;
+        background: #a2cce2;
       }
-      .list{
-        color:black;
+      .list {
+        color: black;
       }
       span {
-    color: black;
-    width: 24vw;
-    overflow: hidden;
-    overflow-wrap: break-word;
-    padding: 0 0.5em;
-}
-      .deleteButton{
-        color:white;
-        background:red;
-        border-radius:10px;
-        height:35px;
-        width:50px;
-        font-size:15px;
+        color: black;
+        width: 24vw;
+        overflow: hidden;
+        overflow-wrap: break-word;
+        padding: 0 0.5em;
+      }
+      .deleteButton {
+        color: white;
+        background: red;
+        border-radius: 10px;
+        height: 35px;
+        width: 50px;
+        font-size: 15px;
         text-align: center;
         padding-right: 8px;
         padding-left: 2.5px;
       }
 
-      li{
-        list-style-type:none;
+      li {
+        list-style-type: none;
         display: flex;
-      
+
         padding: 5px 20px;
         overflow: hidden;
-            display: flex;
-    justify-content: space-between;
+        display: flex;
+        justify-content: space-between;
       }
 
-      ul{
-            padding-left: 0;
-            
+      ul {
+        padding-left: 0;
       }
 
-      .completed{
+      .completed {
         text-decoration: line-through;
       }
-      
-      .pritorityContainer{
+
+      .pritorityContainer {
         display: flex;
         justify-content: center;
       }
 
-      #sort{
+      #sort {
         position: absolute;
-        right:0px;
+        right: 0px;
         bottom: 0;
         font-size: 12px;
         width: 100%;
-
       }
 
-      .priority1{
-        border-left:10px red solid;
+      .priority1 {
+        border-left: 10px red solid;
       }
-      .priority2{
+      .priority2 {
         border-left: 10px yellow solid;
       }
-      .priority3{
+      .priority3 {
         border-left: 10px blue solid;
       }
-      
-      
-      .taskCompleted{
-      animation-name:completed;
-      animation-timing-function: ease;
-      animation-duration:0.25s;
 
+      .taskCompleted {
+        animation-name: completed;
+        animation-timing-function: ease;
+        animation-duration: 0.25s;
       }
-      @keyframes completed{
-      from{opacity:1;
-                  max-height: 2rem;
-      }
-      to{opacity:0;
-            max-height: 0rem;
-      }
-      }
-
-
-            .receivingInCompletedList{
-      animation-name:receiving;
-      animation-timing-function: ease;
-      animation-duration:0.25s;
+      @keyframes completed {
+        from {
+          opacity: 1;
+          max-height: 2rem;
+        }
+        to {
+          opacity: 0;
+          max-height: 0rem;
+        }
       }
 
-      @keyframes receiving{
-      from{opacity:0;
-                  transform:translateY(-30px);
-      }
-      to{opacity:1;
-            transform:translateY(0px);
-      }
+      .receivingInCompletedList {
+        animation-name: receiving;
+        animation-timing-function: ease;
+        animation-duration: 0.25s;
       }
 
-      .smoothGrowing{
-        animation :growingDown 0.25s ease;
-      }
-      @keyframes growingDown{
-      from{opacity:0;
-                  max-height: 0rem;
-      }
-      to{opacity:1;
-            max-height: 2rem;
-      }
+      @keyframes receiving {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0px);
+        }
       }
 
-      .uncompletedListContainer{
-            width: 89%;
-            margin: 1rem 0rem;
+      .smoothGrowing {
+        animation: growingDown 0.25s ease;
+      }
+      @keyframes growingDown {
+        from {
+          opacity: 0;
+          max-height: 0rem;
+        }
+        to {
+          opacity: 1;
+          max-height: 2rem;
+        }
+      }
+
+      .uncompletedListContainer {
+        width: 89%;
+        margin: 1rem 0rem;
       }
       .completedListContainer {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
 
-      .header{
+      .header {
         text-align: center;
         margin-bottom: 1rem;
       }
 
-      .choiceWrapper1{
-       background-color: rgb(248, 147, 147);
-       display: flex;
-       flex-direction: column;
-       width: 2rem;
-       justify-content: center;
-       align-items: center;
-      }
-       .choiceWrapper2{
-       background-color: rgb(243, 248, 147);
-          display: flex;
-       flex-direction: column;
+      .choiceWrapper1 {
+        background-color: rgb(248, 147, 147);
+        display: flex;
+        flex-direction: column;
         width: 2rem;
-       justify-content: center;
-       align-items: center;
+        justify-content: center;
+        align-items: center;
       }
-       .choiceWrapper3{
-       background-color: rgb(147, 177, 248);
-          display: flex;
-       flex-direction: column;
+      .choiceWrapper2 {
+        background-color: rgb(243, 248, 147);
+        display: flex;
+        flex-direction: column;
         width: 2rem;
-       justify-content: center;
-       align-items: center;
+        justify-content: center;
+        align-items: center;
+      }
+      .choiceWrapper3 {
+        background-color: rgb(147, 177, 248);
+        display: flex;
+        flex-direction: column;
+        width: 2rem;
+        justify-content: center;
+        align-items: center;
       }
 
-      .priority-title{
+      .priority-title {
         display: flex;
         justify-content: center;
         align-items: center;
       }
-p.title{
-  margin:1rem;
-}
-
-      .smoothDelete{
-        animation :smoothDelete 0.15s ease;
+      p.title {
+        margin: 1rem;
       }
 
-         @keyframes smoothDelete{
-      from{opacity:1;
-                  max-height: 2rem;
+      .smoothDelete {
+        animation: smoothDelete 0.15s ease;
       }
-      to{opacity:0;
-            max-height: 0rem;
+
+      @keyframes smoothDelete {
+        from {
+          opacity: 1;
+          max-height: 2rem;
+        }
+        to {
+          opacity: 0;
+          max-height: 0rem;
+        }
       }
-      }
-      ul.completed{
-            width: 89%;
-            margin: 1rem 0rem;
+      ul.completed {
+        width: 89%;
+        margin: 1rem 0rem;
       }
       button {
-    border: none;
-    box-shadow: 0px 0px 1px gray;
-    color: #4c4c4c;
-}
+        border: none;
+        box-shadow: 0px 0px 1px gray;
+        color: #4c4c4c;
+      }
 
-.buttonWrapper{
-      display: flex;
-    overflow: hidden;
-    border-radius: 5px;
-}
+      .buttonWrapper {
+        display: flex;
+        overflow: hidden;
+        border-radius: 5px;
+      }
 
-.li_button{
-  margin-right: 10px;
-  border-radius: 6px;
-  font-size: 0.7rem;
-  box-shadow: 0px 0px 5px gray;
-  background-color: #cfcfcf;
-      padding: 0px 5px;
-}
+      .li_button {
+        margin-right: 10px;
+        border-radius: 6px;
+        font-size: 0.7rem;
+        box-shadow: 0px 0px 5px gray;
+        background-color: #cfcfcf;
+        padding: 0px 5px;
+      }
 
+      .completedListContainer ul {
+        width: 89%;
+      }
 
-.completedListContainer ul{
-  width: 89%;
-}
+      button.reset {
+        color: black;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        background: gray;
+        z-index: 100;
+      }
 
-button.reset {
-    color: black;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    background: gray;
-    z-index: 100;
-}
+      .resetWindow {
+        color: black;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        background: gray;
 
-.resetWindow{
-  color: black;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    background: gray;
- 
-      height: 10vh;
-    width: 14vh;
-display: flex;
-flex-direction: column;
-   display: none;
-   z-index:100;
-}
+        height: 10vh;
+        width: 14vh;
+        display: flex;
+        flex-direction: column;
+        display: none;
+        z-index: 100;
+      }
 
-.resetButtonContainer button {
-    margin-right: 4%;
-    width: 50%;
-    font-size: 0.6rem;
-}
-
-.resetButtonContainer {
-    display: flex;
-}
-
-.show{
-  display: flex;
-}
-.hide{
-  display: none;
-}
-
-.visibilityHidden{
-  visibility: hidden;
-}
-
-.borderTransparent{
-  border-left: 10px transparent solid;
-}
-
-@media (max-width: 768px) {
-
-  * {
-    font-size: 0.9rem;
-}
-
-  .wholeContainer{
-    width: 70vw
-  }
-
-.li_button {
-    margin-right:null;
-}
-
-span {
-    width: 32vw;
-}
-
-
-
-}
-
-@media (max-width: 480px) {
-.li_button {
-    font-size: 10px;
-    margin: 0;
-}
-
-*{
-      font-size: 0.84rem;
-    
-}
-
-    .wholeContainer {
-        width: 85vw;
-    }
-
-.devidingContainer2 p {
-    font-size: 0.9rem;
-    margin: 0.8rem;
-}
-
-
-.addButton {
-    margin-top: 5vh;
-}
-
-#inputField {
-    font-size: 0.6rem;
-}
-
-#sort {
+      .resetButtonContainer button {
+        margin-right: 4%;
+        width: 50%;
         font-size: 0.6rem;
-}
+      }
 
+      .resetButtonContainer {
+        display: flex;
+      }
 
+      .show {
+        display: flex;
+      }
+      .hide {
+        display: none;
+      }
 
-}
+      .visibilityHidden {
+        visibility: hidden;
+      }
 
+      .borderTransparent {
+        border-left: 10px transparent solid;
+      }
 
+      @media (max-width: 768px) {
+        * {
+          font-size: 0.9rem;
+        }
+
+        .wholeContainer {
+          width: 70vw;
+        }
+
+        .li_button {
+          margin-right: null;
+        }
+
+        span {
+          width: 32vw;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .li_button {
+          font-size: 10px;
+          margin: 0;
+        }
+
+        * {
+          font-size: 0.84rem;
+        }
+
+        .wholeContainer {
+          width: 85vw;
+        }
+
+        .devidingContainer2 p {
+          font-size: 0.9rem;
+          margin: 0.8rem;
+        }
+
+        .addButton {
+          margin-top: 5vh;
+        }
+
+        #inputField {
+          font-size: 0.6rem;
+        }
+
+        #sort {
+          font-size: 0.6rem;
+        }
+      }
     </style>
-    </head>
-    <body>
+  </head>
+  <body>
+    <div class="wholeContainer">
+      <div class="upperHalfContainer">
+        <div class="devidingContainer1"></div>
+        <div class="devidingContainer2">
+          <p class="title">タスク管理アプリ（バニラJS Ver）</p>
 
-      <div class="wholeContainer">
-        <div class="upperHalfContainer">
-          <div class="devidingContainer1"></div>
-            <div class="devidingContainer2">
-            
-            <p class="title">タスク管理アプリ</p>
-          
-            
-            <input type="text" id="inputField" class="priority2" placeholder="タスクを入力してください">
-            
-            <div class="pritorityContainer">
+          <input
+            type="text"
+            id="inputField"
+            class="priority2"
+            placeholder="タスクを入力してください"
+          />
+
+          <div class="pritorityContainer">
             <p class="priority-title">優先度：</p>
             <div class="buttonWrapper">
-                <div class="choiceWrapper1">
-                    <input type="radio" id="priorityChoice1" name="priority" value="1">
-                    <label for="priorityChoice1">高</label>
-                </div>
-                <div class="choiceWrapper2">
-                    <input type="radio" id="priorityChoice2" name="priority" value="2" checked>
-                    <label for="priorityChoice2">中</label>
-                </div>
-                <div class="choiceWrapper3">
-                    <input type="radio" id="priorityChoice3" name="priority" value="3">
-                    <label for="priorityChoice3">低</label>
-                
-            </div>
-            </div>
-            
+              <div class="choiceWrapper1">
+                <input
+                  type="radio"
+                  id="priorityChoice1"
+                  name="priority"
+                  value="1"
+                />
+                <label for="priorityChoice1">高</label>
               </div>
-        </div>    
-              <div class="devidingContainer3">
-                <button class="addButton" id="addButton">+</button>
-                  <button id="sort">優先度順に整列</button>
+              <div class="choiceWrapper2">
+                <input
+                  type="radio"
+                  id="priorityChoice2"
+                  name="priority"
+                  value="2"
+                />
+                <label for="priorityChoice2">中</label>
               </div>
+              <div class="choiceWrapper3">
+                <input
+                  type="radio"
+                  id="priorityChoice3"
+                  name="priority"
+                  value="3"
+                />
+                <label for="priorityChoice3">低</label>
+              </div>
+            </div>
           </div>
-          <div class="uncompletedListContainer">
-        <ul id="taskList">
-
-
-
-
-
-
-
-
-        </ul>
-
-
-
-
-
-
+        </div>
+        <div class="devidingContainer3">
+          <button class="addButton" id="addButton">+</button>
+          <button id="sort">優先度順に整列</button>
+        </div>
       </div>
-      <div class="completedListContainer">
-
-
+      <div class="uncompletedListContainer">
+        <ul id="taskList"></ul>
       </div>
+      <div class="completedListContainer"></div>
+    </div>
 
-</div>
+    <button class="reset">リセット</button>
+    <div class="resetWindow">
+      <p>リセットしますか？</p>
+      <div class="resetButtonContainer">
+        <button class="no">いいえ</button>
+        <button class="yes">はい</button>
+      </div>
+    </div>
 
-<button class="reset">リセット</button>
-<div class="resetWindow">
-  <p>リセットしますか？</p>
-  <div class="resetButtonContainer">
-  <button class="no">いいえ</button>
-  <button class="yes">はい</button>
-  </div>
-</div>
-
-  <script src="todolist.js"></script><!--Where to put JS sheet is before the closing body tag.   -->
-    </body>
+    <script src="todolist.js"></script>
+    <!--Where to put JS sheet is before the closing body tag.   -->
+  </body>
 </html>
