@@ -1,6 +1,6 @@
 # ryotokashiki-portfolio
 
-#　渡嘉敷　諒（Ryo Tokashiki）のフロントエンドポートフォリオ用リポジトリです。
+# 渡嘉敷　諒（Ryo Tokashiki）のフロントエンドポートフォリオ用リポジトリです。
 
 **どうもこんにちは！!\
 渡嘉敷　諒（とかしき　りょう）と申します。**\
@@ -16,13 +16,13 @@
 
 ## 成果物
 
-### ・[渡嘉敷　諒の自己紹介ポートフォリオページ](https://riotokashiki.github.io/react/)\
+### ・[渡嘉敷　諒の自己紹介ポートフォリオページ](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/my-profile-site/index.html)
 
-### ・[代官山カフェサイト](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/yuru-yura-cafe-site/index.html)\
+### ・[代官山カフェサイト](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/yuru-yura-cafe-site/index.html)
 
-### ・[タスク管理アプリ](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/to-do-list-app/index.html)\
+### ・[タスク管理アプリ](https://riotokashiki.github.io/react/)
 
-### ・[鍵盤アプリ](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/piano-app/index.html)\
+### ・[鍵盤アプリ](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/piano-app/index.html)
 
 ### ・[気象アプリ](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/weather_app2/index.html)
 
@@ -36,5 +36,6 @@
 
 ## 連絡先
 
-メールアドレスはこちらです。お気軽に連絡ください。\
+メールアドレスはこちらです。お気軽に連絡ください。
+
 ryotokashiki.codes@gmail.com
