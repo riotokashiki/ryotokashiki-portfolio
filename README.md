@@ -1,4 +1,5 @@
 # ryotokashiki-portfolio
+
 #　渡嘉敷　諒（Ryo Tokashiki）のフロントエンドポートフォリオ用リポジトリです。
 
 **どうもこんにちは！!\
@@ -13,27 +14,27 @@
 以下が私の成果物になります。\
 お眼鏡にかなえば幸いです。
 
-・[渡嘉敷　諒の自己紹介ポートフォリオページ](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/my-profile-site/index.html)\
-・[代官山カフェサイト](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/yuru-yura-cafe-site/index.html)\
-・[タスク管理アプリ](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/to-do-list-app/index.html)\
-・[鍵盤アプリ](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/piano-app/index.html)\
-・[気象アプリ](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/weather_app2/index.html)
+## 成果物
 
+### ・[渡嘉敷　諒の自己紹介ポートフォリオページ](https://riotokashiki.github.io/react/)\
 
+### ・[代官山カフェサイト](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/yuru-yura-cafe-site/index.html)\
 
+### ・[タスク管理アプリ](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/to-do-list-app/index.html)\
 
+### ・[鍵盤アプリ](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/piano-app/index.html)\
 
+### ・[気象アプリ](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/weather_app2/index.html)
 
-使用した言語：HTML,CSS,Javascript\
+## 使用した技術スタック
+
+使用した言語：React,HTML,CSS,Javascript\
 使用ソフトウェア：VS Code, GitHub\
 その他ソフトウェア: GIMP, ClipChamp,Canva\
 画像ソース: [unsplash.com](https://unsplash.com/), [icons8.com](https://icons8.com/)\
 動画ソース:[pixabay.com](https://pixabay.com/)
 
-**Reactも現在学習中です！！**
-
+## 連絡先
 
 メールアドレスはこちらです。お気軽に連絡ください。\
 ryotokashiki.codes@gmail.com
-
-
