@@ -1226,6 +1226,21 @@ ul.grid li a div img.weather{
   
 }
 
+.tech_stack_icon_container{
+  display: flex;
+  padding-left: 1rem;
+}
+
+.tech_stack_icon {
+    border: #676767 1px solid;
+    border-radius: 7px;
+    padding: 2px;
+    background: gray;
+    margin-right: 1px;
+}
+
+
+
     /*==========================================
     ===========================================
                       MOBILE RESPONSIVE STYLE                                  
