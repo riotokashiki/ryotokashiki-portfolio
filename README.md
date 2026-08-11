@@ -20,7 +20,7 @@
 
 ### ・[代官山カフェサイト](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/yuru-yura-cafe-site/index.html)
 
-### ・[タスク管理アプリ](https://riotokashiki.github.io/react/)
+### ・[タスク管理アプリ](https://riotokashiki.github.io/react/to_do_list/)
 
 ### ・[鍵盤アプリ](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/piano-app/index.html)
 
