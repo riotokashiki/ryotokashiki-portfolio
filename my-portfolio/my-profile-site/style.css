@@ -1153,17 +1153,17 @@ video.heroBg.emerged {
 
 .playback video.todolist_vid {
   width: 100%;
-  transform: translate(-52px, 0px) scale(1.35);
+  transform: translate(-12%, 2%) scale(1.35);
 }
 
 .playback video.piano_app_vid {
   width: 100%;
-  transform: translate(-41px, 0px) scale(1);
+  transform: translate(-9%, -0.9%) scale(1);
 }
 
 .playback video.weather_app_vid {
   width: 100%;
-  transform: translate(-82px, 72px) scale(2.1);
+  transform: translate(-20%, 32%) scale(2.1);
 }
 
 .titleContainer {
