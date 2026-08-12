@@ -619,27 +619,40 @@ function openingModalWindow(){
 document.querySelectorAll(".fadeInOnScroll").forEach(el => observer.observe(el));
 
 
-/////hover element on scroll//////////////////////////
+/////hover on element on scroll//////////////////////////
 
 if(window.innerWidth<="768"){
         const observer2 = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+    entries.forEach(entry=> {
         if (entry.isIntersecting) {
+          console.log(entry);
+          console.log(entry.intersectionRatio);
             entry.target.classList.add("is-hovered");
+        }else{
+          console.log(entry.intersectionRatio);
+             entry.target.classList.remove("is-hovered");
+
         }
     });
-        }, { threshold: 0.75 }); // triggers when 35% of element is visible
+        }, { threshold: [1,0.75 ,0.5,0.25,0] }); // triggers when 35% of element is visible
 
 document.querySelectorAll(".card").forEach(el => observer2.observe(el));
 
-///simulating mouse hover with JS/////////////////
-const cards = document.querySelectorAll('.card');
+///hover off on scrolling out/////////////////
+
+    //  const observer3 = new IntersectionObserver((entries) => {
+    // entries.forEach(entry => {
+    //     if (entry.isIntersecting=false) {
+    //       const inter_section_ratio=entry.intersectionRatio;
+    //       console.log("inter_section_ratio is"+inter_section_ratio)  ;
+    //       entry.target.classList.remove("is-hovered");
+    //     }
+    // });
+    //     }, { threshold: 0.5 }); // triggers when 35% of element is visible
+
+
+
       }
-
-
-
-
-
 
 /////////Typing Effect////////////////////////////
 
