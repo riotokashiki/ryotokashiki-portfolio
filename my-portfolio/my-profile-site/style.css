@@ -449,9 +449,17 @@ h3 {
 .items:hover .middle {
   opacity: 1;
 }
+.items.is-hovered .middle {
+  opacity: 1;
+}
+
 .items:hover img {
   transform: scale(1.1);
 }
+.items.is-hovered img {
+  transform: scale(1.1);
+}
+
 .blackLayer {
   height: 100%;
   width: 100%;
@@ -466,6 +474,10 @@ h3 {
 .items:hover .blackLayer {
   opacity: 0.3;
 }
+.items.is-hovered .blackLayer {
+  opacity: 0.3;
+}
+
 /*/////footer/////////////////////////////////////////////////*/
 
 footer {
@@ -728,6 +740,9 @@ ul.grid li {
 ul.grid li:hover {
   transform: scale(1.05);
 }
+ul.grid li.is-hovered {
+  transform: scale(1.05);
+}
 
 ul.grid li::after {
   content: "";
@@ -754,6 +769,10 @@ ul.grid li:hover::after {
   opacity: 1;
   z-index: 0;
 }
+ul.grid li.is-hovered::after {
+  opacity: 1;
+  z-index: 0;
+}
 
 ul.grid li a {
   text-decoration: none;
@@ -776,6 +795,9 @@ ul.grid li a {
   height: 100%;
 }
 .itemContainer:hover {
+  border: solid 3px transparent;
+}
+.itemContainer.is-hovered {
   border: solid 3px transparent;
 }
 ul.grid {
@@ -1273,6 +1295,10 @@ ul.grid li a div img.weather {
 }
 
 li.box:hover .playback {
+  opacity: 1;
+}
+
+li.box.is-hovered .playback {
   opacity: 1;
 }
 

@@ -93,7 +93,7 @@
 <div class="container">
 <h2 class="fadeInOnScroll">My Works</h2>
 <ul class="grid">
-  <li class="box fadeInOnScroll"><a href="https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/yuru-yura-cafe-site/index.html
+  <li class="box fadeInOnScroll card"><a href="https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/yuru-yura-cafe-site/index.html
 "><div class="itemContainer">
   <div class="playback">
   <video autoplay loop muted >
@@ -112,7 +112,7 @@
 </div>
   </a></li>
 
-  <li class="box fadeInOnScroll"><a href="https://riotokashiki.github.io/react/to_do_list/">
+  <li class="box fadeInOnScroll card"><a href="https://riotokashiki.github.io/react/to_do_list/">
     <div class="itemContainer">
         <div class="playback">
   <video class="todolist_vid" autoplay loop muted >
@@ -129,7 +129,7 @@
   </a></li>
 
 
-  <li class="box fadeInOnScroll"><a href="https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/piano-app/index.html
+  <li class="box fadeInOnScroll card"><a href="https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/piano-app/index.html
 "><div class="itemContainer">
   <div class="playback">
   <video class="piano_app_vid" autoplay loop muted >
@@ -150,7 +150,7 @@
 
 
 
-  <li class="box fadeInOnScroll onGoing "><a href="https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/weather_app2/index.html">
+  <li class="box fadeInOnScroll onGoing card"><a href="https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/weather_app2/index.html">
     <div class="itemContainer weather">
       <div class="playback">
   <video class="weather_app_vid" autoplay loop muted >
@@ -617,6 +617,27 @@ function openingModalWindow(){
         }, { threshold: 0.15 }); // triggers when 15% of element is visible
 
 document.querySelectorAll(".fadeInOnScroll").forEach(el => observer.observe(el));
+
+
+/////hover element on scroll//////////////////////////
+
+if(window.innerWidth<="768"){
+        const observer2 = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("is-hovered");
+        }
+    });
+        }, { threshold: 0.75 }); // triggers when 35% of element is visible
+
+document.querySelectorAll(".card").forEach(el => observer2.observe(el));
+
+///simulating mouse hover with JS/////////////////
+const cards = document.querySelectorAll('.card');
+      }
+
+
+
 
 
 
