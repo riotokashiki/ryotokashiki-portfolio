@@ -621,22 +621,23 @@ document.querySelectorAll(".fadeInOnScroll").forEach(el => observer.observe(el))
 
 /////hover on element on scroll//////////////////////////
 
-if(window.innerWidth<="768"){
-        const observer2 = new IntersectionObserver((entries) => {
-    entries.forEach(entry=> {
-        if (entry.isIntersecting) {
-          console.log(entry);
-          console.log(entry.intersectionRatio);
-            entry.target.classList.add("is-hovered");
-        }else{
-          console.log(entry.intersectionRatio);
-             entry.target.classList.remove("is-hovered");
+// if(window.innerWidth<="768"){
+//         const observer2 = new IntersectionObserver((entries) => {
+//     entries.forEach(entry=> {
+//         if (entry.isIntersecting) {
+//           console.log(entry);
+//           console.log(entry.intersectionRatio);
+//             entry.target.classList.add("is-hovered");
+//         }else{
+//           console.log(entry.intersectionRatio);
+//              entry.target.classList.remove("is-hovered");
 
-        }
-    });
-        }, { threshold: [1,0.75 ,0.5,0.25,0] }); // triggers when 35% of element is visible
+//         }
+//     });
+//         }, { threshold: [1,0.75 ,0.5,0.25,0] }); 
+        //triggers when 35% of element is visible
 
-document.querySelectorAll(".card").forEach(el => observer2.observe(el));
+// document.querySelectorAll(".card").forEach(el => observer2.observe(el));
 
 ///hover off on scrolling out/////////////////
 
@@ -652,7 +653,7 @@ document.querySelectorAll(".card").forEach(el => observer2.observe(el));
 
 
 
-      }
+      // }
 
 /////////Typing Effect////////////////////////////
 
