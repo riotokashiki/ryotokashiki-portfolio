@@ -16,6 +16,7 @@
 ## 成果物
 
 ### ・[渡嘉敷　諒の自己紹介ポートフォリオLP](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/my-profile-site/index.html)
+- [解説及びリポジトリ](https://github.com/riotokashiki/ryotokashiki-portfolio/blob/main/my-portfolio/my-profile-site)
 
 ### ・[代官山カフェサイト](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/yuru-yura-cafe-site/index.html)
 - [解説及びリポジトリ](https://github.com/riotokashiki/ryotokashiki-portfolio/tree/main/my-portfolio/yuru-yura-cafe-site)
