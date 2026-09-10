@@ -1,6 +1,6 @@
 ## こちらは私が制作した架空のビジネスカフェサイトのリポジトリとなっております。
 技術的な詳細を以下にて解説したいと思います。
 ### ヒーロースライド
-![Screenshot of the cafe site](images/Screenshot 2026-09-10 103427.png)
+![Screenshot of the cafe site](images/screenshot.png)
 トップ画面を開いたらすぐに見えるカフェの写真のスライドです。/
 こちらはJavascriptは使っておらず、CSSのみで完結させました。
