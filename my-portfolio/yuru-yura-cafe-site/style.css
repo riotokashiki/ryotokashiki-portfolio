@@ -47,11 +47,7 @@
         background-repeat:no-repeat;
         background-size:cover;
         background-position:center;
-  
-        /*
-        display:flex;
-        align-items:center;
-        */
+
 
         /* position manipulation*/
       
@@ -63,7 +59,7 @@
 
       .heroSlide.first{
         background-image:url(assets/images/compressedImages/snapbythree-my-g6e641CiHFQ-unsplashKai.jpg);
-         
+        
         animation:fadeInOutFor1 15s linear forwards; /*delay -secondsを使うとなんか表示の周期がずれておかしくなるからつかわないほうがいい*/
         z-index: 5;
         animation-iteration-count: infinite;
