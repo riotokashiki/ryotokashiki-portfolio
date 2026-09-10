@@ -4,3 +4,148 @@
 ![Screenshot of the cafe site](images/screenshot.png)
 トップ画面を開いたらすぐに見えるカフェの写真のスライドです。/
 こちらはJavascriptは使っておらず、CSSのみで完結させました。
+
+
+以下はヒーロースライドのコンテナです
+```CSS
+
+      .hero{
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        height: 87vh;
+        display: flex;
+        align-items: flex-start;    
+        justify-content: flex-start; 
+        padding-top: 58vh;
+        padding-left: 14vh; 
+      }
+```
+
+
+そしてこれはヒーロースライドの各画像（計3枚）のクラスです。
+```CSS
+      .heroSlide{
+        box-sizing:border-box;
+       
+        background-repeat:no-repeat;
+        background-size:cover;
+        background-position:center;
+
+
+        /* position manipulation*/
+      
+        
+        z-index:1;
+        height: 100%;
+        background-attachment: fixed;
+      }
+
+      .heroSlide.first{     
+        background-image:url(assets/images/compressedImages/snapbythree-my-g6e641CiHFQ-unsplashKai.jpg);
+        
+        animation:fadeInOutFor1 15s linear forwards; /*delay -secondsを使うとなんか表示の周期がずれておかしくなるからつかわないほうがいい*/
+        z-index: 5;
+        animation-iteration-count: infinite;
+        top: 0;
+        left: 0;
+        width: 100%;
+        position: absolute;
+        background-position:50% 65%;
+      }
+
+      .heroSlide.second{
+        background-image:url(assets/images/compressedImages/kieran-ReVIa_Nm6fE-unsplashKai.jpg);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 4;
+        animation:fadeInOutFor2 15s linear forwards;
+        width: 100%;
+        animation-iteration-count: infinite;
+        background-position:10% 49%;
+
+      }
+
+      .heroSlide.third{
+        background-image:url(assets/images/compressedImages/zarak-khan-69ilqMz0p1s-unsplashKai.jpg);
+         position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 3;
+        width: 100%;
+        animation:fadeInOutFor3 15s linear forwards;
+        animation-iteration-count: infinite;
+        opacity: 0;
+      }
+```
+
+```CSS
+       @keyframes fadeInOutFor1{
+        /*Since there are 3 slides, 100/3=33
+        だから100%を三分割して1/3の間だけ表示
+        のこりの2/3の間は非表示にする
+        
+        */
+        0%{opacity: 1;
+         transform: scale(1.02);}
+          6%{opacity: 1;
+            
+          }
+
+
+          33%{opacity: 1;}
+          39%{opacity: 0;
+                  transform: scale(1.25);
+                }
+
+          94%{opacity: 0;
+           transform: scale(1);}
+          100%{opacity: 1;
+          transform: scale(1.02); }
+      }
+
+
+
+      @keyframes fadeInOutFor2{
+        0%{opacity: 0;
+                  }
+
+        27%{opacity: 0;}
+        
+        33%{opacity: 1;
+                transform: scale(1.25) translateX(0);    
+                }
+
+        66%{opacity: 1;
+                }
+
+        72%{opacity: 0;}
+
+        100%{opacity: 0;
+                    transform: scale(1.25) translateX(-15%)
+                  }
+/* only 1/3 of this is shown */
+
+      }
+
+        @keyframes fadeInOutFor3{
+        0%{opacity: 0;
+                  }
+
+       
+        66%{opacity: 0;
+                }
+
+        68%/*72%*/{opacity: 1;
+                  transform: scale(1.25) translateY(-7%);}
+
+        100%{opacity: 1;
+                    transform: scale(1.25) translateY(0%)
+                  }
+/* only 1/3 of this is shown */
+
+      }
+
+
+```
