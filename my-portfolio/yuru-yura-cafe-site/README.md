@@ -25,7 +25,7 @@
 
 そしてこれはヒーロースライドの各画像（計3枚）のクラスです。
 ```CSS
-      .heroSlide{
+      .heroSlide{　/*各スライド画像共通のクラス*/
         box-sizing:border-box;
        
         background-repeat:no-repeat;
@@ -54,7 +54,7 @@
         background-position:50% 65%;
       }
 
-      .heroSlide.second{
+      .heroSlide.second{　/*二枚目のスライド画像*/
         background-image:url(assets/images/compressedImages/kieran-ReVIa_Nm6fE-unsplashKai.jpg);
         position: absolute;
         top: 0;
@@ -67,7 +67,7 @@
 
       }
 
-      .heroSlide.third{
+      .heroSlide.third{ /*三枚目のスライド画像*/
         background-image:url(assets/images/compressedImages/zarak-khan-69ilqMz0p1s-unsplashKai.jpg);
          position: absolute;
         top: 0;
@@ -80,8 +80,9 @@
       }
 ```
 
+以下が各スライドへ適用する keyframes　アニメーションです。
 ```CSS
-       @keyframes fadeInOutFor1{
+       @keyframes fadeInOutFor1{/*1枚目の画像用のkeyframeアニメーション*/
         /*Since there are 3 slides, 100/3=33
         だから100%を三分割して1/3の間だけ表示
         のこりの2/3の間は非表示にする
@@ -107,7 +108,7 @@
 
 
 
-      @keyframes fadeInOutFor2{
+      @keyframes fadeInOutFor2{ /*2枚目の画像用のkeyframeアニメーション*/
         0%{opacity: 0;
                   }
 
@@ -129,7 +130,7 @@
 
       }
 
-        @keyframes fadeInOutFor3{
+        @keyframes fadeInOutFor3{ /*3枚目の画像用のkeyframeアニメーション*/
         0%{opacity: 0;
                   }
 
