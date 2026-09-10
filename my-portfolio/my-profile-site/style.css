@@ -709,10 +709,10 @@ iframe {
     transform 1.2s ease;
 }
 
-.fadeInOnScroll.visible {
-  opacity: 1;
-  transform: translateX(0) scale(1);
-}
+  .fadeInOnScroll.visible {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
 
 ul.grid li a div img {
   display: block;
