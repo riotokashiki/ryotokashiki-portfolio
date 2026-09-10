@@ -41,7 +41,7 @@
         background-attachment: fixed;
       }
 
-      .heroSlide.first{     
+      .heroSlide.first{     /*一枚目のスライド画像*/
         background-image:url(assets/images/compressedImages/snapbythree-my-g6e641CiHFQ-unsplashKai.jpg);
         
         animation:fadeInOutFor1 15s linear forwards; /*delay -secondsを使うとなんか表示の周期がずれておかしくなるからつかわないほうがいい*/
