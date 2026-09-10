@@ -39,23 +39,17 @@
 ```CSS
       .heroSlide{　/*各スライド画像共通のクラス*/
         box-sizing:border-box;
-       
         background-repeat:no-repeat;
         background-size:cover;
         background-position:center;
-
-
         /* position manipulation*/
-      
-        
         z-index:1;
         height: 100%;
         background-attachment: fixed;
       }
 
       .heroSlide.first{     /*一枚目のスライド画像*/
-        background-image:url(assets/images/compressedImages/snapbythree-my-g6e641CiHFQ-unsplashKai.jpg);
-        
+        background-image:url(assets/images/compressedImages/snapbythree-my-g6e641CiHFQ-unsplashKai.jpg); 
         animation:fadeInOutFor1 15s linear forwards; /*delay -secondsを使うとなんか表示の周期がずれておかしくなるからつかわないほうがいい*/
         z-index: 5;
         animation-iteration-count: infinite;
