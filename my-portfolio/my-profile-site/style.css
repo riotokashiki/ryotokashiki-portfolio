@@ -17,6 +17,7 @@ body {
   margin: 0 auto;
   background-color: #0e0e0e;
   transition: opacity 0.25s ease;
+  font-family: "Twemoji Country Flags";
 }
 
 .container {
@@ -709,10 +710,10 @@ iframe {
     transform 1.2s ease;
 }
 
-  .fadeInOnScroll.visible {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-  }
+.fadeInOnScroll.visible {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
 
 ul.grid li a div img {
   display: block;
@@ -1126,6 +1127,9 @@ span.message {
 }
 span.message.emerged {
   opacity: 1;
+}
+option span {
+  font-family: "Twemoji Country Flags";
 }
 
 .heroMessage {

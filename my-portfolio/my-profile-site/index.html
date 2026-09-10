@@ -11,8 +11,12 @@
 
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-      
+      <script type="module">
+  import { polyfillCountryFlagEmojis } from "https://cdn.skypack.dev/country-flag-emoji-polyfill";
+  console.log(polyfillCountryFlagEmojis());
+</script>
   </head>
+  
     <body>
       <header>
         <div class="titleContainer">
@@ -54,17 +58,11 @@
           <select name="languageSelection" id="languageSelection2" class="languageSelection">
             <option value="jp">日本語🔴</option>
             <option value="en">English🔵</option>
-
+            <!-- US flag　　<span>&#x1f1fa;&#x1f1f8;</span> -->
+            <!-- JP flag        <span>&#x1f1ef;&#x1f1f5;</span> -->
           </select>
         </div>
 
-        <!-- <div class="readyToWork">
-          <div class="circle">
-          </div>
-          <p> 求職中</p>
-
-
-        </div> -->
 
       </header>
       <section class="hero" >
@@ -162,7 +160,7 @@
       <img src="assets/images/compressedImages/Screenshot 2026-06-13 221034.png" alt="weather">
     <h2 data-i18n="weatherApp">気象アプリ</h2>
         <div class="tech_stack_icon_container">
-          <div class="tech_stack_icon">外部API</div>
+          <div class="tech_stack_icon " data-i18n="third_party_API">外部API</div>
       <div class="tech_stack_icon">JavaScript</div>
         <div class="tech_stack_icon">CSS</div>
           <div class="tech_stack_icon">HTML</div>
@@ -292,6 +290,9 @@
 
   </div>
 </footer>
+
+
+
 
       <script>
         
@@ -480,6 +481,7 @@ function openingModalWindow(){
                         repositoryLink:"GitHub Repository Link",
                         backToTop:"BACK TO TOP↑",
                         myTools:"Tools I use",
+                        third_party_API:"Third party API"
               },
 
               jp:{
@@ -508,7 +510,7 @@ function openingModalWindow(){
                         repositoryLink:"GitHubリポジトリーのページ",
                         backToTop:"トップに戻る↑",
                         myTools:"Tools 使用ツール",
-
+                        third_party_API:"外部API"
 
 
               }
@@ -534,18 +536,13 @@ function openingModalWindow(){
           console.log("The selected language saved to Local Storage");
           console.log("debug1");
 
-          const theWorkLi=document.querySelector("ul.grid li.onGoing");
-          let beforeContent=getComputedStyle(theWorkLi,"::before").content;
-          console.log("beforeContent is ".beforeContent);
-
           if(language=="jp"){
             console.log("jp course!");
             theTexts.forEach((element)=>{
               let valueName=element.getAttribute("data-i18n");
               console.log(valueName);  //title
               
-              beforeContent=languageTranslation.jp.onProgress;
-              console.log("beforeContent is replaced with "+beforeContent);
+
               console.log(languageTranslation[language][valueName]);//ゆるゆらカフェ
               element.innerText=languageTranslation[language][valueName];
             
@@ -571,8 +568,7 @@ function openingModalWindow(){
               let valueName=element.getAttribute("data-i18n");
               console.log(valueName);  //title
               
-              beforeContent=languageTranslation.en.onProgress;
-              console.log("beforeContent is replaced with "+beforeContent);
+
               
               console.log(languageTranslation[language][valueName]);//ゆるゆらカフェ
               element.innerText=languageTranslation[language][valueName];
