@@ -2,11 +2,23 @@
 技術的な詳細を以下にて解説したいと思います。
 ### ヒーロースライド
 ![Screenshot of the cafe site](assets/images/screenshot.png)
-トップ画面を開いたらすぐに見えるカフェの写真のスライドです。/
+トップ画面を開いたらすぐに見えるカフェの写真のスライドです。\
 こちらはJavascriptは使っておらず、CSSのみで完結させました。
 
+以下がHTMLの構造です
+```HTML
+      <section class="hero" >
+            <p class="message" data-i18n="slogan">まいにちに、<span class="break">ホっとひといきを。</span></p>
+            <div class="heroSlide first"></div>
+            <div class="heroSlide second"></div>
+            <div class="heroSlide third"></div>
+      </section>
 
-以下はヒーロースライドのコンテナです
+```
+
+
+以下はCSSコードとなっております。\
+ヒーロースライドのコンテナです
 ```CSS
 
       .hero{
