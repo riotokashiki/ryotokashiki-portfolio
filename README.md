@@ -16,17 +16,17 @@
 
 ## 成果物
 
-### ・[渡嘉敷　諒の自己紹介ポートフォリオLP（Javascript/CSS/HTML）](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/my-profile-site/index.html)
+### ・[渡嘉敷　諒の自己紹介ポートフォリオLP](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/my-profile-site/index.html) （Javascript/CSS/HTML）
 - [解説及びリポジトリ](https://github.com/riotokashiki/ryotokashiki-portfolio/blob/main/my-portfolio/my-profile-site)
 
-### ・[代官山カフェサイト（Javascript/CSS/HTML）](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/yuru-yura-cafe-site/index.html)
+### ・[代官山カフェサイト](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/yuru-yura-cafe-site/index.html) （Javascript/CSS/HTML）
 - [解説及びリポジトリ](https://github.com/riotokashiki/ryotokashiki-portfolio/tree/main/my-portfolio/yuru-yura-cafe-site)
 
-### ・[タスク管理アプリ（React.js）](https://riotokashiki.github.io/react/to_do_list/)
+### ・[タスク管理アプリ](https://riotokashiki.github.io/react/to_do_list/) （React.js）
 
-### ・[鍵盤アプリ（Javascript/CSS/HTML）](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/piano-app/index.html)
+### ・[鍵盤アプリ](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/piano-app/index.html) （Javascript/CSS/HTML）
 
-### ・[気象アプリ（外部API/Javascript/CSS/HTML）](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/weather_app2/index.html)
+### ・[気象アプリ](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/weather_app2/index.html) （外部API/Javascript/CSS/HTML）
 
 ## 使用した技術スタック
 
