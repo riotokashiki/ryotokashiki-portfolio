@@ -4,707 +4,681 @@
 
 
 ## 気象アプリ
-![Screenshot of the cafe site](materials/images/piano-app-image1.png)\
+![Screenshot of the cafe site](assets/images/weather_app_image1.png)\
 こちらのアプリは都市名を入力するとその都市の現在気温、湿度、風向き、天候等の気象情報が表示されるアプリとなっております。\
 日本語と英語対応となりますので、「東京」「tokyo」どちらも対応できます。
 
 以下がHTMLの構造です
 ```HTML
+<!DOCTYPE  html>
 <html lang="ja">
-<head>
+    <head>
     <meta charset="UTF-8">
-    <title>Piano App</title>
-    <link rel="shortcut icon" href="#">
+    <title>気象アプリ</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+      <link rel="stylesheet" type="text/css" href="reset.css">
     <style>
-      CSSコードがここにきます
     </style>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
-</head>
-<body>
-<div class="container">
-  <div class="displayContainer">
-      <div class="display">
-        <div class="letter">
-      
-      </div>
-      <div class="letterInUpperDisplay">演奏中:</div>
-      </div>
-          <div class="autoPlay">
-            <button class="autoPlayButton" onclick="startAutoPlay()">
-              自動演奏
-            </button>
-          </div>
-          <div class="sliderContainer">
-            <div class="volume"><span><img src="materials/images/icons8-volume-60.png" alt="" class="muteButton" onclick="muteVolume()">  </span>ボリューム</div>
-            <input type="range" min="0" max="100" value="100" class="slider" id="volumeSlider">
-              
-          </div>
-          <div class="octaveShifterContainer">
-            <p class="octave">音の高低</p>
-            <div class="octaveButtonContainer">
-            <img class="octaveButton up" onclick="octaveUp()" src="materials/images/icons8-up-arrow-40.png" alt="up"></img>
-            <img class="octaveButton down" onclick="octaveDown()" src="materials/images/icons8-down-button-40.png" alt="down"></img>
-            </div>
-          </div>
-
-  </div>
-  
-  <div class="keys">
-    <div class="key do" onclick="if(!isPlaying){showNote('ド');playTone('ド')}"><div class="letters do">ド</div></div>
-    <div class="key re" onclick="if(!isPlaying){showNote('レ');playTone('レ')}"><div class="letters re">レ</div></div>
-    <div class="key mi"onclick="if(!isPlaying){showNote('ミ');playTone('ミ')}"><div class="letters mi">ミ</div></div>
-    <div class="key fa" onclick="if(!isPlaying){showNote('ファ');playTone('ファ')}"><div class="letters fa">ファ</div></div>
-    <div class="key so" onclick="if(!isPlaying){showNote('ソ');playTone('ソ')}"><div class="letters so">ソ</div></div>
-    <div class="key ra" onclick="if(!isPlaying){showNote('ラ');playTone('ラ')}"><div class="letters ra">ラ</div></div>
-    <div class="key shi"onclick="if(!isPlaying){showNote('シ');playTone('シ')}"><div class="letters shi">シ</div></div>
+    </head>
+    <body>
+      <div class="image_container">
+      <div class="wholeContainer">
+        
+        <p class="title">気象アプリ</p>
+        <div id="input_container">
+        <input type="text" placeholder="都市名を入力してください">
+        <button id="submit">決定</button>
+        </div>
 
 
-  </div>
 
+
+        <div id="information_panel" class="raws">
+          <ul>
+            <li id="input_city" class="raws"></li>
+            <li id="city_name" class="raws"></li>
+            <li id="country_code" class="raws"></li>
+         
+            
+            <li id="updated_date" class="raws"></li>
+          </ul>
+          <ul id="right_pannel">
+               <li id="weather_icon" class="raws">
+              <img src="" alt="">
+            </li>
+            <li id="weather" class="raws"></li>
+            <li id="temperature" class="raws"></li>
+            <li id="feelsLike" class="raws"></li>
+            <li id="humidity" class="raws"></li>
+            <li id="wind" class="raws"></li>
+          </ul>
+
+
+
+
+
+        </div>
+</div>
 </div>
 
 
+</div>
 
-
-
-<script>
-jQueryコードがここにきます
-</script>
-
-</body>
+  <script src="weather_app.js" type="module"></script><!--Where to put JS sheet is before the closing body tag.   -->
+    </body>
 </html>
 ```
 
 
-以下がjQueryのコードとなっております。
+以下がJavascriptのコードとなっております。
 ```JavaScript
- "use strict";
-/////////////////global variables /////////////////////////////////////////////////////////////////////////
+// API KEYを別ファイルからインポート↓↓////
+import{API_KEY} from"./config.js";
+
+let text_field = document.querySelector("input");
+let decide_button = document.getElementById("submit");
+let city_name_li = document.getElementById("city_name");
+let country_code_li=document.getElementById("country_code")
+let temp_li = document.getElementById("temperature");
+let feelsLike_li = document.getElementById("feelsLike");
+let humidity_li=document.getElementById("humidity");
+let wind_li=document.getElementById("wind");
+let weather_li=document.getElementById("weather");
+let the_ul=document.getElementById("ul");
+let all_lis=Array.from(document.querySelectorAll("li"));
+let input_city=document.getElementById("input_city");
+let img=document.querySelector("img");
+let weather_icon_li=document.getElementById("weather_icon");
+
+let city_name=null;
+let country_code=null;
+let humidity = null;
+let wind=null;
+let weather=null;
+let temperature=null;
+let weather_id=null;
+
+window.addEventListener("keydown",(e)=>{
+if(e.key=="Enter" && document.activeElement===text_field){
+        decide();
+}
+})
 
 
-let isMuted = false;
-let isPlaying=false;
-let currentNoteIndex=0;
-let currentSong=null;
-let currentSongLength=0;
-let playTimerId=null;
-let isManuallyStopped=false;
-let displayTimerId=null;
-let volume=50;
-let $volumeSlider=$('#volumeSlider');
-let previousVolume=100;
-let octaveFactor=1;
-let currentOctave=4;
 
-const NOTE_FREQ={ //creating an object
-  "ド":261.63,  // those numbers are frequencies that'll be given to the functions
-  "レ":293.66,
-  "ミ":329.63,
-  "ファ":349.23,
-  "ソ":392.00,
-  "ラ":440.00,
-  "シ":493.88,
-  "":0
-};
-
-
-const SCORES={
-"きらきらぼし":[
-                                {note:"ド",duration:500},{note:"",duration:500},
-                                {note:"ド",duration:500},{note:"",duration:500},
-                                {note:"ソ",duration:500},{note:"",duration:500},
-                                {note:"ソ",duration:500},{note:"",duration:500},
-                                {note:"ラ",duration:500},{note:"",duration:500},
-                                {note:"ラ",duration:500},{note:"",duration:500},
-                                {note:"ソ",duration:2000},
-
-                                {note:"ファ",duration:500},{note:"",duration:500},
-                                {note:"ファ",duration:500},{note:"",duration:500},
-                                {note:"ミ",duration:500},{note:"",duration:500},
-                                {note:"ミ",duration:500},{note:"",duration:500},
-                                {note:"レ",duration:500},{note:"",duration:500},
-                                {note:"レ",duration:500},{note:"",duration:500},
-                                {note:"ド",duration:2000},
-
-                                {note:"ソ",duration:500},{note:"",duration:500},
-                                {note:"ソ",duration:500},{note:"",duration:500},
-                                {note:"ファ",duration:500},{note:"",duration:500},
-                                {note:"ファ",duration:500},{note:"",duration:500},
-                                {note:"ミ",duration:500},{note:"",duration:500},
-                                {note:"ミ",duration:500},{note:"",duration:500},
-                                {note:"レ",duration:2000},
-
-                                {note:"ソ",duration:500},{note:"",duration:500},
-                                {note:"ソ",duration:500},{note:"",duration:500},
-                                {note:"ファ",duration:500},{note:"",duration:500},
-                                {note:"ファ",duration:500},{note:"",duration:500},
-                                {note:"ミ",duration:500},{note:"",duration:500},
-                                {note:"ミ",duration:500},{note:"",duration:500},
-                                {note:"レ",duration:2000},
-
-                                {note:"ド",duration:500},{note:"",duration:500},
-                                {note:"ド",duration:500},{note:"",duration:500},
-                                {note:"ソ",duration:500},{note:"",duration:500},
-                                {note:"ソ",duration:500},{note:"",duration:500},
-                                {note:"ラ",duration:500},{note:"",duration:500},
-                                {note:"ラ",duration:500},{note:"",duration:500},
-                                {note:"ソ",duration:2000},
-
-                                {note:"ファ",duration:500},{note:"",duration:500},
-                                {note:"ファ",duration:500},{note:"",duration:500},
-                                {note:"ミ",duration:500},{note:"",duration:500},
-                                {note:"ミ",duration:500},{note:"",duration:500},
-                                {note:"レ",duration:500},{note:"",duration:500},
-                                {note:"レ",duration:500},{note:"",duration:500},
-                                {note:"ド",duration:2000}
-                                ]
-                                ,
-"チューリップ":[
-                              {note:"ド",duration:500},{note:"レ",duration:500},{note:"ミ",duration:1000},
-                              {note:"ド",duration:500},{note:"レ",duration:500},{note:"ミ",duration:1000},
-                              {note:"ソ",duration:500},{note:"ミ",duration:500},{note:"レ",duration:500},{note:"ド",duration:500},
-                              {note:"レ",duration:500},{note:"ミ",duration:500},{note:"レ",duration:1000},       
-                              
-                              {note:"ド",duration:500},{note:"レ",duration:500},{note:"ミ",duration:1000},
-                              {note:"ド",duration:500},{note:"レ",duration:500},{note:"ミ",duration:1000},
-                              {note:"ソ",duration:500},{note:"ミ",duration:500},{note:"レ",duration:500},{note:"ド",duration:500},
-                              {note:"レ",duration:500},{note:"ミ",duration:500},{note:"ド",duration:1000},  
-
-                              {note:"ソ",duration:250},{note:"",duration:250},{note:"ソ",duration:250},{note:"",duration:250},
-                              {note:"ミ",duration:250},{note:"",duration:250},{note:"ソ",duration:250},{note:"",duration:250},
-                              {note:"ラ",duration:250},{note:"",duration:250},{note:"ラ",duration:250},{note:"",duration:250},
-                              {note:"ソ",duration:1000},
-
-                              {note:"ミ",duration:250},{note:"",duration:250},{note:"ミ",duration:250},{note:"",duration:250},
-                              {note:"レ",duration:250},{note:"",duration:250},{note:"レ",duration:250},{note:"",duration:250},
-                              {note:"ド",duration:4000},
-                              ]
-                            };
-
-
-const NOTE_TO_CLASS = {
-  ド: ".do", レ: ".re", ミ: ".mi",
-  ファ: ".fa", ソ: ".so", ラ: ".ra", シ: ".shi",
-};
-
-const ERASE_MS = 1000;
-
-
-let audioContext = null;
-
-function getAudioContext() {
-  if (!audioContext || audioContext.state === 'closed') {
-    audioContext = new AudioContext();
-  }
-
-  if(audioContext.state==="suspended"){
-    audioContext.resume()
-  }
-
-  return audioContext;
+function kel_to_cel(kelvin){
+        let cel_temp=Math.trunc(kelvin-273.15);
+        return cel_temp
 }
 
 
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
+function icon_decide(weather_id){
+if(200<=weather_id&&weather_id<300){
+        img.src="assets/images/compressed_images/icons8-storm-100.png"
+}else if(300<=weather_id&&weather_id<600){
+        img.src="assets/images/compressed_images/icons8-raining-96.png"
+}else if(600<=weather_id&&weather_id<700){
+         img.src="assets/images/compressed_images/icons8-cloud-100.png"
 
-///////////////////functions///////////////////////////////////////////////////////////////////////////////
+}else if(700<=weather_li&&weather_id<800){
+        img.src="assets/images/compressed_images/icons8-mist-96.png"
+
+}else if(weather_id===800){
+         img.src="assets/images/compressed_images/icons8-sunny-100.png"
+
+}else if(800<weather_id){
+         img.src="assets/images/compressed_images/icons8-cloud-100.png"
+
+}
 
 
-function highlightOnce(note, ms = 500) {
-  const sel = NOTE_TO_CLASS[note];
-  if (!sel) return;
-  const $el = $(sel);
-  $el.addClass('glowing keyPushed');
-  setTimeout(() => $el.removeClass('glowing keyPushed'), ms);
+
+}
+
+
+
+async function decide(){
+let input_value = text_field.value.trim();
+console.log("input_value is.."+input_value);
+
+
+if(!input_value){
+        alert("都市名を入力してください！");
 }
 
 
 
 
-
-
-function showNote(note)
-{ 
-    clearTimeout(displayTimerId);
-    const safeNote=note||"";
-    $('.letter').text(safeNote);
-    if(safeNote){
-    displayTimerId=setTimeout(function(){
-    $('.letter').text("");
-  },ERASE_MS);
-    }
-  highlightOnce(safeNote);
-  
-} 
+await fetching();
 
 
 
-function endAutoPlay({ manuallyStopped }) {
-  isManuallyStopped = Boolean(manuallyStopped);
 
-  clearTimeout(playTimerId);
-  playTimerId = null;
 
-  setKeyboardEnabled(true);
-  setAutoPlayButtonMode(false);
-  setUpperDisplay(false);
+async function fetching(){
 
-  isPlaying = false;
-  currentNoteIndex = 0;
-  currentSong=null;
+let geocoding_api_query= `https://api.openweathermap.org/geo/1.0/direct?q=${input_value}&limit=1&appid=${API_KEY}`      
+let geocoding_api_response= await fetch(geocoding_api_query);     
+
+let resolved1=await geocoding_api_response.json();
+
+
+if(resolved1.cod==="404"){
+        alert("都市が見つかりませんでした。")
+        text_field.value="";
+        return
 }
 
 
 
+console.log(resolved1)
+if(resolved1.length>0){
 
+        let latitude=resolved1[0].lat;
+        let longitude=resolved1[0].lon;
+        country_code=resolved1[0].country;
+        console.log("country code is.."+country_code);
+        console.log("latitude is..."+latitude);
+        console.log("longitude is..."+longitude);
 
-function stopAutoPlay()
-{
-    endAutoPlay({ manuallyStopped: true });
-}
+        let weather_api_query=`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&lang=ja&appid=${API_KEY}`
+        let weather_api_response = await fetch(weather_api_query);
+        console.log("sent query is.."+weather_api_query);
 
-
-
-
-
-
-
-function finishAutoPlay()
-{
-    endAutoPlay({ manuallyStopped: false });
-  } 
-
-
-function muteVolume(){
-
-if(Number($volumeSlider.val())===0){
-  isMuted=true;
-}
-else{
-  isMuted=false;
-  previousVolume=$('#volumeSlider').val();
-  
-}
-
-
-if(!isMuted){
-$('#volumeSlider').val(0);
-volume=0;
-
-gainNode.gain.value=0;
-isMuted=true;
-$('.muteButton').attr("src","materials/images/icons8-volume-60 - Copy.png");
-}
-else{
-  $('#volumeSlider').val(previousVolume);
-  $('.muteButton').attr("src","materials/images/icons8-volume-60.png");
-}
-
-}
-
-function octaveUp()
-{
-
-      if(currentOctave<6)
-      {
-                octaveFactor=octaveFactor*2;
-                currentOctave=currentOctave+1;
-
-                if(currentOctave>4){
-                  $('body').removeClass('lowerOctave');
-                  $('body').addClass('higherOctave');
-                }
-                if(currentOctave===4){
-                $('body').removeClass('lowerOctave');
-                $('body').removeClass('higherOctave');
-                }
-      }
-      
-}
-function octaveDown()
-{
-        if(currentOctave>2)
-        {
-          octaveFactor=octaveFactor*0.5;
-          currentOctave=currentOctave-1;
-
-          if(currentOctave<4){
-            $('body').removeClass('higherOctave');
-            $('body').addClass('lowerOctave');
-            
-          }
-          if(currentOctave===4){
-          $('body').removeClass('lowerOctave');
-          $('body').removeClass('higherOctave');
-          }
+        let resolved2=await weather_api_response.json();
+        if(resolved2.cod==="404"){
+                alert("都市が見つかりませんでした。")
+                text_field.value="";
+                return
         }
+
+
+
+
+
+        console.log(resolved2);
+        city_name = resolved2.name;
+        console.log(city_name);
+        // country_code=resolved2
+        temperature=Number(resolved2.main.temp);
+        humidity=resolved2.main.humidity;
+        wind=resolved2.wind.speed;
+        weather=resolved2.weather[0].description;
+        console.log("weather code is..."+weather);
+        weather_id=Number(resolved2.weather[0].id);
+        console.log(weather_id);
+        icon_decide(weather_id);
         
+        input_city.innerHTML=input_value
+        city_name_li.innerHTML = city_name;
+        country_code_li.innerHTML="国コード："+country_code;
+        temp_li.innerHTML = `${kel_to_cel(temperature)}${"&deg;C"}`;
+        humidity_li.innerHTML="湿度 "+humidity+"%";
+        wind_li.innerHTML="風速 "+wind+"m/s";
+        weather_li.innerHTML=weather;
+        text_field.value="";
+}else{      
+text_field.value="";
+all_lis.forEach((item)=>{
+item.innerHTML="";
+city_name_li.innerHTML = "取得できませんでした。<br>次の入力をどうぞ。";
+img=document.createElement("img");
+weather_icon_li.appendChild(img);
+
+
+})
+}  
 }
-
-
-
-
-
-
-
-function playTone(note)
-{
-  
-  const audioContext=getAudioContext();
-  const gainNode=audioContext.createGain();
- 
-  const oscillator=audioContext.createOscillator();
-  oscillator.connect(gainNode);
-  oscillator.frequency.value=NOTE_FREQ[note]*octaveFactor;
-
-
-  gainNode.connect(audioContext.destination);
-
-volume=Number($volumeSlider.val());
-gainNode.gain.value=volume/100;
-
-
-
-  oscillator.start();
-
-  oscillator.stop(audioContext.currentTime+0.5);
-
-  
-}
-
-function startAutoPlay() {
-  if (isPlaying) { //if a song is playing,
-    finishAutoPlay(); // execute finishAutoPlay()
-    return; //then finish
-  }
-
-  isPlaying = true; // setting it as playing
-  isManuallyStopped = false;  
-  currentNoteIndex = 0;
-
-  if (currentSong === null) {
-    const mora = Object.keys(SCORES);
-    const randomSong = mora[Math.floor(Math.random() * mora.length)];
-    currentSong = randomSong;
-  }
-
-  setUpperDisplay(true, currentSong);
-  setAutoPlayButtonMode(true);
-  
-  currentSongLength = SCORES[currentSong].length;
-  setKeyboardEnabled(false);
-
-  const audioContext = getAudioContext();
-
-  function playNextNote() {
-    if (currentNoteIndex < currentSongLength) {
-      const gainNode = audioContext.createGain();
-      const oscillator = audioContext.createOscillator();
-      oscillator.connect(gainNode);
-      gainNode.connect(audioContext.destination);
-      volume = Number($volumeSlider.val());
-      gainNode.gain.value = volume / 100;
-
-      oscillator.frequency.value = NOTE_FREQ[SCORES[currentSong][currentNoteIndex].note] * octaveFactor;
-      oscillator.start();
-      showNote(SCORES[currentSong][currentNoteIndex].note);
-      oscillator.stop(audioContext.currentTime + SCORES[currentSong][currentNoteIndex].duration / 1000);
-
-      playTimerId = setTimeout(function() {
-        currentNoteIndex = currentNoteIndex + 1;
-        playNextNote();
-      }, SCORES[currentSong][currentNoteIndex].duration);
-    } else {
-      finishAutoPlay();
-    }
-  }
-
-  playNextNote();
-}
-
-
-    
-
-  
-
-
-function setKeyboardEnabled(enabled) {
-  var keys = document.querySelectorAll('.key');
-
-keys.forEach(el =>{
-
-  enabled?el.style.pointerEvents = 'auto':el.style.pointerEvents = 'none';
-  enabled?el.classList.remove('is-disabled'):el.classList.add('is-disabled');
-
-
-});
-
-
 
 }
 
+decide_button.addEventListener("click",()=>{
 
-function setAutoPlayButtonMode(playing) {
-  if (playing) {
-    $('.autoPlayButton').text('演奏停止');
-    $('.autoPlayButton').attr('onclick', 'stopAutoPlay()');
-  } else {
-    $('.autoPlayButton').text('自動演奏');
-    $('.autoPlayButton').attr('onclick', 'startAutoPlay()');
-  }
-}
+decide()
 
-function setUpperDisplay(visible, songTitle = "") {
-  if (visible) {
-    $('.letterInUpperDisplay').text("Playing:" + songTitle);
-    $('.letterInUpperDisplay').css('display', 'block');
-  } else {
-    $('.letterInUpperDisplay').css('display', 'none');
-  }
-}
-
-
-
-
-
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
+})
 ```
 
 以下がCSSのコードとなっております
 
 ```CSS
-      @import url('https://fonts.googleapis.com/css2?family=Potta+One&display=swap');
-      
-      body{
-        font-family:"Potta One",sans-serif;
-        display:flex;
-        justify-content: center;
-        height: 1000px;
-        /*background: #635f5f;*/
-        background-color:#e46f00;
-        transition: all 1.5s ease-out;
-      }
-      body.lowerOctave{
 
-        background-color: #0c0075;
-        /*transition: all 2s ease-out;*/
-      }
+        *{
+          box-sizing:border-box;
+          margin:0;
+          padding:0;
+        }
 
-      body.higherOctave{
-        background-color: #bee900;
-      }
-      .container{
-        width:800px;
-        height:700px;
-        background-color:rgb(255, 0, 157);
-        display:flex;
-        flex-direction:column;
-        vertical-align:center;
-        justify-content:space-around;
-        border-radius:10px 10px 200px 200px;
-        border-bottom:20px solid rgb(188 0 116);
-        background-image: linear-gradient(to bottom, #fc77c0,rgb(255, 0, 157));
-      }
-      .display{
-        background-color:rgb(0, 158, 250);
-        width:60%;
-        height:100%;
-        margin:0 auto;
+
+          body, html {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            width: 100%;
+            min-height: 100%;
+            background: #11122f;
+        }
+
+
+        
+      .wholeContainer{
+        margin: 1rem;
+        /* box-shadow: 0px 0px 5px gray; */
+        border-radius:15px;
+        min-width: 50vw;
         display:flex;
         justify-content: center;
         align-items: center;
-        border-radius:20px;
-        position:relative;
-        border-top:5px solid rgb(143, 0, 100);
-        background-image: linear-gradient(to bottom, #76adff, #0004ff);
-      }
-      .keys{
-        /*background-color:pink;*/
-        width:80%;
-        height:40%;
-        margin:0 auto;
-        display:flex;
-        background-color: #6b0042;
-        border-radius: 5px 5px 30px 30px;
-      }
+        flex-direction: column;
+        padding: 1rem 0;
+        min-height: 20vh;
+        background: #11122f;
+        background-image:url(assets/images/compressed_images/abid-shah-sff8Ow-YiWY-unsplash.jpg);
+        background-repeat:no-repeat;                    
+        background-size:80%;
+         background-position: 50% 37%;
+        min-height: 40vh;
 
-      .key{
-          border:1px solid black;
-          width:15%;
-          height:99%;
-          border-radius:10px 10px 40px 40px;
-          background-color:white;
-          transition: all 0.1s ease-out;
-          border-bottom: 10px solid #bfb8b8;
-          position:relative;
+            z-index: 1;
       }
-
-      .key.glowing{
-        transform: translateY(10px);
-        background-color:rgb(255, 136, 0);
-        transition: all 0.1s ease-out;
-        border-bottom: 10px solid rgb(187, 100, 0);
-        border-top: 5px solid rgb(187, 100, 0);
-        
-      }
-
-      .letter{
-        color:white;
-        font-size:50px;
-        font-weight:bold;
-      }
-      .letterInUpperDisplay{
-        display:none;
-        color:white;
-        position:absolute;
-        top:10px;
-      }
-
-
-      .displayContainer{
-        width:100%;
-        height:30%;
-        display:flex;
-        justify-content: center;
-        position:relative;
-        
-      }
-
-      .autoPlay{
-        position:absolute;
-        bottom:0px;
-        right:0px;
-        transition: all 0.1s ease-out;
-        font-family:"Potta One",sans-serif;
-      }
-      button.autoPlayButton{
-      border-bottom:6px solid rgb(172 172 172);
-      transition: all 0.1s ease-out;
-      font-family:"Potta One",sans-serif;
-      }
-
-      button.autoPlayButton:active{
-      border-bottom:0px;
-      transform: translateY(6px);
-
-      }
-
-      .sliderContainer{
-        position:absolute;
-        left:10px;
-        bottom:0px;
-        display:flex;
-        flex-direction:column;
+      .upperHalfContainer{
+        position: relative;
+        width: 100%;
+        display: flex;
         justify-content: center;
         align-items: center;
+                height: 17vh;
       }
 
-      input#volumeSlider {
-      width: 80%;
-      }
-      
-      div.volume{
-        font-size:16px;
-        font-weight:100;
+      #information_panel{
+        width: 89%;
+        margin: 1rem;
+            display: flex;
       }
 
-      .muteButton{
-        width:20px;
-        height:20px;
 
+
+.addButton {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: 0;
+    border-bottom: 5px solid #367039;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.03s ease;
+         margin-top: 6vh;
+       
+    left: 0%;
+    max-height: 10vh;
+    max-width: 10vh;
+    font-size: 1.3rem;
+}
+.addButton:hover {
+  background-color:#78e37b;
+  border-bottom:5px solid #66c26b;;
+}
+.addButtonPushed{
+  background-color: #63c266;
+  border-bottom:0px!important;
+  transform:translateY(5px);
+  transition:all 0.03s ease;
+} 
+      .inputContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+            width: 100%;
+      }
+      .devidingContainer2 p{
+        text-align: center;
+            margin: 1rem;
+          
       }
 
-      .octaveShifterContainer{
-        position:absolute;
-        top:0px;
-        left:30px;
-        display:flex;
-align-items:center;
-      
+      .devidingContainer1,.devidingContainer3{
+        width: 20%;
+        height: 100%;
+      }
+      .devidingContainer3{
+        position: relative
       }
 
-      .octaveButtonContainer{
-        display:flex;
-        flex-direction:column;
+      .devidingContainer2{
+        width: 60%;
+            height: 100%;
+      }
+
+      #inputField{
+        height: 2rem;
+            box-shadow: inset 0px 0px 4px gray;
+            border: none;
+            padding: 1rem;
+                font-size: 0.9rem;
+                width: 100%;
+                margin-right:1rem;
+      }
+      input:focus{
+        outline:none;
+      }
+      #input_container{
+        display: flex;
+      }
+
+      ul{
+        border-radius:15px;
         
+        max-width: 100%;
+        width: 100%;
+        overflow: hidden;
+        background-color: transparent;
       }
-      p.octave{
-        font-size:17px;
-        align-items:center;
-      }
-      .octaveButton{
-        transition: all 0.1s ease-out;
-      }
-
-      .octaveButton:active{
-        filter:contrast(0);
-        transition: all 0.1s ease-out;
-      }
-
-      .octaveButton:hover,
-      .muteButton:hover,
-      .key:hover,
-      .autoPlayButton:hover,
-      input#volumeSlider:hover
-      {
-        cursor: pointer;
-      }
-
-
-      .key.is-disabled {
+     
     
-        cursor: not-allowed;
+
+      li{
+        list-style-type:none;
+        display: flex;
+      
+        padding: 5px 20px;
+        overflow: hidden;
+            display: flex;
+    justify-content: space-between;
       }
 
-      .key .letters{
-        position:absolute;
-        bottom:10px;
-        left:34px;
-        color:#bebebe;
-      }
-      .key .fa{
-              position:absolute;
-        
-        left:25px; 
-      }
-
-      .key.keyPushed .letters{
-      color:rgb(187, 100, 0)!important;
-      }
+      ul
+ {
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+li#temperature {
+    font-size: 2rem;
+}
 
 
-      input[type="range"]::-webkit-slider-runnable-track {
-  background: #0080ff;
-  height: 6px;
+      .completed{
+        text-decoration: line-through;
+      }
+      
+      .pritorityContainer{
+        display: flex;
+        justify-content: center;
+      }
+
+      #sort{
+        position: absolute;
+        right:0px;
+        bottom: 0;
+        font-size: 12px;
+        width: 100%;
+
+      }
+
+      .priority1{
+        border-left:10px red solid;
+      }
+      .priority2{
+        border-left: 10px yellow solid;
+      }
+      .priority3{
+        border-left: 10px blue solid;
+      }
+      
+      
+      .taskCompleted{
+      animation-name:completed;
+      animation-timing-function: ease;
+      animation-duration:0.25s;
+
+      }
+      @keyframes completed{
+      from{opacity:1;
+                  max-height: 2rem;
+      }
+      to{opacity:0;
+            max-height: 0rem;
+      }
+      }
+
+
+            .receivingInCompletedList{
+      animation-name:receiving;
+      animation-timing-function: ease;
+      animation-duration:0.25s;
+      }
+
+      @keyframes receiving{
+      from{opacity:0;
+                  transform:translateY(-30px);
+      }
+      to{opacity:1;
+            transform:translateY(0px);
+      }
+      }
+
+      .smoothGrowing{
+        animation :growingDown 0.25s ease;
+      }
+      @keyframes growingDown{
+      from{opacity:0;
+                  max-height: 0rem;
+      }
+      to{opacity:1;
+            max-height: 2rem;
+      }
+      }
+
+      .uncompletedListContainer{
+            width: 89%;
+            margin: 1rem 0rem;
+      }
+      .completedListContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+      .header{
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+
+      .choiceWrapper1{
+       background-color: rgb(248, 147, 147);
+       display: flex;
+       flex-direction: column;
+       width: 2rem;
+       justify-content: center;
+       align-items: center;
+      }
+       .choiceWrapper2{
+       background-color: rgb(243, 248, 147);
+          display: flex;
+       flex-direction: column;
+        width: 2rem;
+       justify-content: center;
+       align-items: center;
+      }
+       .choiceWrapper3{
+       background-color: rgb(147, 177, 248);
+          display: flex;
+       flex-direction: column;
+        width: 2rem;
+       justify-content: center;
+       align-items: center;
+      }
+
+      .priority-title{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+p.title{
+  margin:1rem;
+  color: white;
+}
+
+
+      .smoothDelete{
+        animation :smoothDelete 0.15s ease;
+      }
+
+         @keyframes smoothDelete{
+      from{opacity:1;
+                  max-height: 2rem;
+      }
+      to{opacity:0;
+            max-height: 0rem;
+      }
+      }
+      ul.completed{
+            width: 89%;
+            margin: 1rem 0rem;
+      }
+      button {
+    border: none;
+    box-shadow: 0px 0px 1px gray;
+    color: #4c4c4c;
+}
+
+.buttonWrapper{
+      display: flex;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.li_button{
+  margin-right: 10px;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  box-shadow: 0px 0px 5px gray;
+  background-color: #cfcfcf;
+      padding: 0px 5px;
+}
+
+
+.completedListContainer ul{
+  width: 89%;
+}
+
+button.reset {
+    color: black;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background: gray;
+    z-index: 100;
+}
+
+.resetWindow{
+  color: black;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background: gray;
  
-}
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  height: 18px;
-  width: 18px;
-  background: #0080ff;
-  border-radius: 50%;
-  cursor: pointer;
-  margin-top: -6px; /* centers thumb */
+      height: 10vh;
+    width: 14vh;
+display: flex;
+flex-direction: column;
+   display: none;
+   z-index:100;
 }
 
-input[type="range"]::-moz-range-thumb {
-  height: 18px;
-  width: 18px;
-  background: #0080ff;
-  border-radius: 50%;
-  cursor: pointer;
+.raws{
+  text-align: center;
+  color:white;
+}
+
+.resetButtonContainer button {
+    margin-right: 4%;
+    width: 50%;
+    font-size: 0.6rem;
+}
+
+.resetButtonContainer {
+    display: flex;
+}
+
+.show{
+  display: flex;
+}
+.hide{
+  display: none;
+}
+
+.visibilityHidden{
+  visibility: hidden;
+}
+
+.borderTransparent{
+  border-left: 10px transparent solid;
+}
+
+@media (max-width: 768px) {
+
+  * {
+    font-size: 0.9rem;
+}
+
+  .wholeContainer{
+    width: 70vw
+  }
+
+.li_button {
+    margin-right:null;
+}
+
+span {
+    width: 32vw;
 }
 
 
+
+}
+
+@media (max-width: 480px) {
+.li_button {
+    font-size: 10px;
+    margin: 0;
+}
+
+*{
+      font-size: 0.84rem;
+    
+}
+
+    .wholeContainer {
+        width: 85vw;
+    }
+
+.devidingContainer2 p {
+    font-size: 0.9rem;
+    margin: 0.8rem;
+}
+
+
+.addButton {
+    margin-top: 5vh;
+}
+
+#inputField {
+    font-size: 0.6rem;
+}
+
+#sort {
+        font-size: 0.6rem;
+}
+
+
+
+}
 
 ```
 
