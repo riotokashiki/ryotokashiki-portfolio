@@ -26,6 +26,7 @@
 ### ・[鍵盤アプリ](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/piano-app/index.html) （jQuery/CSS/HTML）
 - [解説及びリポジトリ](https://github.com/riotokashiki/ryotokashiki-portfolio/tree/main/my-portfolio/piano-app)
 ### ・[気象アプリ](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/weather_app2/index.html) （外部API/Javascript/CSS/HTML）
+- [解説及びリポジトリ](https://github.com/riotokashiki/ryotokashiki-portfolio/tree/main/my-portfolio/weather_app2)
 
 ## 使用した技術スタック
 
