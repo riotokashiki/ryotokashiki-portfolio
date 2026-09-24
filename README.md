@@ -1,6 +1,6 @@
 # ryotokashiki-portfolio
 
-# 渡嘉敷　諒（Ryo Tokashiki）のフロントエンドポートフォリオ用リポジトリです。
+# 渡嘉敷　諒（Ryo Tokashiki）のポートフォリオサイトのリポジトリです。
 ![LP](my-portfolio/my-profile-site/assets/images/screenshot2.png)
 
 どうもこんにちは！!\
