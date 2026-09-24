@@ -3,20 +3,79 @@
 使用技術：jQuery,CSS,HTML
 
 
-## ヒーロースライド
-![Screenshot of the cafe site](assets/images/piano-app-image1.png)
-トップ画面を開いたらすぐに見えるカフェの写真3枚のスライドです。\
-こちらはJavascriptは使っておらず、CSSのみで完結させました。
+## ピアノアプリ
+![Screenshot of the cafe site](materials/images/piano-app-image1.png)\
+こちらのアプリはおもちゃのピアノをテーマにしたアプリで\
+鍵盤をクリックすることで音が鳴ります。自動演奏ボタンを押すと「チューリップ」と「きらきらぼし」のいずれかがランダム再生される仕様となっております。\
+左上の↑↓ボタンを押すとオクターブを上げたり下げたりして高音と低音を楽しめる仕様となっております。\
+また、音量フェーダーで音量調節が可能、スピーカーのアイコンをクリックすることでミュートへ切り替えることもできます。
 
 以下がHTMLの構造です
 ```HTML
-      <section class="hero" >
-            <p class="message" data-i18n="slogan">まいにちに、<span class="break">ホっとひといきを。</span></p>
-            <div class="heroSlide first"></div>
-            <div class="heroSlide second"></div>
-            <div class="heroSlide third"></div>
-      </section>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Piano App</title>
+    <link rel="shortcut icon" href="#">
+    <style>
+      CSSコードがここにきます
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
+</head>
+<body>
+<div class="container">
+  <div class="displayContainer">
+      <div class="display">
+        <div class="letter">
+      
+      </div>
+      <div class="letterInUpperDisplay">演奏中:</div>
+      </div>
+          <div class="autoPlay">
+            <button class="autoPlayButton" onclick="startAutoPlay()">
+              自動演奏
+            </button>
+          </div>
+          <div class="sliderContainer">
+            <div class="volume"><span><img src="materials/images/icons8-volume-60.png" alt="" class="muteButton" onclick="muteVolume()">  </span>ボリューム</div>
+            <input type="range" min="0" max="100" value="100" class="slider" id="volumeSlider">
+              
+          </div>
+          <div class="octaveShifterContainer">
+            <p class="octave">音の高低</p>
+            <div class="octaveButtonContainer">
+            <img class="octaveButton up" onclick="octaveUp()" src="materials/images/icons8-up-arrow-40.png" alt="up"></img>
+            <img class="octaveButton down" onclick="octaveDown()" src="materials/images/icons8-down-button-40.png" alt="down"></img>
+            </div>
+          </div>
+
+  </div>
+  
+  <div class="keys">
+    <div class="key do" onclick="if(!isPlaying){showNote('ド');playTone('ド')}"><div class="letters do">ド</div></div>
+    <div class="key re" onclick="if(!isPlaying){showNote('レ');playTone('レ')}"><div class="letters re">レ</div></div>
+    <div class="key mi"onclick="if(!isPlaying){showNote('ミ');playTone('ミ')}"><div class="letters mi">ミ</div></div>
+    <div class="key fa" onclick="if(!isPlaying){showNote('ファ');playTone('ファ')}"><div class="letters fa">ファ</div></div>
+    <div class="key so" onclick="if(!isPlaying){showNote('ソ');playTone('ソ')}"><div class="letters so">ソ</div></div>
+    <div class="key ra" onclick="if(!isPlaying){showNote('ラ');playTone('ラ')}"><div class="letters ra">ラ</div></div>
+    <div class="key shi"onclick="if(!isPlaying){showNote('シ');playTone('シ')}"><div class="letters shi">シ</div></div>
+
+
+  </div>
+
+</div>
+
+
+
+
+
+<script>
+JavaScriptコードがここにきます
+</script>
+
+</body>
+</html>
 ```
 
 
@@ -24,150 +83,11 @@
 ヒーロースライドのコンテナです
 ```CSS
 
-      .hero{
-        position: relative;
-        width: 100%;
-        overflow: hidden;
-        height: 87vh;
-        display: flex;
-        align-items: flex-start;    
-        justify-content: flex-start; 
-        padding-top: 58vh;
-        padding-left: 14vh; 
-      }
-```
-
-
-そしてこれはヒーロースライドの各画像（計3枚）のクラスです。
-```CSS
-      .heroSlide{　/*各スライド画像共通のクラス*/
-        box-sizing:border-box;
-        background-repeat:no-repeat;
-        background-size:cover;
-        background-position:center;
-        /* position manipulation*/
-        z-index:1;
-        height: 100%;
-        background-attachment: fixed;
-      }
-
-      .heroSlide.first{     /*一枚目のスライド画像*/
-        background-image:url(assets/images/compressedImages/snapbythree-my-g6e641CiHFQ-unsplashKai.jpg); 
-        animation:fadeInOutFor1 15s linear forwards; /*delay -secondsを使うとなんか表示の周期がずれておかしくなるからつかわないほうがいい*/
-        z-index: 5;
-        animation-iteration-count: infinite;
-        top: 0;
-        left: 0;
-        width: 100%;
-        position: absolute;
-        background-position:50% 65%;
-      }
-
-      .heroSlide.second{　/*二枚目のスライド画像*/
-        background-image:url(assets/images/compressedImages/kieran-ReVIa_Nm6fE-unsplashKai.jpg);
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 4;
-        animation:fadeInOutFor2 15s linear forwards;
-        width: 100%;
-        animation-iteration-count: infinite;
-        background-position:10% 49%;
-
-      }
-
-      .heroSlide.third{ /*三枚目のスライド画像*/
-        background-image:url(assets/images/compressedImages/zarak-khan-69ilqMz0p1s-unsplashKai.jpg);
-         position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 3;
-        width: 100%;
-        animation:fadeInOutFor3 15s linear forwards;
-        animation-iteration-count: infinite;
-        opacity: 0;
-      }
 ```
 
 以下が各スライドへ適用する keyframes　アニメーションです。
 ```CSS
-       @keyframes fadeInOutFor1{/*1枚目の画像用のkeyframeアニメーション*/
-        /*Since there are 3 slides, 100/3=33
-        だから100%を三分割して1/3の間だけ表示
-        のこりの2/3の間は非表示にする
-        
-        */
-        0%{opacity: 1;
-         transform: scale(1.02);}
-          6%{opacity: 1;
-            
-          }
-
-
-          33%{opacity: 1;}
-          39%{opacity: 0;
-                  transform: scale(1.25);
-                }
-
-          94%{opacity: 0;
-           transform: scale(1);}
-          100%{opacity: 1;
-          transform: scale(1.02); }
-      }
-
-
-
-      @keyframes fadeInOutFor2{ /*2枚目の画像用のkeyframeアニメーション*/
-        0%{opacity: 0;
-                  }
-
-        27%{opacity: 0;}
-        
-        33%{opacity: 1;
-                transform: scale(1.25) translateX(0);    
-                }
-
-        66%{opacity: 1;
-                }
-
-        72%{opacity: 0;}
-
-        100%{opacity: 0;
-                    transform: scale(1.25) translateX(-15%)
-                  }
-/* only 1/3 of this is shown */
-
-      }
-
-        @keyframes fadeInOutFor3{ /*3枚目の画像用のkeyframeアニメーション*/
-        0%{opacity: 0;
-                  }
-
-       
-        66%{opacity: 0;
-                }
-
-        68%/*72%*/{opacity: 1;
-                  transform: scale(1.25) translateY(-7%);}
-
-        100%{opacity: 1;
-                    transform: scale(1.25) translateY(0%)
-                  }
-/* only 1/3 of this is shown */
-
-      }
-
-
-```
-基本的には3枚の画像が重なっており、それら各画像に個別のkeyframeのアニメーションがかかっています。\
-このkeyframeアニメーションの内容は主にopacityの　0と1の切り替えです。\
-スライドが1から3枚目まで表示される、スタートからフィニッシュまでを100％の期間とすると、\
-各スライドが表示される期間（opacity:1)が各33％ととなって残りの66％は非表示の期間(opacity:0)となっております。\
-keyframeアニメーションも各画像用に個別に用意してあります。計3つあります。
-
-第一枚目の画像は0%~33%の間opacity:1、33％~100%の間はopacity:0です。\
-第二枚目の画像は0%~33%の間opacity:0、33%~66%の間はopacity:1、そして66%~100%の間はopacity:0　となっております。\
-第三枚目の画像は0%~66%の間opacity:0、66%~100%の間はopacity:1　となっております。
+ はopacity:1　となっております。
 
 
 
