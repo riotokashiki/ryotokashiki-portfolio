@@ -15,6 +15,9 @@
 
 ## 成果物
 
+これらの成果物は、私が**一から主に手打ちにて構築、制作した成果物となります。**\
+**ローコードツールやCMSなどを一切使用しておりません**のでご留意お願い致します。
+
 ### ・[渡嘉敷　諒の自己紹介ポートフォリオLP](https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/my-profile-site/index.html) （Javascript/CSS/HTML）
 - [解説及びリポジトリ](https://github.com/riotokashiki/ryotokashiki-portfolio/blob/main/my-portfolio/my-profile-site)
 
