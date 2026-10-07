@@ -1247,6 +1247,9 @@ ul.grid li a div img.weather {
 .circle.tools {
   background: #6facea;
 }
+.circle.other_skills{
+  background-color: rgb(195 124 220);
+}
 
 .hide {
   display: none;
@@ -1670,6 +1673,13 @@ li.box.is-hovered .playback {
     display: flex;
     justify-content: center;
   }
+
+.explanation_for_hover_animation{
+  display: none;
+}
+
+
+
 }
 
 @media (max-width: 480px) {
@@ -1853,4 +1863,5 @@ li.box.is-hovered .playback {
     grid-template-columns: 40% 40%;
     gap: 1rem;
   }
+
 }
