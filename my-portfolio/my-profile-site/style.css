@@ -1322,6 +1322,11 @@ li.box.is-hovered .playback {
   }
 }
 
+#works,#about,#contact{
+  scroll-margin-top: 100px
+}
+
+
 /*==========================================
     ===========================================
                       MOBILE RESPONSIVE STYLE                                  
