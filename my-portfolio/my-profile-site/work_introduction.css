@@ -1,3 +1,7 @@
+.repo {
+  text-decoration: none;
+  color: #4fabff;
+}
 .playback video.todolist_vid {
   width: 100%;
   transform: translate(-12.5%, 2%) scale(1.4);
