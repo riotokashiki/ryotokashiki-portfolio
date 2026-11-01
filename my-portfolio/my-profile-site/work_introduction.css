@@ -119,6 +119,9 @@ h3 {
 @media (max-width: 1024px) {
 }
 @media (max-width: 768px) {
+  .sectionTitle h2 {
+    margin-top: 0rem;
+  }
   .playback video.todolist_vid {
     width: auto;
     transform: translate(0%, 0%) scale(1.4);
