@@ -200,6 +200,7 @@ header {
   position: fixed;
   align-items: center;
   z-index: 4;
+  top: 0;
 }
 
 .title {
@@ -1242,7 +1243,7 @@ ul.grid li a div img.weather {
   height: 45%;
 }
 .circle.passion {
-  background-color:#5b5b5a;
+  background-color: #5b5b5a;
 }
 
 .gitHubLink {
@@ -1251,7 +1252,7 @@ ul.grid li a div img.weather {
 .circle.tools {
   background: #6facea;
 }
-.circle.other_skills{
+.circle.other_skills {
   background-color: rgb(195 124 220);
 }
 
@@ -1322,10 +1323,16 @@ li.box.is-hovered .playback {
   }
 }
 
-#works,#about,#contact{
-  scroll-margin-top: 100px
+#works,
+#about,
+#contact {
+  scroll-margin-top: 100px;
 }
 
+section#work_introduction {
+  margin-top: 13vh;
+  padding-top: 1rem;
+}
 
 /*==========================================
     ===========================================
@@ -1683,12 +1690,9 @@ li.box.is-hovered .playback {
     justify-content: center;
   }
 
-.explanation_for_hover_animation{
-  display: none;
-}
-
-
-
+  .explanation_for_hover_animation {
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1872,5 +1876,4 @@ li.box.is-hovered .playback {
     grid-template-columns: 40% 40%;
     gap: 1rem;
   }
-
 }
