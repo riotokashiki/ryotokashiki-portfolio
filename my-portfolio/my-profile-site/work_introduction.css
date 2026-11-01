@@ -1,3 +1,8 @@
+.playback video.todolist_vid {
+  width: 100%;
+  transform: translate(-12.5%, 2%) scale(1.4);
+}
+
 .subContainer {
   /* border: 2px blue solid; */
   width: 50%;
@@ -50,6 +55,7 @@
   /* height: 100%;
   width: 100%; */
   line-height: 4rem;
+  height: auto;
 }
 a.linkToWork {
   color: white;
@@ -100,6 +106,15 @@ h3 {
 @media (max-width: 1024px) {
 }
 @media (max-width: 768px) {
+  .playback video.todolist_vid {
+    width: auto;
+    transform: translate(0%, 0%) scale(1.4);
+    aspect-ratio: auto;
+  }
+  .playback {
+    width: auto;
+  }
+
   .container {
     flex-direction: column-reverse;
   }
@@ -125,6 +140,7 @@ h3 {
     justify-content: center;
     align-items: center;
     background: red;
+    padding: 1vw;
   }
 }
 @media (max-width: 480px) {
