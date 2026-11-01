@@ -43,6 +43,10 @@
   width: auto;
 }
 
+.playback.cafe video {
+  transform: translate(9.5%, 2%) scale(1.05);
+}
+
 .link {
   background-color: red;
   color: white;
