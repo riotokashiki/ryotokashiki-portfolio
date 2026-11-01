@@ -79,6 +79,9 @@ h2 {
   font-size: 40px;
   font-weight: 900;
 }
+h2.task_management {
+  font-family: "Zen Maru Gothic", sans-serif;
+}
 
 h3 {
   text-align: left;
