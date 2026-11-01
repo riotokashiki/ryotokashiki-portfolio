@@ -1,6 +1,7 @@
 .subContainer {
-  border: 2px blue solid;
+  /* border: 2px blue solid; */
   width: 50%;
+  padding: 0 1rem;
 }
 
 .subContainer.two {
@@ -9,6 +10,10 @@
   right: 0;
   height: 100%;
   padding-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
@@ -27,15 +32,29 @@
 .link {
   background-color: red;
   color: white;
-  padding: 3rem;
+  /* padding: 3rem; */
   text-align: center;
-  border-radius: 40px;
-  margin: 4rem;
+  /* border-radius: 40px; */
+  /* margin: 4rem; */
   font-weight: bold;
   font-size: 1.3rem;
+  height: 100%;
+  width: 100%;
+  line-height: 4rem;
 }
-a {
+a.linkToWork {
   color: white;
+  text-decoration: none;
+  font-family: "Zen Maru Gothic", sans-serif;
+  width: 80%;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-top: 5rem;
+  transition: transform 1s;
+}
+
+a.linkToWork:hover {
+  transform: scale(1.07);
 }
 
 .fadeInOnScroll {
@@ -45,10 +64,14 @@ a {
 h2 {
   text-align: center;
   font-size: 40px;
+  font-weight: 900;
 }
 
 h3 {
   text-align: left;
   margin: 1rem;
   font-size: 26px;
+  font-weight: 600;
+  font-family: "Zen Maru Gothic", sans-serif;
+  margin: 1rem 0;
 }
