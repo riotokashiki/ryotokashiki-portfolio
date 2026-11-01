@@ -2,6 +2,7 @@
   /* border: 2px blue solid; */
   width: 50%;
   padding: 0 1rem;
+  background: #0e0e0e;
 }
 
 .subContainer.two {
@@ -14,6 +15,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 10%;
 }
 
 .container {
@@ -27,6 +29,13 @@
   left: 0;
   overflow: hidden;
   border-radius: 34px;
+  display: flex;
+  justify-content: center;
+}
+
+.playback video {
+  border-radius: 15px;
+  width: auto;
 }
 
 .link {
@@ -38,19 +47,23 @@
   /* margin: 4rem; */
   font-weight: bold;
   font-size: 1.3rem;
-  height: 100%;
-  width: 100%;
+  /* height: 100%;
+  width: 100%; */
   line-height: 4rem;
 }
 a.linkToWork {
   color: white;
   text-decoration: none;
   font-family: "Zen Maru Gothic", sans-serif;
-  width: 80%;
+  width: 50%;
   border-radius: 15px;
   overflow: hidden;
-  margin-top: 5rem;
   transition: transform 1s;
+  margin-top: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: red;
 }
 
 a.linkToWork:hover {
@@ -74,4 +87,37 @@ h3 {
   font-weight: 600;
   font-family: "Zen Maru Gothic", sans-serif;
   margin: 1rem 0;
+}
+
+@media (max-width: 1024px) {
+}
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column-reverse;
+  }
+
+  .subContainer {
+    width: 100%;
+  }
+
+  .subContainer.two {
+    padding-top: 2rem;
+    height: 20rem;
+  }
+  a.linkToWork {
+    color: white;
+    text-decoration: none;
+    font-family: "Zen Maru Gothic", sans-serif;
+    /* width: 80%; */
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 1s;
+    margin-top: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: red;
+  }
+}
+@media (max-width: 480px) {
 }
