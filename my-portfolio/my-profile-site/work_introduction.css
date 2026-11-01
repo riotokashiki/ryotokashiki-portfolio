@@ -20,7 +20,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-bottom: 10%;
+  padding-bottom: 5%;
 }
 
 .container {
@@ -40,7 +40,7 @@
 
 .playback video {
   border-radius: 15px;
-  width: auto;
+  width: 100%;
 }
 
 .playback.cafe {
@@ -48,7 +48,7 @@
 }
 
 .playback.cafe video {
-  transform: translate(9.5%, 2%) scale(1.05);
+  transform: translate(2.5%, 2%) scale(1.05);
 }
 
 .link {
@@ -78,6 +78,7 @@ a.linkToWork {
   justify-content: center;
   align-items: center;
   background: red;
+  padding: 1rem;
 }
 
 a.linkToWork:hover {
@@ -120,7 +121,7 @@ h3 {
     aspect-ratio: auto;
   }
   .playback {
-    width: auto;
+    width: 100%;
   }
 
   .container {
@@ -133,22 +134,23 @@ h3 {
 
   .subContainer.two {
     padding-top: 2rem;
-    height: 20rem;
+    height: 100%;
+    width: 100%;
   }
   a.linkToWork {
     color: white;
     text-decoration: none;
     font-family: "Zen Maru Gothic", sans-serif;
-    /* width: 80%; */
     border-radius: 15px;
     overflow: hidden;
     transition: transform 1s;
-    margin-top: 15%;
     display: flex;
     justify-content: center;
     align-items: center;
     background: red;
-    padding: 1vw;
+    width: 12rem;
+    margin-top: 5%;
+    padding: 1rem;
   }
 }
 @media (max-width: 480px) {
