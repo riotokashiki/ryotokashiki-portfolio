@@ -92,6 +92,11 @@ h3 {
   margin: 1rem 0;
 }
 
+.playback video.piano_app_vid {
+  width: auto;
+  transform: translate(0, 0) scale(1);
+}
+
 @media (max-width: 1024px) {
 }
 @media (max-width: 768px) {

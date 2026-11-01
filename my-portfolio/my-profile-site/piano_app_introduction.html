@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ryo Tokashiki Portfolio Site | Front-end Developer</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="assets/icons/my logoForMySite.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="work_introduction.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module">
+      import { polyfillCountryFlagEmojis } from "https://cdn.skypack.dev/country-flag-emoji-polyfill";
+      console.log(polyfillCountryFlagEmojis());
+    </script>
+  </head>
+
+  <body>
+    <header>
+      <div class="titleContainer">
+        <div class="logoContainer">
+          <a href="index.html">
+            <img src="assets/icons/my logoForMySite.png" id="logo" alt="Logo" />
+          </a>
+        </div>
+        <a class="title" href="index.html" data-i18n="title">Ryo Tokashiki</a>
+      </div>
+      <ul class="navBar">
+        <li><a href="index.html#works">works</a></li>
+        <li><a href="index.html#about">about</a></li>
+        <li><a href="index.html#contact">contact </a></li>
+      </ul>
+      <div class="hamburgerMenu">
+        <a id="hamburgerButton" href="javascript:void(0)"><p>=</p></a>
+      </div>
+      <div class="modalWindow" id="modalWindow">
+        <div class="closeButton"><a href="javascript:void(0)">×</a></div>
+        <div class="modalTranslation">
+          <select
+            name="languageSelection"
+            id="languageSelection"
+            class="modalLanguageSelection"
+          >
+            <option value="jp">日本語🔴</option>
+            <option value="en">English🔵</option>
+          </select>
+        </div>
+        <ul>
+          <li><a href="index.html#works" onclick="closingModalWindow()">MY WORKS</a></li>
+          <li><a href="index.html#about" onclick="closingModalWindow()">ABOUT ME</a></li>
+
+          <li><a href="index.html#contact" onclick="closingModalWindow()">CONTACT</a></li>
+          <li>
+            <a href="#" onclick="closingModalWindow()" data-i18n="backToTop"
+              >BACK TO TOP↑</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div class="translation">
+        <select
+          name="languageSelection"
+          id="languageSelection2"
+          class="languageSelection"
+        >
+          <option value="jp">日本語🔴</option>
+          <option value="en">English🔵</option>
+          <!-- US flag　　<span>&#x1f1fa;&#x1f1f8;</span> -->
+          <!-- JP flag        <span>&#x1f1ef;&#x1f1f5;</span> -->
+        </select>
+      </div>
+    </header>
+
+    <section class="aboutMe fadeInOnScroll id="work_introduction">
+      <div class="container">
+        <div class="subContainer">
+          <div class="sectionTitle">
+            <h2 class="fadeInOnScroll task_management">
+              鍵盤アプリ
+            </h2>
+          </div>
+          <p  >
+            おもちゃのピアノがテーマのピアノアプリです。<br>鍵盤をクリックすると音が鳴ります。
+          <h3>自動演奏機能</h3>
+                  <p >
+    右側にある自動演奏ボタンをクリックすると自動演奏が開始します。<br>選曲は「チューリップ」と「きらきらぼし」をランダムで再生します。
+          </p>
+             <h3>音の高低変更機能（オクターブ調節機能）</h3>
+                  <p >
+    左上の「音の高低」の「↑」を押すと音の高さが1オクターブ上がります。<br>「↓」を押すと音の高さが1オクターブ下がります。<br>デフォルトの音階から最大2オクターブ上がります。<br>そしてデフォルトの音階から最大2オクターブ下がります。
+          </p>
+             <h3>音量調節機能、ミュート機能</h3>
+                  <p >
+                  左側に音量調整のつまみから音量調整が可能です。<br>また、スピーカーのアイコンをクリックするとミュート状態になります。
+          </p>
+             <h3>なめらかな鍵盤アニメーション</h3>
+                  <p >
+                    CSSのトランジションを駆使してなめらかな鍵盤の押し心地を実現しました。
+          </p>
+                    <h3>jQueryで書きました。</h3>
+                  <p >
+                   このアプリはjQueryで書かれています。<br>音はWeb Audio APIを使って作っています。
+          </p>
+
+
+        </div>
+        <div class="subContainer two">
+   <div class="playback">
+  <video class="piano_app_vid" autoplay loop muted playsinline >
+    <source src="assets/videos/piano_app_demo.mp4" type="video/mp4" />
+  </video>
+</div>
+        
+            <a class="linkToWork"  href="https://riotokashiki.github.io/ryotokashiki-portfolio/my-portfolio/piano-app/index.html"><div class="link">見てみる</div></a>
+          
+      </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2026 Ryo Tokashiki (渡嘉敷　諒)</p>
+        <p>Designed and Developed By 渡嘉敷 諒（RYO TOKASHIKI）</p>
+      </div>
+    </footer>
+
+    <script>
+      ////////////Hamburger Menu////////////////////////////////////////////////////////////
+      const theCloseButton = document.querySelector(".closeButton");
+      const theModalWindow = document.getElementById("modalWindow");
+      const theHamburgerButton = document.getElementById("hamburgerButton");
+      const theHeader = document.querySelector("header");
+      theHamburgerButton.addEventListener("click", () => {
+        openingModalWindow();
+        console.log("display:flex applied!");
+      });
+
+      let clearKey = null;
+
+      const outsideClickHandler = function (event) {
+        console.log(event.target);
+
+        if (
+          !theModalWindow.contains(event.target) &&
+          event.target !== theCloseButton
+        ) {
+          const link = event.target.closest("a");
+          console.log("event.target.closest('a') is " + link);
+          if (link) {
+            event.preventDefault();
+            console.log("event.preventDefault Added!");
+          }
+
+          closingModalWindow();
+        }
+        console.log("Event Listener on document added!");
+      };
+
+      function openingModalWindow() {
+        //this worked.
+        // theModalWindow.style.animation="none";
+        // theModalWindow.offsetHeight;
+        // theModalWindow.style.animation="slideIn 0.25s ease-out";
+
+        //They didn't work.
+        // theModalWindow.classList.remove(".modalWindow");
+        // theModalWindow.classList.add(".modalWindow");
+
+        //They didn't work.
+        // theHeader.removeChild(theModalWindow);
+        // theHeader.appendChild(theModalWindow);
+        // console.log("removed and appended the Modal Window!!");
+
+        //Never use this. element.style
+        //theModalWindow.style.display="flex";
+
+        theModalWindow.classList.add("shown");
+        document.documentElement.style.overflow = "hidden";
+
+        // Event listener for clicks outside the menu
+        setTimeout(() => {
+          document.addEventListener("click", outsideClickHandler);
+        }, 250);
+      }
+
+      function closingModalWindow() {
+        // if(clearKey){
+        // clearTimeout(clearKey);
+        // console.log("clearTimeout Executed!");};
+
+        console.log("Button clicked!");
+        theModalWindow.classList.add("closing");
+        console.log(".closing added!");
+        clearKey = setTimeout(() => {
+          console.log("setTimeout executed!");
+          theModalWindow.classList.remove("shown");
+          console.log(".modalWindowShown removed!");
+          document.documentElement.style.overflow = "auto";
+          theModalWindow.classList.remove("closing");
+          document.removeEventListener("click", outsideClickHandler, false);
+        }, 250);
+
+        console.log("Event Listener on document removed!");
+      }
+
+      theCloseButton.addEventListener("click", () => {
+        closingModalWindow();
+      });
+
+      ///////fade out effect//////////////////////
+      // const items=document.querySelectorAll(".items");
+      // let body=document.querySelector("body");
+      // body.addEventListener("transitionend",()=>{
+      //       window.location.href = "menu.html#menu";
+
+      //   })
+
+      //  items.forEach((el)=>{
+      //     el.addEventListener("click",()=>{
+
+      //       fadeout();
+      //     })
+      //   });
+
+      // function fadeout(){
+      //   body.classList.add("fadeout");
+      //   console.log(".fadeout added to <body>!");
+
+      // };
+
+      //======================================
+      //========Translation function==============
+      //=====================================
+
+      ///////////////////selectors///////////////////////////
+
+      let languageSelector = document.querySelector("select");
+      const languageSelectorTwo = document.querySelectorAll("select")[1];
+
+      let theTexts = document.querySelectorAll("[data-i18n]");
+
+      let theH3 = document.querySelectorAll(".about .container h3");
+      let theP = document.querySelectorAll(".pillar p");
+      /////////////////variables////////////////////////////
+
+      //////This Variable Is For the TYPING EFFECT////////////////
+      let texts = [
+        "動きをデザインする。",
+        "Web制作志望。",
+        "その先にある物は。",
+        // "Built With Clean Code"
+      ];
+      /////////////////////////////////////////////////////////////////
+
+      const languageTranslation = {
+        en: {
+          /*data i18n name↓*/ title: "Ryo Tokashiki",
+          slogan: "Designing Movements.",
+          headLine:
+            "Daikan-yama, which is an area just less than 10 minutes away from Shibuya Tokyo.\n We are a Caffee, focusing on a low key environment. ",
+          aboutBody:
+            "The world-known energetic city of youth, aka Shibuya, Tokyo. \nIn that place , There is a calm district called Daikan-yama, \njust within 10 minutes away from the hustle bustle city life of Shibuya.\nWe have been serving an unwinding place of relaxation there, ever since we started our business in 1998.",
+          ourPolicies: "Our Three Mottoes",
+          unwindingPlace: "Unwinding Place",
+          unwindingPlaceMessage:
+            "Based on Our motto for our customers to feel relaxed, \nwe have secured wide spaces between chairs and spacious desk spaces.",
+          specialBeanSelection: "The Best Bean Selections",
+          specialBeanSelectionMessage:
+            "We have curated our bean selection out of so many good brands all around the world.\n And every cup of our cofee is made with care.",
+          domesticProduct: "Domestic Food Products",
+          domesticProductMessage:
+            "Our food materials are made by our contracted farmers for the best quality and safety.",
+          news: "LATEST INFORMATION",
+          jumpToMenu: "Jump to Menu Page",
+          contactInformation: "Contact Information",
+          adress:
+            "Daikan-yama 7-7-7 Shibuya Tokyo\nZip Code:150-0033\nPhone Number:03-1629-6505\nBusiness Hours:10AM to 7PM\nWe are closed on Thursdays.",
+          subTitle:
+            "I Aim to build Feel Good Websites that are with smooth UI.",
+          seeMyWorks: "See My Works",
+          yuruyuraCafe: "Yuru Yura Cafe",
+          yuruyuraCafeDescription:
+            "A Cafe Business Site in Daikan-yama District in Shibuya, Tokyo.\n・Japanese and English Languages Available\n・Smooth Animation\n・Built from scratch without using any templates",
+          pianoApp: "Piano App",
+          pianoAppDescription:
+            "A Toy Piano Themed App.\n・Song Autoplay\n(2 songs：Shooting Stars,Tulip)\n・Octaves can be switched to high and low\n・Volume Mute, Volume Fader\n・Smooth Keypress Animation",
+          todolistApp: "To-Do List App",
+          todolistAppDescription:
+            "Multi Functional Task List App\n・Tasks can be assigned with Priorities(High, Middle, Low)\n・Sort by Priority\n・Smooth Animations",
+          weatherApp: "Weather App",
+          weatherAppDescription:
+            "An Weather App that can show weathers and temperatures around the world.\nPlanned to be built with Open Weather API and React.\nSmooth Animations going to be impremented.",
+          aboutMe: "About Me",
+          selfIntroductionSentences:
+            "Hi, I'm Ryo Tokashiki,learning website building skills to become a front-end engineer.\nMy favorite part about web designing is Animation.\nI'd love to create smooth animated UI for my users to feel good. \nI'm job hunting right now.\nLet's make something awesome together!",
+          letsMakeSomethingTogether: "Let's make something Great Together!!",
+          callMe: "Feel Free to Reach me Out!",
+          messageOne: "I Focus",
+          messageTwo: "on",
+          messageThree: "Movement.",
+          myPassions: "I'm Currently Learning..",
+          inProgress: "In Progress",
+          repositoryLink: "GitHub Repository Link",
+          backToTop: "BACK TO TOP↑",
+          myTools: "Tools I use",
+          other_skills: "Other Skills",
+          third_party_API: "Third party API",
+        },
+
+        jp: {
+          title: "Ryo Tokashiki",
+          slogan: "動きをデザインする。",
+          headLine:
+            "渋谷の喧騒からわずか徒歩9分\n ゆったり落ち着いた大人な街、代官山。\nその一角にたたずむ、ゆるやかな空間にフォーカスした、ひと息つけるカフェ。",
+          subTitle:
+            "アニメーションと細部へのこだわりで\n使っていて気持ちのいいインターフェイスをつくります。",
+          seeMyWorks: "作品を見る",
+          yuruyuraCafe: "ゆるゆらカフェ",
+          yuruyuraCafeDescription:
+            "代官山にあるカフェを題材にしたビジネスサイト。\n・英語表記に切り替え可能のバイリンガル対応\n・なめらかなアニメーション\n・テンプレを使わず１から制作",
+          pianoApp: "鍵盤アプリ",
+          pianoAppDescription:
+            "おもちゃのピアノを題材にした楽器アプリ。\n・楽曲自動演奏\n(次の2曲をランダム再生：きらきらぼし、チューリップ)\n・オクターブ調節機能で音の高低が変更可能\n・ミュート機能、音量調整UI\n・なめらかな鍵盤アニメーション",
+          todolistApp: "タスク管理アプリ",
+          todolistAppDescription:
+            "多機能タスク管理アプリ。\n・タスクに優先度 (高、中、低) を設定可能\n・優先度に基づいてタスクを整列可能\n・なめらかなアニメーション",
+          weatherApp: "気象アプリ",
+          weatherAppDescription:
+            "世界各地の都市の現在気温と天気を表示できるアプリ。\n・Open Weather APIを使用。",
+          aboutMe: "自己紹介",
+          selfIntroductionSentences:
+            "はじめまして。\n渡嘉敷 諒(とかしき りょう)と申します。\nWeb制作に携われる仕事を求めて、勉強中です。\nアニメーションへのこだわりが強く、\nユーザーが思わず触りたくなるインタラクティブなインターフェイスを作ることを目指しています。\n現在積極的に就職先を探しています。\n一緒に何か作りましょう！",
+          letsMakeSomethingTogether: "一緒に作りませんか。",
+          callMe: "お気軽にご連絡ください。",
+          messageOne: "動きを",
+          messageTwo: "デザイン",
+          messageThree: "する人。",
+          myPassions: "My Passions (現在学習中)",
+          inProgress: "現在進行中",
+          repositoryLink: "GitHubリポジトリーのページ",
+          backToTop: "トップに戻る↑",
+          myTools: "Tools 使用ツール",
+          other_skills: "その他スキル",
+          third_party_API: "外部API",
+        },
+      };
+
+      languageSelector.addEventListener("change", (event) => {
+        console.log(event.target.value);
+        setLanguage(event.target.value);
+      });
+
+      languageSelectorTwo.addEventListener("change", (event) => {
+        console.log(event.target.value);
+        setLanguage(event.target.value);
+      });
+
+      function setLanguage(language) {
+        localStorage.setItem("theLanguage", language);
+        console.log("The selected language saved to Local Storage");
+        console.log("debug1");
+
+        if (language == "jp") {
+          console.log("jp course!");
+          theTexts.forEach((element) => {
+            let valueName = element.getAttribute("data-i18n");
+            console.log(valueName); //title
+
+            console.log(languageTranslation[language][valueName]); //ゆるゆらカフェ
+            element.innerText = languageTranslation[language][valueName];
+
+            theH3.forEach((el) => el.classList.remove("inEnglish"));
+            theP.forEach((el) => el.classList.remove("inEnglish"));
+            console.log(".inEnglish removed from theH3 and theP!");
+
+            languageSelector.value = "jp"; //It only visually changes the <select> and won't trigger the bound function.
+            languageSelectorTwo.value = "jp";
+
+            //hero typing
+            texts[0] = "動きをデザインする。";
+            texts[1] = "Web制作志望。";
+            texts[2] = "その先にある物は。";
+          });
+        } else if (language == "en") {
+          console.log("en course!");
+
+          theTexts.forEach((element) => {
+            let valueName = element.getAttribute("data-i18n");
+            console.log(valueName); //title
+
+            console.log(languageTranslation[language][valueName]); //ゆるゆらカフェ
+            element.innerText = languageTranslation[language][valueName];
+            theH3.forEach((el) => el.classList.add("inEnglish"));
+            theP.forEach((el) => el.classList.add("inEnglish"));
+            console.log(".inEnglish added to theH3 and theP!");
+
+            languageSelector.value = "en"; //It only visually changes the <select> and won't trigger the bound function.
+            languageSelectorTwo.value = "en";
+
+            //hero typing
+            texts[0] = "Designing Movements,";
+            texts[1] = "is What I Do.";
+            texts[2] = "to make it something Special.";
+          });
+        }
+      }
+
+      const savedLanguage = localStorage.getItem("theLanguage");
+      if (savedLanguage) {
+        languageSelector.value = savedLanguage; //It only visually changes the <select> and won't trigger the bound function.
+        languageSelectorTwo.value = savedLanguage;
+        setLanguage(savedLanguage); // So you have to manually run the function
+      }
+
+      console.log(theH3);
+      console.log(theP);
+
+      ///////fade in on scroll//////////////////////////////////
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.15 },
+      ); // triggers when 15% of element is visible
+
+      document
+        .querySelectorAll(".fadeInOnScroll")
+        .forEach((el) => observer.observe(el));
+
+      /////hover on element on scroll//////////////////////////
+
+      if (window.innerWidth <= "768") {
+        const observer2 = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                console.log(entry);
+                console.log(entry.intersectionRatio);
+                entry.target.classList.add("is-hovered");
+              } else {
+                console.log(entry.intersectionRatio);
+                entry.target.classList.remove("is-hovered");
+              }
+            });
+          },
+          { threshold: 0.8 },
+        );
+        //triggers when 60% of element is visible
+
+        document
+          .querySelectorAll(".card")
+          .forEach((el) => observer2.observe(el));
+
+        ///hover off on scrolling out/////////////////
+
+        //  const observer3 = new IntersectionObserver((entries) => {
+        // entries.forEach(entry => {
+        //     if (entry.isIntersecting=false) {
+        //       const inter_section_ratio=entry.intersectionRatio;
+        //       console.log("inter_section_ratio is"+inter_section_ratio)  ;
+        //       entry.target.classList.remove("is-hovered");
+        //     }
+        // });
+        //     }, { threshold: 0.5 }); // triggers when 35% of element is visible
+      }
+
+      /////////Typing Effect////////////////////////////
+
+      const workButton = document.querySelector(".workButton");
+
+      let textIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+
+      const typingSpeed = 90;
+      const deletingSpeed = 45;
+      const pauseTime = 1400;
+
+      function typeLoop() {
+        console.log("typeLoop Running!");
+        const current = texts[textIndex];
+        const displayed = current.substring(0, charIndex);
+
+        document.getElementById("type-text").textContent = displayed;
+
+        if (!isDeleting && charIndex < current.length /*タイピング途中の時*/) {
+          charIndex++;
+          console.log("debug D");
+          setTimeout(typeLoop, typingSpeed + Math.random() * 40); // natural typing
+        } else if (isDeleting && charIndex > 0 /*消し途中の時*/) {
+          charIndex--;
+          console.log("debug C");
+          setTimeout(typeLoop, deletingSpeed);
+        } else {
+          isDeleting = !isDeleting;
+
+          if (!isDeleting /*消してないとき*/) {
+            textIndex = textIndex + 1;
+            if (textIndex === texts.length) {
+              document.querySelector(".typing-wrapper").style.display = "none";
+              setTimeout(() => {
+                document.querySelector(".heroMessage").classList.add("emerged");
+                document
+                  .querySelector("span.message.one")
+                  .classList.add("emerged");
+                setTimeout(() => {
+                  document
+                    .querySelector("span.message.two")
+                    .classList.add("emerged");
+
+                  setTimeout(() => {
+                    document
+                      .querySelector("span.message.three")
+                      .classList.add("emerged");
+
+                    setTimeout(() => {
+                      document
+                        .querySelector("p.subtitle")
+                        .classList.add("emerged");
+                      document
+                        .querySelector(".workButtonWrapper")
+                        .classList.add("emerged");
+                      setTimeout(() => {
+                        document
+                          .querySelector("video")
+                          .classList.add("emerged");
+                      }, 1200);
+                    }, 1200);
+                  }, 1200);
+
+                  return;
+                }, 1200);
+              }, 1200);
+            }
+          }
+          console.log("debug B");
+          if (textIndex === texts.length) {
+            return;
+          }
+          setTimeout(typeLoop, pauseTime);
+        }
+      }
+      console.log("debug A");
+      typeLoop();
+    </script>
+  </body>
+</html>
